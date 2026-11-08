@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="万韵如的游戏策划作品集。游戏项目集中展示 Demo 与策划资料，另设游戏拆解、AIGC 影像。">
+  <meta name="theme-color" content="#fffdf8">
+  <title>万韵如 · 游戏策划作品集</title>
+  <link rel="canonical" href="https://yunruwan7-sketch.github.io/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:title" content="万韵如 · 游戏策划作品集">
+  <meta property="og:description" content="游戏项目、在线试玩、策划资料、游戏拆解与 AIGC 影像作品。">
+  <meta property="og:url" content="https://yunruwan7-sketch.github.io/">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./homepage.css">
+  <link rel="stylesheet" href="./slides-view.css">
+  <link rel="stylesheet" href="./film-view.css">
+  <script defer src="./profile.js"></script>
+  <script defer src="./slides-view.js"></script>
+  <script defer src="./film-view.js"></script>
+  <script defer src="./homepage.js"></script>
+  <script defer src="./app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到作品</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <button class="identity" id="home-button" aria-label="返回作品首页"><strong data-name>万韵如</strong><span>游戏策划</span></button>
+      <nav class="main-nav" aria-label="作品分类">
+        <a href="#games" data-collection="game">游戏项目</a>
+        <a href="#analysis" data-collection="analysis">游戏拆解</a>
+        <a href="#aigc" data-collection="aigc">AIGC 影像</a>
+      </nav>
+      <div class="header-actions"><button id="resume-trigger" class="header-resume">个人简历</button><button id="contact-trigger" class="header-contact">联系我</button></div>
+    </div>
+  </header>
+
+  <main id="main">
+    <div id="home-content"></div>
+    <section id="analysis-page" class="special-page page-width" aria-label="游戏拆解阅读" hidden>
+      <a class="special-back" href="#analysis">返回游戏拆解</a>
+      <div id="analysis-content"></div>
+    </section>
+    <section id="film-page" class="special-page page-width" aria-label="AIGC 影片" hidden>
+      <a class="special-back" href="#aigc">返回 AIGC 影像</a>
+      <div id="film-content"></div>
+    </section>
+    <div id="project-page" class="detail-page page-width" hidden>
+      <nav class="detail-breadcrumb" aria-label="当前位置"><a href="#home">作品首页</a><span aria-hidden="true">/</span><a id="collection-link" href="#games">游戏项目</a><span aria-hidden="true">/</span><span id="breadcrumb-title"></span></nav>
+      <article id="project-view" class="project-view" aria-label="当前作品">
+        <header class="project-heading"><div><p id="project-kicker" class="project-kicker"></p><h1 id="project-title"></h1></div><span id="project-status" class="project-status"></span></header>
+        <p id="project-summary" class="project-summary"></p>
+        <div id="project-actions" class="project-actions" aria-label="作品入口"></div>
+        <div id="case-tabs" class="case-tabs" role="tablist" aria-label="选择作品内容">
+          <button id="tab-overview" data-case-tab="overview" role="tab" aria-selected="true" aria-controls="case-panel">作品介绍</button>
+          <button id="tab-materials" data-case-tab="materials" role="tab" aria-selected="false" aria-controls="resource-browser" tabindex="-1">资料目录</button>
+          <button id="tab-media" data-case-tab="media" role="tab" aria-selected="false" aria-controls="media-view" tabindex="-1">图片与视频</button>
+        </div>
+        <section id="resource-browser" class="resource-browser" role="tabpanel" aria-labelledby="tab-materials" hidden>
+          <div class="resource-browser-heading"><h2>项目资料</h2><p id="resource-summary" aria-live="polite"></p></div>
+          <div id="resource-filters" class="resource-filters" role="toolbar" aria-label="筛选资料类型"></div>
+          <div id="resource-results" class="resource-results"></div>
+        </section>
+        <section id="media-view" class="media-view" role="tabpanel" aria-labelledby="tab-media" hidden>
+          <div id="stage-host" class="stage-host"></div><div id="project-tags" class="project-tags"></div>
+        </section>
+        <section id="case-panel" class="case-panel" role="tabpanel" aria-labelledby="tab-overview"></section>
+        <div id="project-meta" class="project-meta"></div>
+      </article>
+      <nav id="related-projects" class="related-projects" aria-label="同类作品" hidden></nav>
+      <a id="back-to-collection" class="back-to-collection" href="#games">返回游戏项目</a>
+    </div>
+  </main>
+
+  <footer class="site-footer page-width"><div><strong data-name>万韵如</strong><span data-role>游戏策划实习</span></div><div class="footer-actions"><button id="resume-footer">个人简历</button><button id="contact-footer">联系我</button></div><p>© <span id="year"></span> <span data-name>万韵如</span></p></footer>
+  <dialog id="resume-dialog" class="resume-drawer" aria-labelledby="resume-title"><button class="dialog-close" data-close-dialog aria-label="关闭简历">×</button><div id="resume-content" class="drawer-content"></div></dialog>
+  <dialog id="contact-dialog" class="contact-dialog" aria-labelledby="contact-title"><button class="dialog-close" data-close-dialog aria-label="关闭联系方式">×</button><div id="contact-content" class="drawer-content"></div></dialog>
+  <dialog id="document-dialog" class="document-dialog" aria-labelledby="document-title"><button class="dialog-close" data-close-dialog aria-label="关闭材料预览">×</button><div id="document-content" class="drawer-content"></div></dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div><div id="print-resume-content"></div>
+  <noscript><p class="noscript">请启用 JavaScript，以查看作品分类、原稿与视频。</p></noscript>
+</body>
+</html>
