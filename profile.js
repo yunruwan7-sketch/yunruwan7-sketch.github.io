@@ -397,9 +397,9 @@ window.PORTFOLIO_DATA = {
         "分支关卡",
         "交互判定"
       ],
-      "playUrl": "https://manunyeo.itch.io/escape-witch-castle",
+      "playUrl": "./play/witch-castle/",
       "playLabel": "立即试玩",
-      "playInstructions": "进入 itch.io 点击 Run game，在电脑上用键盘游玩；设置中可切换中英文。",
+      "playInstructions": "在浏览器中直接加载游戏，支持全屏；建议使用电脑键盘，设置中可切换中英文。",
       "reelUrl": "./assets/video/sheep-castle-jump-clip.mp4",
       "sourceUrl": "",
       "downloadUrl": "",
