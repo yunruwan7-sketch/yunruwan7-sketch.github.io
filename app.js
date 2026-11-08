@@ -717,7 +717,7 @@
       if (url) evidence.append(link(label, url, 'evidence-link'));
     });
     if (evidence.children.length) target.append(evidence);
-    else target.append(node('p', 'material-note', isTemplate ? '真实项目的录屏、文档与 Demo 将接入这里。当前为框架预览。' : '暂未添加公开材料；可以在个人简历中查看项目说明。')); 
+    else target.append(node('p', 'material-note', isTemplate ? '真实项目的录屏、文档与 Demo 将接入这里。当前为框架预览。' : '暂未添加公开材料；可以在个人简历中查看项目说明。'));
   }
   function renderOverview(panel, project) {
     const layout = node('div', 'overview-layout');
