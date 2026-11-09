@@ -91,9 +91,6 @@
     }
     const meta = [data.graduation, data.location].filter(Boolean).join(' · ');
     if (meta) introduction.append(element('p', 'home-person-meta', meta));
-    if (data.resumePdf) {
-      introduction.append(link('查看简历', data.resumePdf, 'home-resume-link', true));
-    }
     hero.append(introduction);
     return hero;
   }
