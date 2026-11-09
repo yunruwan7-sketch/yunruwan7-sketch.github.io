@@ -1,0 +1,372 @@
+/* Smoked cocoa and clear champagne glass. Glass belongs to the control layer; artwork stays intact. */
+@media screen {
+  :root {
+    color-scheme: dark;
+    --paper: #211a19;
+    --surface: #302523;
+    --panel: #302523;
+    --panel-strong: #3a2c28;
+    --ink: #f3eee8;
+    --body: #dbcec5;
+    --muted: #bdafa6;
+    --subtle: #a08e84;
+    --line: rgba(211, 203, 200, .16);
+    --line-strong: rgba(226, 220, 218, .32);
+    --accent: #e4c5b4;
+    --accent-strong: #f0dacb;
+    --accent-ink: #3d2922;
+    --accent-soft: rgba(211, 202, 198, .13);
+    --secondary: rgba(201, 192, 188, .12);
+    --secondary-strong: #dfcabb;
+    --champagne: #e6cebc;
+    --glass-fill: rgba(203, 192, 188, .08);
+    --glass-border: rgba(233, 227, 225, .25);
+    --glass-shadow: inset 0 1px 0 rgba(251, 249, 248, .19),
+      inset 0 -1px 0 rgba(23, 17, 15, .46),
+      0 3px 5px rgba(12, 9, 8, .16), 0 9px 22px rgba(12, 9, 8, .16);
+  }
+
+  html { background: var(--paper); }
+  body {
+    background:
+      radial-gradient(ellipse 70% 540px at 88% 0, rgba(86, 73, 68, .29), transparent 75%),
+      radial-gradient(ellipse 65% 720px at -15% 45%, rgba(68, 55, 50, .2), transparent 78%),
+      radial-gradient(ellipse 65% 900px at 95% 85%, rgba(87, 77, 72, .12), transparent 80%),
+      var(--paper);
+    color: var(--ink);
+  }
+  ::selection { background: #cec6c3; color: #28201d; }
+  a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
+    outline: 2px solid var(--champagne);
+    outline-offset: 5px;
+  }
+  .skip-link { background: var(--accent); color: var(--accent-ink); }
+
+  /* A calm, translucent navigation surface over the actual work. */
+  .site-header {
+    background: rgba(25, 20, 18, .76);
+    border-bottom-color: rgba(219, 213, 210, .12);
+    box-shadow: 0 1px 0 rgba(249, 246, 245, .035);
+    -webkit-backdrop-filter: blur(28px) saturate(145%);
+    backdrop-filter: blur(28px) saturate(145%);
+  }
+  .header-inner { min-height: 92px; gap: 20px; }
+  .identity strong { font-size: 21px; font-weight: 650; }
+  .identity span { color: var(--muted); border-left-color: var(--line-strong); }
+  .identity:hover strong { color: #e4dfdd; }
+  .main-nav {
+    gap: 4px;
+    padding: 5px;
+    border: 1px solid rgba(236, 230, 228, .11);
+    border-radius: 999px;
+    background: rgba(18, 14, 13, .25);
+    box-shadow: inset 0 1px 2px rgba(11, 8, 7, .2), 0 1px 0 rgba(245, 241, 239, .04);
+  }
+  .main-nav a { min-height: 42px; padding: 8px 18px; font-weight: 550; color: #c8c3c0; }
+  .main-nav a[aria-current] { color: #f8f5f4; }
+  .main-nav a:not([aria-current]) { box-shadow: none; border-color: transparent; background: transparent; }
+  .header-actions { gap: 10px; }
+
+  /* Shared optical edge, transparent tint and tactile states. */
+  :is(
+    .main-nav a, .header-actions button, .footer-actions button,
+    .home-page .home-button, .home-page .home-resume-link,
+    .project-action, .button, .material-link, .evidence-link,
+    .case-tabs button, .resource-filter, .resource-open, .resource-preview,
+    .related-link, .gallery-arrow, .gallery-zoom-label, .game-screenshot-zoom,
+    .overview-image-hint, .game-return, .resume-pdf, .resume-print,
+    .copy-email, .email-link, .contact-actions > a, .document-original,
+    .dialog-close, .home-film-play-label, .home-film-project-link
+  ) {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    border: 1px solid var(--glass-border);
+    border-radius: 999px;
+    color: var(--ink);
+    background:
+      radial-gradient(ellipse at 28% -45%, rgba(244, 239, 237, .16), transparent 70%),
+      linear-gradient(165deg, rgba(239, 232, 229, .12), rgba(211, 201, 196, .035) 52%, rgba(225, 217, 213, .07)),
+      rgba(46, 38, 35, .44);
+    box-shadow: var(--glass-shadow);
+    -webkit-backdrop-filter: blur(12px) saturate(155%);
+    backdrop-filter: blur(12px) saturate(155%);
+    text-shadow: 0 1px 1px rgba(19, 14, 12, .3);
+    text-decoration: none;
+    transition: background-color .2s ease, border-color .2s ease,
+      box-shadow .2s ease, transform .2s ease, color .2s ease;
+  }
+  :is(
+    .main-nav a, .header-actions button, .footer-actions button,
+    .home-page .home-button, .home-page .home-resume-link,
+    .project-action, .button, .material-link, .evidence-link,
+    .case-tabs button, .resource-filter, .resource-open, .resource-preview,
+    .related-link, .gallery-arrow, .game-return, .resume-pdf, .resume-print,
+    .copy-email, .email-link, .contact-actions > a, .document-original,
+    .dialog-close, .home-film-project-link
+  )::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(ellipse 95px 65px at var(--glass-x, 35%) var(--glass-y, 0%), rgba(247, 244, 243, .14), transparent 80%);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .24s ease;
+  }
+  :is(
+    .main-nav a, .header-actions button, .footer-actions button,
+    .home-page .home-button, .home-page .home-resume-link,
+    .project-action, .button, .material-link, .evidence-link,
+    .case-tabs button, .resource-filter, .resource-open, .resource-preview,
+    .related-link, .gallery-arrow, .game-return, .resume-pdf, .resume-print,
+    .copy-email, .email-link, .contact-actions > a, .document-original,
+    .dialog-close, .home-film-project-link
+  ):not(:disabled):hover {
+    color: #fbfaf9;
+    background-color: rgba(108, 96, 91, .42);
+    border-color: rgba(242, 237, 234, .49);
+    box-shadow: inset 0 1px 0 rgba(252, 251, 251, .28),
+      inset 0 -1px 0 rgba(21, 16, 14, .4), 0 4px 7px rgba(12, 9, 8, .18),
+      0 11px 25px rgba(12, 9, 8, .2);
+    transform: translateY(-1px);
+  }
+  :is(a, button):not(:disabled):hover::after { opacity: 1; }
+  :is(
+    .main-nav a, .header-actions button, .footer-actions button,
+    .home-page .home-button, .home-page .home-resume-link,
+    .project-action, .button, .case-tabs button, .resource-filter,
+    .resource-open, .resource-preview, .related-link, .gallery-arrow,
+    .game-return, .resume-pdf, .resume-print, .copy-email, .email-link,
+    .contact-actions > a, .document-original, .dialog-close
+  ):not(:disabled):active { transform: translateY(1px) scale(.985); }
+
+  :is(
+    .home-page .home-button-primary, .project-action-primary, .button-primary,
+    .main-nav a[aria-current], .case-tabs button[aria-selected="true"],
+    .resource-filter[aria-pressed="true"], .resource-open
+  ) {
+    border-color: rgba(235, 229, 226, .48);
+    color: #f8f6f5;
+    background:
+      radial-gradient(ellipse at 24% -30%, rgba(243, 238, 235, .24), transparent 80%),
+      linear-gradient(155deg, rgba(200, 188, 182, .27), rgba(152, 135, 127, .13) 65%, rgba(196, 185, 180, .20)),
+      rgba(71, 60, 55, .54);
+    box-shadow: inset 0 1px 0 rgba(244, 239, 237, .36),
+      inset 0 -1px 0 rgba(25, 19, 16, .35), 0 4px 10px rgba(13, 10, 8, .18),
+      0 0 18px rgba(178, 165, 159, .045);
+  }
+  :is(.header-actions .header-contact, .home-page .home-button-film, .home-film-play-label) {
+    color: #e6ddd9;
+    border-color: rgba(208, 192, 185, .38);
+    background:
+      radial-gradient(ellipse at 25% -40%, rgba(231, 221, 216, .18), transparent 75%),
+      linear-gradient(155deg, rgba(196, 178, 170, .18), rgba(163, 148, 142, .06)),
+      rgba(61, 54, 51, .4);
+  }
+  .header-actions .header-contact:hover, .home-page .home-button-film:hover {
+    color: #f0eae8;
+    border-color: rgba(219, 206, 200, .65);
+    background-color: rgba(97, 86, 82, .26);
+  }
+  button:disabled, .project-play-pending:disabled {
+    color: var(--subtle);
+    border: 1px dashed rgba(192, 185, 182, .3);
+    background: rgba(181, 173, 169, .035);
+    box-shadow: none;
+    opacity: .75;
+    text-shadow: none;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+
+  .home-page {
+    --home-paper: var(--paper);
+    --home-ink: var(--ink);
+    --home-muted: var(--muted);
+    --home-orange: var(--accent);
+    --home-orange-hover: var(--accent-strong);
+    --home-apricot: var(--accent-soft);
+    --home-green: var(--secondary);
+    --home-line: var(--line);
+    padding-top: 64px;
+  }
+  .home-hero { padding-bottom: 52px; border-bottom-color: rgba(211, 203, 200, .15); }
+  .home-eyebrow { color: #c9c0bc; letter-spacing: .13em; font-size: 11px; }
+  .home-title { margin-top: 15px !important; letter-spacing: -.045em; font-weight: 650; }
+  .home-title-role { color: #ddd9d7; font-weight: 450; }
+  .home-intro { color: #dedbda; font-size: 14px; line-height: 1.95; }
+  .home-person-meta { color: var(--subtle); }
+  .home-page .home-resume-link { padding: 9px 18px; margin-left: 20px; min-height: 42px; font-size: 12px; }
+  .home-section { margin-top: 52px; }
+  .home-section-heading { margin-bottom: 24px; }
+  .home-section-title { font-size: 26px; font-weight: 600; letter-spacing: -.025em; }
+  .home-section-description { color: #afa9a7; }
+  .home-games-grid { gap: 26px; }
+  .home-game-card {
+    border: 1px solid rgba(205, 197, 193, .17);
+    border-radius: 22px;
+    background: linear-gradient(150deg, rgba(55, 47, 43, .78), rgba(37, 31, 28, .95) 58%);
+    box-shadow: inset 0 1px 0 rgba(246, 242, 240, .045),
+      0 4px 12px rgba(14, 10, 8, .1), 0 16px 36px rgba(12, 9, 7, .12);
+  }
+  .home-game-art { padding: 13px 13px 0; }
+  .home-game-art .home-image { border-radius: 13px; }
+  .home-game-art .home-image-caption { color: var(--subtle); padding-inline: 3px; }
+  .home-game-copy { padding: 20px 24px 25px; }
+  .home-game-type { color: #c9c0bc; letter-spacing: .02em; }
+  .home-game-title { font-size: 23px; font-weight: 600; margin-top: 9px !important; }
+  .home-game-summary { color: #d8d4d2; line-height: 1.95; }
+  .home-game-event { color: #b4afad; }
+  .home-project-role { color: #b4afad; }
+  .home-game-copy .home-actions { margin-top: 23px; gap: 12px; }
+  .home-button { min-height: 46px; padding-block: 11px; font-weight: 600; }
+  .home-game-placeholder { background: #2c2623; border-color: var(--line); border-radius: 13px; color: var(--muted); }
+  :is(.home-game-oasis, .home-game-band, .home-game-sheep) .home-image { background: #231d1a; }
+  .home-game-train .home-image { background: #201b19; }
+  .home-tag { background: var(--secondary); color: #d9d5d3; border: 1px solid rgba(209, 201, 197, .15); border-radius: 6px; }
+
+  .home-analysis, .home-aigc { margin-top: 66px; }
+  .home-analysis-panel {
+    background: linear-gradient(130deg, rgba(62, 57, 55, .56), rgba(40, 34, 32, .9) 60%);
+    border: 1px solid rgba(206, 195, 190, .23);
+    border-radius: 22px;
+    padding: 38px;
+    box-shadow: inset 0 1px 0 rgba(238, 231, 228, .05), 0 18px 40px rgba(12, 9, 8, .12);
+  }
+  .home-analysis-title { color: #e8e4e2; font-weight: 600; }
+  .home-analysis-subtitle { color: #d5d0cd; }
+  .home-analysis-summary { color: #c0bcba; }
+  .home-analysis-copy .home-tag { background: rgba(191, 176, 170, .07); color: #c9c1be; border-color: rgba(205, 193, 188, .16); }
+  .home-report-page .home-image { border-color: rgba(228, 223, 220, .2); border-radius: 8px; box-shadow: 0 8px 20px rgba(12, 9, 8, .24); }
+  .home-image-caption { color: var(--subtle); }
+  .home-film {
+    border: 1px solid rgba(194, 182, 177, .18);
+    border-radius: 24px;
+    color: #e8e3e0;
+    background: radial-gradient(ellipse at 95% 0, rgba(105, 87, 80, .15), transparent 65%), #26201e;
+    box-shadow: inset 0 1px 0 rgba(220, 207, 202, .045), 0 18px 40px rgba(11, 8, 7, .16);
+  }
+  .home-film-title { font-weight: 550; }
+  .home-film-summary { color: #cfcccb; }
+  .home-film-meta { color: var(--champagne); }
+  .home-film-poster .home-image { border-radius: 8px; box-shadow: 0 12px 30px rgba(9, 6, 5, .3); }
+  .home-film-poster .home-image-caption, .home-film-frame-caption { color: #b5b0ad; }
+  .home-film-screen { border-color: rgba(206, 196, 192, .23); border-radius: 14px; }
+  .home-film-play-label { position: absolute; border-radius: 999px; -webkit-backdrop-filter: blur(18px) saturate(150%); backdrop-filter: blur(18px) saturate(150%); }
+  .home-film-project-link { padding: 9px 17px; }
+
+  /* Project pages and supporting materials share the same hierarchy. */
+  .detail-breadcrumb { color: var(--subtle); }
+  .detail-breadcrumb a:hover { color: var(--accent); }
+  .project-kicker { color: #c9c0bc; }
+  .project-heading h1 { font-weight: 600; }
+  .project-status, .tag, .skill-tags span {
+    background: rgba(197, 188, 184, .1);
+    color: #d6d0ce;
+    border: 1px solid rgba(207, 198, 194, .16);
+    border-radius: 7px;
+  }
+  .project-summary { color: var(--body); }
+  .case-tabs { border-bottom-color: var(--line); gap: 10px; }
+  .case-tabs button { min-width: 126px; }
+  .overview-cover, .overview-image-button, .stage-host, .resource-file-list {
+    background: #26201e;
+    border-color: var(--line);
+    border-radius: 18px;
+  }
+  .overview-cover-placeholder, .game-media-placeholders, .media-unavailable { background: rgba(47, 40, 37, .65); color: var(--muted); }
+  .overview-image-button { background: #2c2623; }
+  .overview-image-hint, .gallery-zoom-label, .game-screenshot-zoom { position: absolute; background-color: rgba(45, 37, 34, .72); }
+  .case-block h3 { color: #e9e5e3; font-weight: 600; }
+  .case-block p, .case-block ul { color: #c9c5c3; }
+  .project-meta { border-color: var(--line); }
+  .meta-value { color: #dcd9d7; }
+  .resource-card:focus-within { background: rgba(133, 122, 117, .08); }
+  .resource-card { border-bottom-color: var(--line); }
+  .resource-kind { color: var(--subtle); }
+  .resource-filter-count { color: inherit; }
+  .material-note, .resource-empty, .game-media-placeholder { background: rgba(46, 40, 37, .55); border-color: var(--line-strong); }
+  .gallery-main, .game-screenshot-button { background: #1f1a18; }
+  .gallery-thumbnail { background: #2f2723; border-color: var(--line); }
+  .gallery-thumbnail[aria-pressed="true"] { border-color: var(--accent); }
+  .gallery-bottom, .gallery-thumbnails { background: #29221f; border-color: var(--line); }
+  .game-player-header { background: #302926; }
+  .game-instructions { color: #dcd9d8; }
+  .video-player-footer { background: #26201e; }
+  .game-demo-watch-label { color: #f8f6f5; border: 1px solid var(--glass-border); border-radius: 999px; background: rgba(69, 58, 54, .78); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); }
+  .special-back, .back-to-collection, .event-source, .resume-contact a, .supporting-work { color: var(--accent-strong); }
+
+  dialog {
+    background: rgba(35, 29, 26, .97);
+    border-color: rgba(218, 210, 206, .23);
+    border-radius: 22px;
+    box-shadow: inset 0 1px 0 rgba(248, 245, 243, .08), 0 30px 100px rgba(9, 7, 6, .5);
+  }
+  dialog::backdrop { background: rgba(14, 11, 10, .66); -webkit-backdrop-filter: blur(9px); backdrop-filter: blur(9px); }
+  .resume-drawer { border-radius: 24px 0 0 24px; }
+  .dialog-close { position: sticky; background-color: rgba(47, 39, 35, .86); }
+  .resume-note { background: rgba(190, 177, 171, .075); border: 1px solid rgba(202, 191, 187, .13); }
+  .timeline-item { border-left-color: #736b67; }
+  .document-page-number { background: #302825; color: var(--muted); }
+  .document-excerpt-note { background: rgba(184, 170, 164, .1); }
+  .toast { color: #f3f0ee; border: 1px solid var(--glass-border); background: #3e3632; box-shadow: 0 9px 25px rgba(11, 8, 7, .3); }
+  .site-footer { border-top-color: var(--line); }
+  .site-footer strong { font-weight: 550; }
+  .site-footer span, .site-footer p { color: var(--subtle); }
+
+  @media (max-width: 1050px) {
+    .home-page { padding-top: 44px; }
+    .home-games-grid { gap: 20px; }
+    .home-game-copy { padding: 18px 18px 22px; }
+    .home-analysis-panel { padding: 28px; }
+    .main-nav a { padding-inline: 13px; }
+  }
+  @media (max-width: 760px) {
+    .header-inner { min-height: 126px; gap: 4px 12px; padding-top: 9px; padding-bottom: 10px; }
+    .main-nav { gap: 4px; padding: 4px; }
+    .main-nav a { padding: 7px 8px; min-height: 40px; }
+    .header-actions button { padding: 8px 13px; }
+    .identity strong { font-size: 19px; }
+    .home-page { padding-top: 34px; }
+    .home-hero { gap: 24px; padding-bottom: 32px; }
+    .home-title { font-size: 36px; margin-top: 11px !important; }
+    .home-title-role { font-size: 20px; }
+    .home-page .home-resume-link { padding: 7px 15px; margin-left: 15px; min-height: 40px; }
+    .home-section { margin-top: 38px; }
+    .home-section-title { font-size: 24px; }
+    .home-games-grid { gap: 19px; }
+    .home-game-card { border-radius: 19px; }
+    .home-game-art { padding: 10px 10px 0; }
+    .home-game-copy { padding: 18px 18px 20px; }
+    .home-analysis, .home-aigc { margin-top: 48px; }
+    .home-analysis-panel { border-radius: 19px; padding: 23px; }
+    .home-film { border-radius: 20px; }
+    .home-film-actions { gap: 10px; flex-wrap: wrap; }
+    .case-tabs { gap: 7px; }
+    .case-tabs button { min-width: 0; }
+  }
+
+  @media (prefers-reduced-transparency: reduce) {
+    .site-header { background: #231d1a; -webkit-backdrop-filter: none; backdrop-filter: none; }
+    :is(button, .home-button, .main-nav a, .project-action, .resource-open, .resource-preview) {
+      -webkit-backdrop-filter: none;
+      backdrop-filter: none;
+    }
+    .home-game-card, dialog { background: #2a2320; }
+  }
+  @media (prefers-contrast: more) {
+    :root { --muted: #e1dddc; --subtle: #ccc8c6; --line: rgba(232, 226, 224, .45); --glass-border: rgba(246, 242, 240, .65); }
+    .site-header { background: #231d1a; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    :is(button, a)::after { display: none; }
+    :is(button, a):not(.film-view-play):hover,
+    :is(button, a):not(.film-view-play):active { transform: none !important; }
+  }
+  @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+    .site-header { background: #231d1a; }
+    :is(.home-page .home-button, .main-nav a, .header-actions button, .project-action, .case-tabs button) { background-color: #3b322e; }
+  }
+}
