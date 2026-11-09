@@ -7,7 +7,21 @@ window.PORTFOLIO_DATA = {
   "location": "",
   "graduation": "2028届硕士",
   "availability": "目前在职实习，到岗时间可协商",
-  "intro": "担任 Game Jam 主策，设计玩法与关卡，并参与 Vibe Coding。",
+  "intro": "本硕211，曾赴匈牙利交流；现于巨人网络实习，持续参与游戏创作。",
+  "introHighlights": [
+    {
+      "title": "本硕211 · 海外交流",
+      "text": "暨南大学硕士在读，石河子大学本科；曾赴匈牙利交流学习。"
+    },
+    {
+      "title": "游戏策划 · 内容制作",
+      "text": "巨人网络《名将杀》系统策划实习；另有唯品会编导、央视导演组实习经历。"
+    },
+    {
+      "title": "Game Jam · 主策与原型",
+      "text": "负责玩法与关卡设计、Unity／Godot 原型，参与 Vibe Coding 与音效制作。"
+    }
+  ],
   "email": "2861127300@qq.com",
   "phone": "17856820690",
   "githubUrl": "https://github.com/yunruwan7-sketch",

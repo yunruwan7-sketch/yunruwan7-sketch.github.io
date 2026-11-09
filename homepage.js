@@ -77,7 +77,18 @@
     identity.append(heading);
     hero.append(identity);
     const introduction = element('div', 'home-introduction');
-    if (data.intro) introduction.append(element('p', 'home-intro', data.intro));
+    if (data.introHighlights && data.introHighlights.length) {
+      const highlights = element('ul', 'home-highlights');
+      data.introHighlights.forEach(function (highlight) {
+        const item = element('li', 'home-highlight');
+        item.append(element('strong', 'home-highlight-title', highlight.title));
+        item.append(element('p', 'home-highlight-text', highlight.text));
+        highlights.append(item);
+      });
+      introduction.append(highlights);
+    } else if (data.intro) {
+      introduction.append(element('p', 'home-intro', data.intro));
+    }
     const meta = [data.graduation, data.location].filter(Boolean).join(' · ');
     if (meta) introduction.append(element('p', 'home-person-meta', meta));
     if (data.resumePdf) {
