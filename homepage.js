@@ -44,9 +44,12 @@
     return group;
   }
 
-  function sectionHeading(title, description) {
+  function sectionHeading(title, description, index, english) {
     const header = element('header', 'home-section-heading');
-    header.append(element('h2', 'home-section-title', title));
+    const titleGroup = element('div', 'home-section-heading-copy');
+    if (index) titleGroup.append(element('p', 'home-section-index', index + ' / ' + english));
+    titleGroup.append(element('h2', 'home-section-title', title));
+    header.append(titleGroup);
     if (description) header.append(element('p', 'home-section-description', description));
     return header;
   }
@@ -60,27 +63,44 @@
 
   function projectActions(project, primaryText) {
     const actions = element('div', 'home-actions');
-    if (project.playUrl) {
-      actions.append(link(project.playLabel || '立即试玩', project.playUrl, 'home-button home-button-primary', true));
-    }
-    actions.append(link(primaryText || '作品介绍', '#work/' + project.id + '/overview',
-      project.playUrl ? 'home-button home-button-secondary' : 'home-button home-button-outline'));
+    const open = link(primaryText || '查看项目', '#work/' + project.id + '/overview', 'home-project-link');
+    open.setAttribute('aria-label', '查看' + project.title);
+    actions.append(open);
+    if (project.playUrl) actions.append(element('span', 'home-play-status', '可试玩'));
     return actions;
   }
 
   function renderHero(data) {
     const hero = element('header', 'home-hero');
+    const main = element('div', 'home-hero-main');
     const identity = element('div', 'home-identity');
-    identity.append(element('p', 'home-eyebrow', data.focus || '系统／玩法方向'));
-    const heading = element('h1', 'home-title', data.name || '万韵如');
-    heading.append(element('span', 'home-title-role', '游戏策划作品集'));
+    identity.append(element('p', 'home-eyebrow', 'GAME DESIGN PORTFOLIO'));
+    identity.append(element('p', 'home-author', (data.name || '万韵如') + ' · ' + (data.focus || '系统／玩法方向')));
+    const heading = element('h1', 'home-title');
+    heading.append(element('span', 'home-title-line', '游戏策划'), element('span', 'home-title-line home-title-accent', '作品集'));
     identity.append(heading);
-    hero.append(identity);
+    main.append(identity);
+    const showcase = element('nav', 'home-showcase');
+    showcase.setAttribute('aria-label', '游戏作品预览');
+    ['workplace-oasis', 'band-rhythm', 'train-rescue', 'sheep-castle'].forEach(function (id, index) {
+      const project = (data.projects || []).find(function (item) { return item.id === id; });
+      if (!project || !project.coverImage) return;
+      const item = link('', '#work/' + id + '/overview', 'home-showcase-item home-showcase-' + id);
+      item.setAttribute('aria-label', '查看' + project.title);
+      item.append(image(project.coverImage, '', 'home-showcase-image', true));
+      const label = element('span', 'home-showcase-label');
+      label.append(element('span', 'home-showcase-number', '0' + (index + 1)), element('strong', '', project.title));
+      item.append(label);
+      showcase.append(item);
+    });
+    main.append(showcase);
+    hero.append(main);
     const introduction = element('div', 'home-introduction');
     if (data.introHighlights && data.introHighlights.length) {
       const highlights = element('ul', 'home-highlights');
-      data.introHighlights.forEach(function (highlight) {
+      data.introHighlights.forEach(function (highlight, index) {
         const item = element('li', 'home-highlight');
+        item.append(element('span', 'home-highlight-index', '0' + (index + 1)));
         item.append(element('strong', 'home-highlight-title', highlight.title));
         item.append(element('p', 'home-highlight-text', highlight.text));
         highlights.append(item);
@@ -89,8 +109,6 @@
     } else if (data.intro) {
       introduction.append(element('p', 'home-intro', data.intro));
     }
-    const meta = [data.graduation, data.location].filter(Boolean).join(' · ');
-    if (meta) introduction.append(element('p', 'home-person-meta', meta));
     hero.append(introduction);
     return hero;
   }
@@ -127,8 +145,9 @@
     const card = element('article', 'home-game-card ' + content.className);
     card.dataset.project = project.id;
     if (project.coverImage) {
-      card.append(figure(project.coverImage, project.coverAlt || project.title + '作品封面',
-        content.caption, 'home-game-art', project.id === 'workplace-oasis'));
+      const art = element('figure', 'home-game-art');
+      art.append(image(project.coverImage, project.coverAlt || project.title + '作品封面', 'home-image', false));
+      card.append(art);
     } else {
       const art = element('figure', 'home-game-art home-game-art-empty');
       art.append(element('div', 'home-game-placeholder', '正式封面待补充'));
@@ -155,7 +174,7 @@
   function renderGames(projects) {
     const section = element('section', 'home-section home-games');
     section.id = 'games';
-    section.append(sectionHeading('游戏项目', '从玩法与关卡规则，到协作落地的策划和制作资料。'));
+    section.append(sectionHeading('游戏项目', '玩法、系统与可玩的原型。', '01', 'GAME PROJECTS'));
     const grid = element('div', 'home-games-grid');
     ['workplace-oasis', 'band-rhythm', 'train-rescue', 'sheep-castle'].forEach(function (id) {
       if (projects.has(id)) grid.append(renderGameCard(projects.get(id)));
@@ -167,7 +186,7 @@
   function renderAnalysis(project) {
     const section = element('section', 'home-section home-analysis');
     section.id = 'analysis';
-    section.append(sectionHeading('游戏拆解', '从实际产品出发，梳理系统结构与体验问题。'));
+    section.append(sectionHeading('游戏拆解', '从规则出发，理解体验。', '02', 'DESIGN ANALYSIS'));
     const panel = element('article', 'home-analysis-panel');
     const copy = element('div', 'home-analysis-copy');
     copy.append(element('p', 'home-eyebrow', '独立拆解 · 42页报告'));
@@ -192,7 +211,7 @@
   function renderAigc(project) {
     const section = element('section', 'home-section home-aigc');
     section.id = 'aigc';
-    section.append(sectionHeading('AIGC 影像', '短片、视觉叙事与创作过程。'));
+    section.append(sectionHeading('AIGC 影像', '从文字、分镜，到影像。', '03', 'MOVING IMAGE'));
     section.append(window.PortfolioFilm.create(project, { headingLevel: 3 }));
     return section;
   }

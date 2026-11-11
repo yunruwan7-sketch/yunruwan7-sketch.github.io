@@ -20,12 +20,14 @@
   <link rel="stylesheet" href="./film-view.css?v=270c02c3d56b">
   <link rel="stylesheet" href="./dark-glass.css?v=a96fadafd15c">
   <link rel="stylesheet" href="./dark-viewers.css?v=bbcd252296a0">
+  <link rel="stylesheet" href="./portfolio-atmosphere.css?v=62a438290ef3">
   <script defer src="./profile.js?v=903c9f3d05d2"></script>
   <script defer src="./slides-view.js?v=e858738f7975"></script>
   <script defer src="./film-view.js?v=6c0e8f66f9b4"></script>
-  <script defer src="./homepage.js?v=3e65a136da3a"></script>
-  <script defer src="./app.js?v=db2ee635baa6"></script>
+  <script defer src="./homepage.js?v=d7057998c260"></script>
+  <script defer src="./app.js?v=549873904021"></script>
   <script defer src="./glass-controls.js?v=40a87d51cc64"></script>
+  <script defer src="./portfolio-atmosphere.js?v=fafd712b4d6d"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">跳到作品</a>
@@ -59,12 +61,12 @@
         <div id="project-actions" class="project-actions" aria-label="作品入口"></div>
         <div id="case-tabs" class="case-tabs" role="tablist" aria-label="选择作品内容">
           <button id="tab-overview" data-case-tab="overview" role="tab" aria-selected="true" aria-controls="case-panel">作品介绍</button>
-          <button id="tab-materials" data-case-tab="materials" role="tab" aria-selected="false" aria-controls="resource-browser" tabindex="-1">资料目录</button>
+          <button id="tab-materials" data-case-tab="materials" role="tab" aria-selected="false" aria-controls="resource-browser" tabindex="-1">策划文档</button>
           <button id="tab-media" data-case-tab="media" role="tab" aria-selected="false" aria-controls="media-view" tabindex="-1">图片与视频</button>
         </div>
         <section id="resource-browser" class="resource-browser" role="tabpanel" aria-labelledby="tab-materials" hidden>
-          <div class="resource-browser-heading"><h2>项目资料</h2><p id="resource-summary" aria-live="polite"></p></div>
-          <div id="resource-filters" class="resource-filters" role="toolbar" aria-label="筛选资料类型"></div>
+          <div class="resource-browser-heading"><h2>策划文档</h2><p id="resource-summary" aria-live="polite"></p></div>
+          <div id="resource-filters" class="resource-filters" role="toolbar" aria-label="筛选文档类型"></div>
           <div id="resource-results" class="resource-results"></div>
         </section>
         <section id="media-view" class="media-view" role="tabpanel" aria-labelledby="tab-media" hidden>

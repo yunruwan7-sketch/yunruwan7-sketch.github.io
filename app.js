@@ -240,7 +240,6 @@
     const play = safeUrl(project.playUrl);
     const documentUrl = safeUrl(project.documentUrl);
     const reel = safeUrl(project.reelUrl);
-    const reelPage = safeUrl(project.reelPageUrl);
     const originalFile = safeUrl(project.originalFileUrl);
     if (project.category === 'game') {
       const pauseDemo = () => document.querySelectorAll('#stage-host video').forEach((video) => video.pause());
@@ -255,23 +254,7 @@
         pendingPlay.disabled = true;
         target.append(pendingPlay);
       }
-      if (reel) {
-        const watchLabel = project.reelActionLabel || '观看演示';
-        const watch = node('button', 'project-action project-action-secondary', watchLabel);
-        watch.type = 'button';
-        watch.setAttribute('aria-label', `${string(project.title)}：${watchLabel}`);
-        watch.addEventListener('click', () => showMedia(project, () => launchVideo(project)));
-        target.append(watch);
-      } else if (reelPage) {
-        const watch = link('观看演示（TapTap）', reelPage, 'project-action project-action-secondary');
-        watch.addEventListener('click', pauseDemo);
-        target.append(watch);
-      }
-      if (documentUrl) {
-        const original = link('打开策划原文', documentUrl, 'project-action project-action-secondary');
-        original.addEventListener('click', pauseDemo);
-        target.append(original);
-      }
+      // Videos and design documents each have their own content tab below.
       if (play && project.playInstructions) target.append(node('p', 'project-action-note', project.playInstructions));
       target.hidden = false;
       return;
@@ -336,13 +319,16 @@
     const order = project.category === 'aigc' ? ['试玩与视频', '美术', '分析与创作'] : ['策划', '程序', '美术', '音频', '试玩与视频', '分析与创作'];
     const actualGroups = [...new Set(resources.map((resource) => resource.group))];
     actualGroups.sort((a, b) => (order.indexOf(a) < 0 ? 99 : order.indexOf(a)) - (order.indexOf(b) < 0 ? 99 : order.indexOf(b)));
-    let current = resourceGroups.get(project.id) || '全部资料';
-    if (current !== '全部资料' && !actualGroups.includes(current)) current = '全部资料';
+    const allLabel = project.category === 'game' ? '全部文档' : '全部资料';
+    const itemLabel = project.category === 'game' ? '份文档' : '份资料';
+    let current = resourceGroups.get(project.id) || allLabel;
+    if (current !== allLabel && !actualGroups.includes(current)) current = allLabel;
     const kinds = { document: '文档', image: '图片', video: '视频', play: '试玩', folder: '文件夹' };
     const groupLabel = (group) => project.category === 'aigc'
       ? ({ '试玩与视频': '影片与剧照', '美术': '海报', '分析与创作': '创作说明与源文件' }[group] || group)
       : project.category === 'analysis' && group === '分析与创作' ? '拆解报告与原页' : group;
     filters.replaceChildren();
+    filters.hidden = actualGroups.length <= 1;
     function show(group) {
       current = group;
       resourceGroups.set(project.id, group);
@@ -351,15 +337,15 @@
         button.classList.toggle('active', active);
         button.setAttribute('aria-pressed', String(active));
       });
-      const visible = group === '全部资料' ? actualGroups.flatMap((name) => resources.filter((resource) => resource.group === name)) : resources.filter((resource) => resource.group === group);
-      setText('#resource-summary', group === '全部资料' ? `${resources.length} 份资料` : `${groupLabel(group)} · ${visible.length} 份资料`);
+      const visible = group === allLabel ? actualGroups.flatMap((name) => resources.filter((resource) => resource.group === name)) : resources.filter((resource) => resource.group === group);
+      setText('#resource-summary', group === allLabel ? `${resources.length} ${itemLabel}` : `${groupLabel(group)} · ${visible.length} ${itemLabel}`);
       results.replaceChildren();
       results.removeAttribute('role');
       const groupLists = new Map();
       visible.forEach((resource) => {
         if (!groupLists.has(resource.group)) {
           const section = node('section', 'resource-group');
-          section.append(node('h3', 'resource-group-heading', groupLabel(resource.group)));
+          if (actualGroups.length > 1) section.append(node('h3', 'resource-group-heading', groupLabel(resource.group)));
           const list = node('div', 'resource-file-list');
           list.setAttribute('role', 'list');
           section.append(list);
@@ -418,10 +404,10 @@
         card.append(copy, actions);
         groupLists.get(resource.group).append(card);
       });
-      if (!visible.length) results.append(node('p', 'material-note', '该项目暂无已接入的资料。'));
+      if (!visible.length) results.append(node('p', 'material-note', project.category === 'game' ? '策划文档待补充。' : '该项目暂无已接入的资料。'));
     }
-    ['全部资料', ...actualGroups].forEach((group) => {
-      const count = group === '全部资料' ? resources.length : resources.filter((resource) => resource.group === group).length;
+    [allLabel, ...actualGroups].forEach((group) => {
+      const count = group === allLabel ? resources.length : resources.filter((resource) => resource.group === group).length;
       const button = node('button', 'resource-filter', groupLabel(group));
       button.append(node('span', 'resource-filter-count', count));
       button.type = 'button'; button.dataset.group = group;
