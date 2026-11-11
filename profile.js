@@ -317,8 +317,30 @@ window.PORTFOLIO_DATA = {
       "reelUrl": "",
       "sourceUrl": "",
       "downloadUrl": "",
-      "gallery": [],
-      "coverImage": "./assets/work/thunder-train-scene.png",
+      "gallery": [
+        {
+          "src": "./assets/work/train-work-car.png",
+          "alt": "工作车厢 · 项目场景画面",
+          "caption": "工作车厢 · 项目场景画面",
+          "type": "screenshot"
+        },
+        {
+          "src": "./assets/work/train-dorm-rest.png",
+          "alt": "宿舍车厢的四名角色休息状态",
+          "caption": "宿舍车厢 · Unity 场景预览",
+          "type": "screenshot"
+        },
+        {
+          "src": "./assets/work/train-dorm-awake.png",
+          "alt": "宿舍车厢的四名角色坐起状态",
+          "caption": "角色起身状态 · Unity 场景预览",
+          "type": "screenshot"
+        }
+      ],
+      "galleryLabel": "项目画面",
+      "coverImage": "./assets/work/train-work-car.png",
+      "coverAlt": "工作车厢 · 项目场景画面",
+      "coverCaption": "工作车厢 · 项目场景画面",
       "documentUrl": "https://ncntqap2jt5p.feishu.cn/wiki/HG5kwH7ZEiiCBRkaLWxcCc5Unuc",
       "documentLabel": "打开策划原文",
       "originalFileUrl": "https://ncntqap2jt5p.feishu.cn/wiki/RQ93wQbfwifrkEkMBbScgPELnIc?from=from_copylink",
@@ -374,7 +396,7 @@ window.PORTFOLIO_DATA = {
           "url": "https://ncntqap2jt5p.feishu.cn/drive/folder/BitlfZNPalZB00d9AHMcoKynnme"
         }
       ],
-      "mediaStatus": "pending",
+      "mediaStatus": "available",
       "eventLabel": "第十届 MAKERS 游戏开发大赛",
       "eventBackground": "2026年第十届MAKERS游戏开发大赛项目，赛事由南京大学与网易游戏雷火合作开展，以团队协作完成游戏设计与制作。"
     },

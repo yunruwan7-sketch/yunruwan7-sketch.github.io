@@ -129,7 +129,7 @@
     'train-rescue': {
       className: 'home-game-train',
       label: '悬疑解谜',
-      caption: '车厢美术素材',
+      caption: '工作车厢 · 项目场景画面',
       summary: '围绕列车上的危机，设计搜证、昼夜分支、行动准备与事件状态规则。'
     },
     'sheep-castle': {

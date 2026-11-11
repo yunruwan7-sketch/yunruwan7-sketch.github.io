@@ -422,7 +422,7 @@
     const target = $('#document-content');
     if (!target || !media[index]) return;
     target.replaceChildren();
-    const heading = node('h2', 'document-heading', `${string(project.title)} · ${project.category === 'game' ? '游戏截图' : '图片与原稿'}`);
+    const heading = node('h2', 'document-heading', `${string(project.title)} · ${project.category === 'game' ? project.galleryLabel || '游戏截图' : '图片与原稿'}`);
     heading.id = 'document-title';
     const image = node('img', 'gallery-lightbox-image');
     const caption = node('p', 'gallery-lightbox-caption');
@@ -510,7 +510,7 @@
       if (screenshots.length) {
         const gallery = node('section', 'game-screenshots');
         const heading = node('div', 'game-demo-heading');
-        heading.append(node('h3', '', '游戏截图'), node('span', '', `${screenshots.length} 张`));
+        heading.append(node('h3', '', project.galleryLabel || '游戏截图'), node('span', '', `${screenshots.length} 张`));
         const grid = node('div', 'game-screenshot-grid');
         screenshots.forEach((item, index) => {
           const figure = node('figure', 'game-screenshot');
