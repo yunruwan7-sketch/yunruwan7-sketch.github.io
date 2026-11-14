@@ -1,0 +1,53 @@
+/* Concrete design work, alongside the existing copper-light portfolio. */
+.home-workflow { margin: 0 0 32px; padding: 25px 28px; border: 1px solid var(--line); border-radius: 16px; background: linear-gradient(120deg, #f4c4920b, #1c130e35); }
+.home-workflow-title { margin: 0 0 22px; color: var(--ink); font-family: var(--font-display); font-size: 21px; font-weight: 650; }
+.home-workflow-steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 25px; list-style: none; margin: 0; padding: 0; }
+.home-workflow-step { min-width: 0; position: relative; padding-top: 15px; border-top: 1px solid #eac09038; }
+.home-workflow-index { color: #deb88a; font: italic 16px/1.5 Georgia, serif; }
+.home-workflow-step h4 { display: inline; margin-left: 10px; color: #f5dfc2; font-size: 14px; font-weight: 650; }
+.home-workflow-description { margin: 9px 0 0; color: #e2cbb0; font-size: 12px; line-height: 1.8; }
+.home-workflow-evidence { margin: 9px 0 0; color: #c9ad8e; font-size: 10px; line-height: 1.7; }
+.home-analysis-panel { grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: 46px; }
+.home-analysis-title { max-width: none; }
+.home-analysis-summary { max-width: none; }
+.home-analysis-systems { margin-top: 22px; }
+.home-analysis-system { padding: 17px 0; border-top: 1px solid #efc79829; }
+.home-analysis-system:last-child { padding-bottom: 0; }
+.home-analysis-system-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+.home-analysis-system h4 { margin: 0; color: #fae4c5; font-size: 14px; font-weight: 700; }
+.home-analysis-reference { color: #c9ad8e; font-size: 10px; white-space: nowrap; }
+.home-analysis-system .home-tags { margin-top: 9px; gap: 6px; }
+.home-analysis-system .home-tag { background: #e6bb8212; border: 1px solid #e6bb822b; color: #edc89c; border-radius: 5px; font-size: 11px; font-weight: 500; }
+.home-analysis-insight { margin: 10px 0 0 !important; color: #e1cbb0; font-size: 12px; line-height: 1.85; }
+.home-analysis-pages { align-self: center; }
+.home-capabilities .home-section-heading { padding-bottom: 20px; margin-bottom: 0; border-bottom: 1px solid var(--line); }
+.home-capabilities .home-section-title { font-size: 27px; }
+.home-capability { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.5fr); gap: 36px; align-items: start; padding: 26px 0; border-bottom: 1px solid var(--line); }
+.home-capability-name h3 { margin: 0; color: #f5dfc2; font-family: var(--font-display); font-size: 20px; }
+.home-capability-tools { margin: 9px 0 0; color: #d9b58f; font-size: 11px; line-height: 1.8; }
+.home-capability-application { margin: 0; color: #e4ccaf; font-size: 13px; line-height: 1.85; }
+.home-capability-evidence { margin: 9px 0 0; color: #c9ad8e; font-size: 11px; line-height: 1.8; }
+@media (max-width: 1050px) {
+  .home-workflow { padding: 23px; }
+  .home-workflow-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+  .home-analysis-panel { grid-template-columns: minmax(0, 1.25fr) minmax(0, .75fr); gap: 26px; }
+}
+@media (max-width: 760px) {
+  .home-workflow { padding: 22px 20px; margin-bottom: 22px; }
+  .home-workflow-title { font-size: 20px; margin-bottom: 18px; }
+  .home-workflow-steps { grid-template-columns: 1fr; gap: 17px; }
+  .home-workflow-step { padding-top: 12px; }
+  .home-workflow-evidence { margin-top: 5px; }
+  .home-analysis-panel { grid-template-columns: 1fr; }
+  .home-analysis-system-heading { gap: 8px; }
+  .home-analysis-reference { font-size: 9px; }
+  .home-analysis-pages { width: 100%; }
+  .home-capabilities .home-section-title { font-size: 26px; }
+  .home-capability { grid-template-columns: 1fr; gap: 13px; padding: 23px 0; }
+  .home-capability-tools { margin-top: 5px; }
+}
+@media print {
+  .home-workflow, .home-analysis-system, .home-capability { break-inside: avoid; }
+  .home-workflow, .home-analysis-system .home-tag { background: transparent; }
+  .home-workflow h4, .home-workflow p, .home-workflow-index, .home-analysis-system h4, .home-analysis-system p, .home-analysis-reference, .home-analysis-system .home-tag, .home-capability h3, .home-capability p { color: #302b24; }
+}

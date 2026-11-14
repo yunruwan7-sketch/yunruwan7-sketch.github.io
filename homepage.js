@@ -171,10 +171,30 @@
     return card;
   }
 
-  function renderGames(projects) {
+  function renderWorkflow(data) {
+    const workflow = element('section', 'home-workflow');
+    const title = element('h3', 'home-workflow-title', '从设计方案，到可玩的原型');
+    title.id = 'workflow-title';
+    workflow.setAttribute('aria-labelledby', title.id);
+    workflow.append(title);
+    const steps = element('ol', 'home-workflow-steps');
+    (data.developmentWorkflow || []).forEach(function (step, index) {
+      const item = element('li', 'home-workflow-step');
+      item.append(element('span', 'home-workflow-index', '0' + (index + 1)));
+      item.append(element('h4', '', step.title));
+      item.append(element('p', 'home-workflow-description', step.description));
+      item.append(element('p', 'home-workflow-evidence', step.evidence));
+      steps.append(item);
+    });
+    workflow.append(steps);
+    return workflow;
+  }
+
+  function renderGames(projects, data) {
     const section = element('section', 'home-section home-games');
     section.id = 'games';
-    section.append(sectionHeading('游戏项目', '玩法、系统与可玩的原型。', '01', 'GAME PROJECTS'));
+    section.append(sectionHeading('游戏项目', '4个项目 · 唯一策划 · 协作交付 Demo', '01', 'GAME PROJECTS'));
+    if (data.developmentWorkflow && data.developmentWorkflow.length) section.append(renderWorkflow(data));
     const grid = element('div', 'home-games-grid');
     ['workplace-oasis', 'band-rhythm', 'train-rescue', 'sheep-castle'].forEach(function (id) {
       if (projects.has(id)) grid.append(renderGameCard(projects.get(id)));
@@ -191,18 +211,27 @@
     const copy = element('div', 'home-analysis-copy');
     copy.append(element('p', 'home-eyebrow', '独立拆解 · 42页报告'));
     copy.append(element('h3', 'home-analysis-title', '《三国志幻想大陆2：枭之歌》'));
-    copy.append(element('p', 'home-analysis-subtitle', '战斗、养成与付费结构'));
-    copy.append(element('p', 'home-analysis-summary', '梳理系统之间的关联，结合玩家反馈分析养成深度与追赶压力，并提出调整建议。'));
-    copy.append(tags(['战斗系统', '养成结构', '付费设计']));
+    copy.append(element('p', 'home-analysis-summary', '从战斗决策、养成投入到体验负担，分析规则如何影响玩家选择。'));
+    const systems = element('div', 'home-analysis-systems');
+    (project.analysisHighlights || []).forEach(function (highlight) {
+      const system = element('section', 'home-analysis-system');
+      const heading = element('div', 'home-analysis-system-heading');
+      heading.append(element('h4', '', highlight.title));
+      heading.append(element('span', 'home-analysis-reference', highlight.reference));
+      system.append(heading, tags(highlight.keywords));
+      system.append(element('p', 'home-analysis-insight', highlight.insight));
+      systems.append(system);
+    });
+    copy.append(systems);
     copy.append(link('阅读拆解', '#work/' + project.id + '/overview', 'home-button home-button-primary'));
     panel.append(copy);
     const pages = element('div', 'home-analysis-pages');
     pages.append(figure('./assets/work/sanhuan-cover.jpg', '三国志幻想大陆2枭之歌拆解原报告第1页封面，保留完整标题',
       '报告封面', 'home-report-page home-report-cover'));
-    pages.append(figure('./assets/work/sanhuan-page05.jpg', '三国志幻想大陆2枭之歌拆解 · 原报告第5页',
-      '原报告 · 第5页', 'home-report-page'));
-    pages.append(figure('./assets/work/sanhuan-page06.jpg', '三国志幻想大陆2枭之歌拆解 · 原报告第6页',
-      '原报告 · 第6页', 'home-report-page'));
+    pages.append(figure('./assets/documents/sanhuan-pages/page-10.webp', '战斗系统拆解 · 原报告第10页',
+      '战斗系统 · 第10页', 'home-report-page'));
+    pages.append(figure('./assets/documents/sanhuan-pages/page-21.webp', '养成与追赶压力分析 · 原报告第21页',
+      '养成分析 · 第21页', 'home-report-page'));
     panel.append(pages);
     section.append(panel);
     return section;
@@ -216,6 +245,28 @@
     return section;
   }
 
+  function renderCapabilities(data) {
+    const section = element('section', 'home-section home-capabilities');
+    section.id = 'capabilities';
+    section.setAttribute('aria-labelledby', 'capabilities-title');
+    const heading = sectionHeading('辅助策划的制作能力', '工具对应具体工作与产出。');
+    heading.querySelector('h2').id = 'capabilities-title';
+    section.append(heading);
+    const list = element('div', 'home-capability-list');
+    (data.skillApplications || []).forEach(function (skill) {
+      const row = element('article', 'home-capability');
+      const name = element('div', 'home-capability-name');
+      name.append(element('h3', '', skill.title), element('p', 'home-capability-tools', skill.tools));
+      const copy = element('div', 'home-capability-copy');
+      copy.append(element('p', 'home-capability-application', skill.application));
+      copy.append(element('p', 'home-capability-evidence', '对应产出：' + skill.evidence));
+      row.append(name, copy);
+      list.append(row);
+    });
+    section.append(list);
+    return section;
+  }
+
   function render() {
     const mount = document.getElementById('home-content');
     const data = window.PORTFOLIO_DATA;
@@ -224,9 +275,10 @@
       return [project.id, project];
     }));
     const page = element('div', 'home-page');
-    page.append(renderHero(data), renderGames(projects));
+    page.append(renderHero(data), renderGames(projects, data));
     if (projects.has('sanhuan-analysis')) page.append(renderAnalysis(projects.get('sanhuan-analysis')));
     if (projects.has('aruna-story')) page.append(renderAigc(projects.get('aruna-story')));
+    if (data.skillApplications && data.skillApplications.length) page.append(renderCapabilities(data));
     mount.replaceChildren(page);
     return true;
   }

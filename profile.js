@@ -18,8 +18,8 @@ window.PORTFOLIO_DATA = {
       "text": "巨人网络《名将杀》系统策划实习；另有唯品会编导、央视导演组实习经历。"
     },
     {
-      "title": "Game Jam · 主策与原型",
-      "text": "负责玩法与关卡设计、Unity／Godot 原型，参与 Vibe Coding 与音效制作。"
+      "title": "游戏开发 · 主策与交付",
+      "text": "担任4个游戏项目唯一策划，承担规则、配置与需求输出，对接程序、美术并协作交付 Demo。"
     }
   ],
   "email": "2861127300@qq.com",
@@ -28,6 +28,48 @@ window.PORTFOLIO_DATA = {
   "itchUrl": "https://manunyeo.itch.io/",
   "resumePdf": "./assets/resume.pdf",
   "resumePreview": "./assets/resume-preview.png",
+  "developmentWorkflow": [
+    {
+      "title": "玩法与规则",
+      "description": "定义核心循环、操作条件、状态分支与异常处理。",
+      "evidence": "《逃离女巫城堡》 · 26页策划案"
+    },
+    {
+      "title": "配置与数值",
+      "description": "整理资源产耗、配方与结算规则，形成可执行配置。",
+      "evidence": "《工位绿洲》 · 21组配方、3项资源"
+    },
+    {
+      "title": "需求与协作",
+      "description": "输出界面与交互说明，拆分程序、美术及音频需求。",
+      "evidence": "《失序乐章》 · 战斗UI与需求标注"
+    },
+    {
+      "title": "原型与交付",
+      "description": "协作制作原型、跟进实现反馈，参与部分 Vibe Coding。",
+      "evidence": "Unity／Godot · 可玩的 Demo"
+    }
+  ],
+  "skillApplications": [
+    {
+      "title": "规则与数值",
+      "tools": "XMind · Excel · VLOOKUP",
+      "application": "梳理系统流程与状态关系，维护配置表，试算资源产耗与战斗数值。",
+      "evidence": "配方与资源配置、音符消耗、Boss血量方案"
+    },
+    {
+      "title": "界面与原型",
+      "tools": "Figma · Unity／Godot · Vibe Coding",
+      "application": "输出界面与交互标注，参与2D原型和交互逻辑实现，将设计规则落到 Demo。",
+      "evidence": "系统入口与战斗UI、合成与跑酷解谜原型"
+    },
+    {
+      "title": "内容与表达",
+      "tools": "脚本分镜 · PR · Liblib AI · ComfyUI",
+      "application": "用分镜表达叙事与镜头，用剪辑呈现玩法；编排AIGC视觉工作流，辅助制作素材与音效。",
+      "evidence": "《阿鲁纳东巴画奇遇》、Demo演示与音效素材"
+    }
+  ],
   "skills": [
     {
       "group": "策划与原型",
@@ -513,7 +555,27 @@ window.PORTFOLIO_DATA = {
       "period": "2026.09",
       "team": "独立分析",
       "role": "系统分析与改版建议",
-      "summary": "独立完成42页拆解，梳理战斗、7条养成线与付费结构；结合玩家差评分析养成深度和追赶压力，并提出改版建议。",
+      "summary": "独立完成42页报告，拆解九宫格站位、共享战意与自动战斗，以及觉醒、风物、装备和抽卡付费；分析全队资源取舍与中期追赶压力，提出同段匹配、日常5选3和关卡阵容推荐。",
+      "analysisHighlights": [
+        {
+          "title": "战斗系统",
+          "keywords": ["九宫格站位", "共享战意", "自动战斗"],
+          "insight": "共享战意让技能释放成为全队公共资源的取舍；站位与自动战斗条件共同影响策略。",
+          "reference": "报告第10—11页"
+        },
+        {
+          "title": "养成与付费",
+          "keywords": ["觉醒", "风物", "装备", "抽卡"],
+          "insight": "结合养成与卡池结构分析投入深度，指出觉醒段差会加重中期追赶压力。",
+          "reference": "报告第16—21、28页"
+        },
+        {
+          "title": "优化建议",
+          "keywords": ["同段匹配", "日常5选3", "关卡阵容推荐"],
+          "insight": "围绕追赶压力、日常负担和阵容配置成本，分别提出匹配、任务减负与策略支持方案。",
+          "reference": "报告第39页"
+        }
+      ],
       "designGoal": "梳理核心循环与系统结构，识别养成深度、追赶压力等结构性矛盾，并在保留核心循环的前提下寻找调整空间。",
       "coreDesign": "分析九宫格站位、共享战意与编程式自动战斗；盘点7条养成线的产出消耗，以及卡池、礼包和整队付费深度。",
       "contributions": [
