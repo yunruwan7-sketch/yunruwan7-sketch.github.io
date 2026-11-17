@@ -1042,6 +1042,7 @@
       array(data.gameExperience).forEach((group) => {
         const section = node('div', 'game-experience-group');
         section.append(node('h4', '', `${group.group || '游戏体验'}${group.hours ? ` · ${group.hours}` : ''}`), node('p', '', array(group.games).join('、')));
+        if (group.summary) section.append(node('p', 'game-experience-depth', group.summary));
         games.append(section);
       });
       content.append(games);

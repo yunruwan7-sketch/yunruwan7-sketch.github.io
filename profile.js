@@ -26,8 +26,8 @@ window.PORTFOLIO_DATA = {
   "phone": "17856820690",
   "githubUrl": "https://github.com/yunruwan7-sketch",
   "itchUrl": "https://manunyeo.itch.io/",
-  "resumePdf": "./assets/resume.pdf",
-  "resumePreview": "./assets/resume-preview.png",
+  "resumePdf": "./assets/resume.pdf?v=6795c765c9ac",
+  "resumePreview": "./assets/resume-preview.png?v=3d5c33bca5de",
   "developmentWorkflow": [
     {
       "title": "玩法与规则",
@@ -46,7 +46,7 @@ window.PORTFOLIO_DATA = {
     },
     {
       "title": "原型、代码与交付",
-      "description": "使用 AI 辅助开发，参与 Unity C#／Godot 交互逻辑实现与调试，并根据试玩结果修正流程、反馈与任务提示。",
+      "description": "参与 Unity C#／Godot GDScript 交互逻辑、配置接入与调试，并根据试玩结果修正流程、反馈与任务提示。",
       "evidence": "调查册、对话交互、任务引导与跑酷解谜原型"
     }
   ],
@@ -59,7 +59,7 @@ window.PORTFOLIO_DATA = {
     },
     {
       "title": "界面与原型",
-      "tools": "Figma · Unity／Godot · C# · AI辅助开发",
+      "tools": "Figma · Unity C# · Godot GDScript · Git",
       "application": "输出界面与交互标注，参与2D原型、交互逻辑、配置接入和调试，将设计规则落到 Demo。",
       "evidence": "调查册与任务引导、战斗UI、合成与跑酷解谜原型"
     },
@@ -78,7 +78,7 @@ window.PORTFOLIO_DATA = {
         "Godot",
         "GDevelop",
         "Unity C#／Godot交互逻辑",
-        "AI辅助开发",
+        "功能接入、调试与测试",
         "2D原型、场景与UI",
         "JSON配置与Git",
         "Excel配置表、公式与VLOOKUP",
@@ -148,7 +148,7 @@ window.PORTFOLIO_DATA = {
       "status": "Demo / 设计案",
       "period": "2026.09",
       "team": "翌光计划｜武汉全球高校游戏创作挑战赛 · 武汉大学站",
-      "role": "主策，另负责部分 Vibe Coding 与音效生成",
+      "role": "主策，参与 Unity C# 原型逻辑接入与调试，并生成部分音效",
       "summary": "围绕“生长”设计约3分钟单局，串联元素获取、天气合成与植物养成，通过水分区间停留时间判定6种植物结局。",
       "designGoal": "将“生长”主题转化为约3分钟的单局体验，通过元素、天气与植物养成组织玩家的操作与选择。",
       "coreDesign": "配置6种元素与0—100范围的三资源；以水分区间停留时间判定6种植物结局，配合背包分类、双槽合成、结算预览与异常配对规则。",
@@ -156,7 +156,7 @@ window.PORTFOLIO_DATA = {
         "设计元素获取、天气合成与植物养成的玩法及数值规则。",
         "设计背包分类、双槽合成、结算预览和异常配对规则。",
         "输出流程、配置表及美术／UI／音效需求，对接程序与美术落地Demo。",
-        "负责部分 Vibe Coding，并生成部分音效。"
+        "将配方与三资源规则转成可执行配置，参与双槽合成、背包投放与结算反馈的原型接入和异常条件联调；生成并接入部分音效。"
       ],
       "validation": [],
       "tags": [
@@ -453,7 +453,7 @@ window.PORTFOLIO_DATA = {
       "team": "thatgamejam · thatgamecompany",
       "engine": "Godot",
       "roleLabel": "我的职责",
-      "role": "主策，另负责部分 Vibe Coding",
+      "role": "主策，参与 Godot GDScript 交互实现与调试",
       "contributionTitle": "我的职责",
       "summary": "将自动跑酷与城堡解谜结合，以5关、8张独立地图组织能力获取、跨关回访和路线选择，关联普通失败、真正逃脱与隐藏逃脱三种结局。",
       "designGoal": "让能力解锁改变玩家对旧路线的理解，以回访、探索和隐藏路径组织逃脱过程。",
@@ -462,7 +462,7 @@ window.PORTFOLIO_DATA = {
         "设计能力获取与跨关回访机制，规划普通路线和隐藏路线的能力门槛。",
         "设计主线、探索线与隐藏路线，并组织对应的线索和逃脱结局。",
         "细化交互窗口、重试条件，以及永久能力与关卡进度的规则。",
-        "负责部分 Vibe Coding。"
+        "参与 Godot GDScript 实现与调试：接入中英文切换，迭代空间冲刺速度与圆环反馈、镜中重力教程、音频和存档。"
       ],
       "validation": [
         "围绕空间冲刺节奏、镜中操作引导与慢动作连贯性持续迭代；已提供中英文网页试玩。"
@@ -1536,52 +1536,47 @@ window.PORTFOLIO_DATA = {
   ],
   "gameExperience": [
     {
-      "group": "女性向／卡牌",
+      "group": "长线运营产品",
       "games": [
-        "代号鸢",
-        "世界之外",
-        "三国志幻想大陆2：枭之歌",
-        "王者万象棋",
-        "小丑牌"
+        "代号鸢（3年+／80级）",
+        "世界之外（2年半+／100级）",
+        "无限暖暖（约1年9个月／95级）",
+        "燕云十六声（约1年9个月／100级）",
+        "三国志幻想大陆2：枭之歌（1年+／101级／42页系统拆解）",
+        "王者万象棋（测试期至黄金Ⅴ）"
       ],
-      "hours": "1000h+"
+      "hours": "6款开服／测试期持续跟进",
+      "summary": "关注版本活动、角色与卡池养成、探索任务、战斗系统及商业化。"
     },
     {
-      "group": "开放世界／动作／MMO",
+      "group": "策略／经营",
       "games": [
-        "燕云十六声",
-        "原神",
-        "无限暖暖",
-        "逆水寒",
-        "仙遇",
-        "古墓丽影",
-        "寂静岭f"
+        "苏丹的游戏（300h+）",
+        "星露谷物语（500h+）",
+        "模拟人生4（500h+）",
+        "小丑牌（200h+）"
       ],
-      "hours": "1000h+"
+      "hours": "1500h+",
+      "summary": "关注资源循环、事件链、牌组构筑、长期经营与多周目叙事。"
     },
     {
-      "group": "模拟经营",
+      "group": "叙事／解谜",
       "games": [
-        "星露谷物语",
-        "模拟人生4",
-        "微信、抖音小程序游戏"
-      ]
-    },
-    {
-      "group": "解谜／叙事",
-      "games": [
-        "锈湖",
-        "文字化化",
-        "本所七大不可思议",
-        "逆转裁判",
-        "苏丹的游戏"
-      ]
+        "逆转裁判系列（200h+）",
+        "锈湖系列（150h+）",
+        "文字化化（60h+）",
+        "本所七大不可思议（40h+）",
+        "古墓丽影系列（200h+）",
+        "寂静岭f（50h+）"
+      ],
+      "hours": "700h+",
+      "summary": "关注调查取证、线索串联、信息差、多视角叙事与多结局。"
     }
   ],
   "gameAnalysisFocus": [
-    "角色养成与商业化",
-    "任务动线",
-    "探索与版本活动",
-    "信息引导"
+    "版本活动与商业化",
+    "资源循环与构筑",
+    "调查取证与信息差",
+    "多周目与分支叙事"
   ]
 };
