@@ -130,7 +130,7 @@
       className: 'home-game-train',
       label: '悬疑解谜',
       caption: '工作车厢 · 项目场景画面',
-      summary: '围绕列车上的危机，设计搜证、昼夜分支、行动准备与事件状态规则。'
+      summary: '围绕列车危机设计证言配对、物证补证、动机推理与昼夜行动，并参与交互逻辑实现。'
     },
     'sheep-castle': {
       className: 'home-game-sheep',
@@ -193,7 +193,7 @@
   function renderGames(projects, data) {
     const section = element('section', 'home-section home-games');
     section.id = 'games';
-    section.append(sectionHeading('游戏项目', '4个项目 · 唯一策划 · 协作交付 Demo', '01', 'GAME PROJECTS'));
+    section.append(sectionHeading('游戏项目', '4个项目 · 唯一策划 · 设计、实现与交付', '01', 'GAME PROJECTS'));
     if (data.developmentWorkflow && data.developmentWorkflow.length) section.append(renderWorkflow(data));
     const grid = element('div', 'home-games-grid');
     ['workplace-oasis', 'band-rhythm', 'train-rescue', 'sheep-castle'].forEach(function (id) {

@@ -18,8 +18,8 @@ window.PORTFOLIO_DATA = {
       "text": "巨人网络《名将杀》系统策划实习；另有唯品会编导、央视导演组实习经历。"
     },
     {
-      "title": "游戏开发 · 主策与交付",
-      "text": "担任4个游戏项目唯一策划，承担规则、配置与需求输出，对接程序、美术并协作交付 Demo。"
+      "title": "游戏开发 · 主策与实现",
+      "text": "担任4个游戏项目唯一策划，负责规则、配置与需求输出，并参与 Unity／Godot 交互逻辑实现、调试和 Demo 交付。"
     }
   ],
   "email": "2861127300@qq.com",
@@ -45,9 +45,9 @@ window.PORTFOLIO_DATA = {
       "evidence": "《失序乐章》 · 战斗UI与需求标注"
     },
     {
-      "title": "原型与交付",
-      "description": "协作制作原型、跟进实现反馈，参与部分 Vibe Coding。",
-      "evidence": "Unity／Godot · 可玩的 Demo"
+      "title": "原型、代码与交付",
+      "description": "使用 AI 辅助开发，参与 Unity C#／Godot 交互逻辑实现与调试，并根据试玩结果修正流程、反馈与任务提示。",
+      "evidence": "调查册、对话交互、任务引导与跑酷解谜原型"
     }
   ],
   "skillApplications": [
@@ -59,9 +59,9 @@ window.PORTFOLIO_DATA = {
     },
     {
       "title": "界面与原型",
-      "tools": "Figma · Unity／Godot · Vibe Coding",
-      "application": "输出界面与交互标注，参与2D原型和交互逻辑实现，将设计规则落到 Demo。",
-      "evidence": "系统入口与战斗UI、合成与跑酷解谜原型"
+      "tools": "Figma · Unity／Godot · C# · AI辅助开发",
+      "application": "输出界面与交互标注，参与2D原型、交互逻辑、配置接入和调试，将设计规则落到 Demo。",
+      "evidence": "调查册与任务引导、战斗UI、合成与跑酷解谜原型"
     },
     {
       "title": "内容与表达",
@@ -77,9 +77,10 @@ window.PORTFOLIO_DATA = {
         "Unity",
         "Godot",
         "GDevelop",
-        "Vibe Coding",
+        "Unity C#／Godot交互逻辑",
+        "AI辅助开发",
         "2D原型、场景与UI",
-        "交互事件逻辑",
+        "JSON配置与Git",
         "Excel配置表、公式与VLOOKUP",
         "XMind"
       ]
@@ -331,33 +332,33 @@ window.PORTFOLIO_DATA = {
       "title": "《技术宅拯救车厢》",
       "shortTitle": "《技术宅拯救车厢》",
       "category": "game",
-      "status": "Game Jam · 设计案",
-      "period": "2026",
+      "status": "可运行 Demo · 设计与实现",
+      "period": "2026.10—11",
       "team": "2026 第十届 MAKERS 游戏开发大赛",
       "engine": "Unity",
       "roleLabel": "我的职责",
-      "role": "主策，另承担部分美术与音乐工作",
+      "role": "主策，参与 Unity C#／JSON 实现与调试，另承担部分美术与音乐工作",
       "contributionTitle": "我的职责",
-      "summary": "老旧列车上的悬疑解谜方案：围绕爆炸阴谋组织搜证、判断与行动准备，通过白天调查和夜间埋伏两条路线完成拯救。",
+      "summary": "围绕列车爆炸危机设计调查与救援流程，以证言配对、物证补证和动机推理推进判断，并让白天调查影响夜间行动准备。",
       "designGoal": "让不同调查顺序与行动准备方式都能形成合理路线，以时间推进制造紧迫感，同时保留可理解的试错与结局边界。",
-      "coreDesign": "以人证、物证两条证据链支持非线性调查；白天借复检接近目标，夜间通过假人、藏身和保密准备埋伏。用持续时钟、关键事件优先级与保存状态调度分支。",
+      "coreDesign": "以“证言收集—寄件配对—主角质疑—物证补证—动机推理—行动选择”组织调查闭环；白天调查结果影响夜间假人、查床与埋伏准备，并以持续时钟、阶段任务和存档状态调度分支。",
       "contributions": [
-        "设计人证与物证两条证据链，支持不同的线索发现顺序。",
-        "规划白天调查与夜间埋伏两条路线，设计来访、查床和午夜事件节奏。",
-        "制定警觉、累计试错、自动保存与结局锁定的状态规则。",
-        "承担部分美术与音乐工作。"
+        "设计证言配对、物证补证、动机推理及昼夜行动流程。",
+        "参与 Unity C# 与 JSON 配置实现，迭代调查册状态流、对话分页与点击推进、任务引导和九宫格钥匙谜题。",
+        "处理任务阶段切换、冷启动续读和旧档兼容，并按完整流程联调分支衔接。",
+        "输出美术与音频需求，并承担部分素材制作。"
       ],
       "validation": [
-        "原案列出昼夜分支、关键时刻与状态保存的原型核对清单。"
+        "80项 EditMode 测试及7个 PlayMode 场景用例通过，覆盖调查流程、存档续读与关键分支。"
       ],
       "tags": [
         "剧情解谜",
-        "双路线",
-        "状态管理"
+        "系统设计",
+        "Unity C#"
       ],
       "playUrl": "",
       "reelUrl": "",
-      "sourceUrl": "",
+      "sourceUrl": "https://github.com/zdz10124-dev/LeihoGamejam2026",
       "downloadUrl": "",
       "gallery": [
         {
