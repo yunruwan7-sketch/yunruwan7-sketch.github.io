@@ -1042,7 +1042,6 @@
       array(data.gameExperience).forEach((group) => {
         const section = node('div', 'game-experience-group');
         section.append(node('h4', '', `${group.group || '游戏体验'}${group.hours ? ` · ${group.hours}` : ''}`), node('p', '', array(group.games).join('、')));
-        if (group.summary) section.append(node('p', 'game-experience-depth', group.summary));
         games.append(section);
       });
       content.append(games);
@@ -1055,10 +1054,10 @@
     resumeContent.querySelector('h2').id = 'resume-title';
     const actions = node('div', 'resume-actions');
     if (resumePdf) {
-      const preview = node('button', 'resume-pdf', '预览原版 PDF');
-      preview.type = 'button';
-      preview.addEventListener('click', () => previewDocument({ title: data.name || '个人', resourceType: 'resume' }, resumePdf, preview));
-      actions.append(preview, link('打开原版 PDF', resumePdf, 'resume-pdf'));
+      const openPdf = link('打开简历 PDF', resumePdf, 'resume-pdf');
+      openPdf.target = '_blank';
+      openPdf.rel = 'noopener noreferrer';
+      actions.append(openPdf);
     }
     else {
       const print = node('button', 'resume-print', '打印 / 保存网页简历');

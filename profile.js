@@ -26,8 +26,8 @@ window.PORTFOLIO_DATA = {
   "phone": "17856820690",
   "githubUrl": "https://github.com/yunruwan7-sketch",
   "itchUrl": "https://manunyeo.itch.io/",
-  "resumePdf": "./assets/resume.pdf?v=6795c765c9ac",
-  "resumePreview": "./assets/resume-preview.png?v=3d5c33bca5de",
+  "resumePdf": "./assets/resume.pdf?v=d4aab7065e4e",
+  "resumePreview": "./assets/resume-preview.png?v=289045b76242",
   "developmentWorkflow": [
     {
       "title": "玩法与规则",
@@ -77,7 +77,7 @@ window.PORTFOLIO_DATA = {
         "Unity",
         "Godot",
         "GDevelop",
-        "Unity C#／Godot交互逻辑",
+        "Unity C#／Godot GDScript交互逻辑",
         "功能接入、调试与测试",
         "2D原型、场景与UI",
         "JSON配置与Git",
@@ -1536,47 +1536,52 @@ window.PORTFOLIO_DATA = {
   ],
   "gameExperience": [
     {
-      "group": "长线运营产品",
+      "group": "女性向／卡牌",
       "games": [
-        "代号鸢（3年+／80级）",
-        "世界之外（2年半+／100级）",
-        "无限暖暖（约1年9个月／95级）",
-        "燕云十六声（约1年9个月／100级）",
-        "三国志幻想大陆2：枭之歌（1年+／101级／42页系统拆解）",
-        "王者万象棋（测试期至黄金Ⅴ）"
+        "代号鸢",
+        "世界之外",
+        "三国志幻想大陆2：枭之歌",
+        "王者万象棋",
+        "小丑牌"
       ],
-      "hours": "6款开服／测试期持续跟进",
-      "summary": "关注版本活动、角色与卡池养成、探索任务、战斗系统及商业化。"
+      "hours": "1000h+"
     },
     {
-      "group": "策略／经营",
+      "group": "开放世界／动作／MMO",
       "games": [
-        "苏丹的游戏（300h+）",
-        "星露谷物语（500h+）",
-        "模拟人生4（500h+）",
-        "小丑牌（200h+）"
+        "燕云十六声",
+        "原神",
+        "无限暖暖",
+        "逆水寒",
+        "仙遇",
+        "古墓丽影",
+        "寂静岭f"
       ],
-      "hours": "1500h+",
-      "summary": "关注资源循环、事件链、牌组构筑、长期经营与多周目叙事。"
+      "hours": "1000h+"
     },
     {
-      "group": "叙事／解谜",
+      "group": "模拟经营",
       "games": [
-        "逆转裁判系列（200h+）",
-        "锈湖系列（150h+）",
-        "文字化化（60h+）",
-        "本所七大不可思议（40h+）",
-        "古墓丽影系列（200h+）",
-        "寂静岭f（50h+）"
-      ],
-      "hours": "700h+",
-      "summary": "关注调查取证、线索串联、信息差、多视角叙事与多结局。"
+        "星露谷物语",
+        "模拟人生4",
+        "微信、抖音小程序游戏"
+      ]
+    },
+    {
+      "group": "解谜／叙事",
+      "games": [
+        "锈湖",
+        "文字化化",
+        "本所七大不可思议",
+        "逆转裁判",
+        "苏丹的游戏"
+      ]
     }
   ],
   "gameAnalysisFocus": [
-    "版本活动与商业化",
-    "资源循环与构筑",
-    "调查取证与信息差",
-    "多周目与分支叙事"
+    "角色养成与商业化",
+    "任务动线",
+    "探索与版本活动",
+    "信息引导"
   ]
 };

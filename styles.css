@@ -190,7 +190,6 @@ dialog::backdrop { background:#211c186e;backdrop-filter:blur(3px); }
 .timeline-period,.timeline-org { font-size:12px!important;color:var(--muted)!important; }
 .timeline-item p { white-space:pre-line;margin:7px 0; }
 .skill-group,.game-experience-group { margin-bottom:18px; }
-.game-experience-depth { margin-top:6px;color:var(--muted);line-height:1.65; }
 .skill-tags { display:flex;gap:7px;flex-wrap:wrap; }
 .skill-tags span { padding:5px 8px;background:#edf1df;border-radius:5px;font-size:12px;color:var(--secondary-strong); }
 .resume-pdf,.resume-print,.copy-email,.email-link,.contact-actions>a,.document-original { display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:10px 14px;border:1px solid var(--line-strong);border-radius:7px;background:var(--surface);color:var(--accent-strong);font-size:12px;font-weight:650; }
