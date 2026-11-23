@@ -337,19 +337,25 @@ window.PORTFOLIO_DATA = {
       "team": "2026 第十届 MAKERS 游戏开发大赛",
       "engine": "Unity",
       "roleLabel": "我的职责",
-      "role": "主策，参与 Unity C#／JSON 实现与调试，另承担部分美术与音乐工作",
+      "role": "团队唯一策划 · 参与 Unity C# 实现与 JSON 配置",
       "contributionTitle": "我的职责",
-      "summary": "围绕列车爆炸危机设计调查与救援流程，以证言配对、物证补证和动机推理推进判断，并让白天调查影响夜间行动准备。",
-      "designGoal": "让不同调查顺序与行动准备方式都能形成合理路线，以时间推进制造紧迫感，同时保留可理解的试错与结局边界。",
-      "coreDesign": "以“证言收集—寄件配对—主角质疑—物证补证—动机推理—行动选择”组织调查闭环；白天调查结果影响夜间假人、查床与埋伏准备，并以持续时钟、阶段任务和存档状态调度分支。",
+      "featuredHighlights": [
+        "重构双页调查册，串起寄件配对、物证补查和动机验证。",
+        "设计 4 种行动选择，定义 1 个成功与 3 个失败结局的触发条件。",
+        "参与接入 27 条任务提示、逐字对白和存读档。"
+      ],
+      "summary": "玩家要赶在午夜前查清列车危机的来龙去脉。白天问询、翻查终端和物品，查明动机后选择告知谁。这个决定会影响夜间的查床、准备与救援行动。",
+      "designGoal": "把人证与物证接成一条有前后关系的调查线。玩家先靠证言与寄件记录锁定嫌疑人，再去查物证回答他为什么这样做。行动时间有限，但玩家需要能看懂自己的选择会带来什么后果。",
+      "coreDesign": "双页调查册区分证言和物证。寄件配对正确后才开启动机调查，配错会保留已选答案供修改。提交动机后，玩家可以当众指认、只告诉阿福、只告诉大海，或暂时隐瞒。23:50 关闭夜间的新出手机会，已经开始的行动可继续，24:00 才判定是否超时。",
       "contributions": [
-        "设计证言配对、物证补证、动机推理及昼夜行动流程。",
-        "参与 Unity C# 与 JSON 配置实现，迭代调查册状态流、对话分页与点击推进、任务引导和九宫格钥匙谜题。",
-        "处理任务阶段切换、冷启动续读和旧档兼容，并按完整流程联调分支衔接。",
-        "输出美术与音频需求，并承担部分素材制作。"
+        "主导双页调查册和任务流程迭代，梳理配对解锁、错答反馈及补查物证的前置条件。",
+        "设计 4 种告知或隐瞒选择与 4 种结局，明确昼夜行动、角色警觉、失败和超时的判定。重做九宫格钥匙支线，并给玩家留出返回主线的机会。",
+        "参与 Unity C# 实现与 JSON 配置，接入 27 条阶段提示及逐字对白。对白播放中点击可补全本句，播完后再次点击进入下一句。",
+        "接入 3 个手动存档位和剧情自动存档，修复读档后地面物品丢失导致支线卡住的问题，并逐条回归验证 4 种结局。",
+        "制定场景交互优先级，让鼠标指向、行进目的地和附近物件共用单目标高亮。输出美术、音频需求，并承担部分素材制作。"
       ],
       "validation": [
-        "80项 EditMode 测试及7个 PlayMode 场景用例通过，覆盖调查流程、存档续读与关键分支。"
+        "在 Unity 中跑通白天调查与夜间行动，验证全部 4 种结局、场景交互及存档恢复。"
       ],
       "tags": [
         "剧情解谜",
@@ -362,28 +368,22 @@ window.PORTFOLIO_DATA = {
       "downloadUrl": "",
       "gallery": [
         {
-          "src": "./assets/work/train-work-car.png",
-          "alt": "工作车厢 · 项目场景画面",
-          "caption": "工作车厢 · 项目场景画面",
+          "src": "./assets/work/train-interaction-gameplay.png",
+          "alt": "工作区实机画面，左上显示任务，右上显示时间，金边标出当前交互目标",
+          "caption": "工作区实机 · 任务提示、时钟与单目标高亮",
           "type": "screenshot"
         },
         {
-          "src": "./assets/work/train-dorm-rest.png",
-          "alt": "宿舍车厢的四名角色休息状态",
-          "caption": "宿舍车厢 · Unity 场景预览",
-          "type": "screenshot"
-        },
-        {
-          "src": "./assets/work/train-dorm-awake.png",
-          "alt": "宿舍车厢的四名角色坐起状态",
-          "caption": "角色起身状态 · Unity 场景预览",
+          "src": "./assets/work/train-investigation-gameplay.png",
+          "alt": "双页调查册实机画面，左页是证言关键词，右页是寄件配对",
+          "caption": "调查册实机 · 证言与寄件配对",
           "type": "screenshot"
         }
       ],
       "galleryLabel": "项目画面",
-      "coverImage": "./assets/work/train-work-car.png",
-      "coverAlt": "工作车厢 · 项目场景画面",
-      "coverCaption": "工作车厢 · 项目场景画面",
+      "coverImage": "./assets/work/train-title-gameplay.png",
+      "coverAlt": "《技术宅拯救车厢》当前版本的游戏标题界面",
+      "coverCaption": "Unity 实机 · 游戏主菜单",
       "documentUrl": "https://ncntqap2jt5p.feishu.cn/wiki/HG5kwH7ZEiiCBRkaLWxcCc5Unuc",
       "documentLabel": "打开策划原文",
       "originalFileUrl": "https://ncntqap2jt5p.feishu.cn/wiki/RQ93wQbfwifrkEkMBbScgPELnIc?from=from_copylink",

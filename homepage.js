@@ -129,8 +129,7 @@
     'train-rescue': {
       className: 'home-game-train',
       label: '悬疑解谜',
-      caption: '工作车厢 · 项目场景画面',
-      summary: '围绕列车危机设计证言配对、物证补证、动机推理与昼夜行动，并参与交互逻辑实现。'
+      summary: '一趟列车即将发生事故。玩家白天问询、查证，入夜后根据掌握的线索决定如何救援。'
     },
     'sheep-castle': {
       className: 'home-game-sheep',
@@ -143,10 +142,13 @@
   function renderGameCard(project) {
     const content = gamePresentation[project.id];
     const card = element('article', 'home-game-card ' + content.className);
+    const highlights = project.featuredHighlights || [];
+    const featured = highlights.length > 0;
+    card.classList.toggle('home-game-featured', featured);
     card.dataset.project = project.id;
     if (project.coverImage) {
       const art = element('figure', 'home-game-art');
-      art.append(image(project.coverImage, project.coverAlt || project.title + '作品封面', 'home-image', false));
+      art.append(image(project.coverImage, project.coverAlt || project.title + '作品封面', 'home-image', featured));
       card.append(art);
     } else {
       const art = element('figure', 'home-game-art home-game-art-empty');
@@ -155,7 +157,7 @@
       card.append(art);
     }
     const copy = element('div', 'home-game-copy');
-    copy.append(element('p', 'home-game-type', [project.engine, content.label].filter(Boolean).join(' · ')));
+    copy.append(element('p', 'home-game-type', [featured && '主推项目', project.engine, content.label].filter(Boolean).join(' · ')));
     copy.append(element('h3', 'home-game-title', project.title));
     const eventLabel = project.eventLabel || project.team;
     if (eventLabel || project.period) {
@@ -166,7 +168,12 @@
     }
     copy.append(element('p', 'home-game-summary', content.summary));
     if (project.role) copy.append(element('p', 'home-project-role', project.role));
-    copy.append(projectActions(project));
+    if (featured) {
+      const list = element('ul', 'home-game-highlights');
+      highlights.forEach(function (highlight) { list.append(element('li', '', highlight)); });
+      copy.append(list);
+    }
+    copy.append(projectActions(project, featured ? '查看项目详情' : undefined));
     card.append(copy);
     return card;
   }
@@ -194,12 +201,12 @@
     const section = element('section', 'home-section home-games');
     section.id = 'games';
     section.append(sectionHeading('游戏项目', '4个项目 · 唯一策划 · 设计、实现与交付', '01', 'GAME PROJECTS'));
-    if (data.developmentWorkflow && data.developmentWorkflow.length) section.append(renderWorkflow(data));
     const grid = element('div', 'home-games-grid');
-    ['workplace-oasis', 'band-rhythm', 'train-rescue', 'sheep-castle'].forEach(function (id) {
+    ['train-rescue', 'workplace-oasis', 'band-rhythm', 'sheep-castle'].forEach(function (id) {
       if (projects.has(id)) grid.append(renderGameCard(projects.get(id)));
     });
     section.append(grid);
+    if (data.developmentWorkflow && data.developmentWorkflow.length) section.append(renderWorkflow(data));
     return section;
   }
 

@@ -144,6 +144,56 @@
   .home-project-link { display: inline-flex; align-items: center; min-height: 36px; color: #f8dcba !important; font-size: 12px; font-weight: 600; text-decoration: underline; text-underline-offset: 6px; text-decoration-color: #edc48f77; }
   .home-project-link::after { content: ""; position: absolute; inset: 0; z-index: 1; cursor: pointer; }
   .home-project-link:hover { text-decoration-color: #ffe1b7; }
+  .home-games-grid { grid-auto-rows: auto; }
+  .home-games > .home-workflow { margin: clamp(1.5rem, 4vw, 2.25rem) 0 0; }
+  .home-game-featured {
+    grid-column: 1 / -1;
+    border-color: #edc48f66;
+    background: linear-gradient(140deg, #462e21, #2c1d17 80%);
+  }
+  .home-game-featured .home-game-copy { min-width: 0; padding: clamp(1.3rem, 3.1vw, 2.25rem); }
+  .home-game-featured .home-game-title { font-size: clamp(1.68rem, 3.5vw, 2.55rem); }
+  .home-game-featured .home-game-type { font-size: .875rem; }
+  .home-game-featured .home-game-event { min-height: 0; font-size: .8125rem; }
+  .home-game-featured .home-game-summary { flex: none; font-size: 1rem; }
+  .home-game-featured .home-project-role { color: var(--accent-strong); font-size: .875rem; font-weight: 650; }
+  .home-game-highlights {
+    display: grid;
+    gap: .32rem;
+    margin: .6rem 0 0;
+    padding-left: 1.15em;
+    color: var(--body);
+    font-size: .875rem;
+    line-height: 1.7;
+  }
+  .home-game-highlights li::marker { color: var(--accent); }
+  .home-game-featured .home-project-link {
+    min-height: 44px;
+    padding: .6rem 1.15rem;
+    border: 1px solid #ffe0b284;
+    border-radius: 999px;
+    background: linear-gradient(155deg, #f8d8aa, #c99665);
+    box-shadow: inset 0 1px 0 #fff1d39c, 0 5px 16px #1e120a63;
+    color: #332116 !important;
+    font-size: .875rem;
+    text-decoration: none;
+  }
+  .home-game-featured:hover .home-project-link { background: linear-gradient(155deg, #ffe7c6, #dda873); }
+  @media (min-width: 1000px) {
+    .home-games-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  }
+  @media (min-width: 861px) {
+    .home-game-featured { display: grid; grid-template-columns: minmax(0, 1.23fr) minmax(0, 1fr); }
+    .home-game-featured .home-game-art { background: linear-gradient(#283a42, #1f211c); }
+    .home-game-featured .home-game-art .home-image {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      aspect-ratio: auto;
+      object-fit: contain;
+    }
+  }
   .home-play-status { display: inline-flex; align-items: center; gap: 6px; font-size: 10px; color: #c2a586; }
   .home-play-status::before { content: ""; height: 4px; width: 4px; border-radius: 50%; background: #e6bd88; box-shadow: 0 0 7px #f5c68b80; }
 
