@@ -128,8 +128,7 @@
     },
     'train-rescue': {
       className: 'home-game-train',
-      label: '悬疑解谜',
-      summary: '列车将在午夜出事。玩家要从同伴的话里找出破绽，查明真相后再决定能信任谁。'
+      label: '悬疑解谜'
     },
     'sheep-castle': {
       className: 'home-game-sheep',
@@ -166,7 +165,7 @@
       if (project.period) event.append(element('span', 'home-game-period', project.period));
       copy.append(event);
     }
-    copy.append(element('p', 'home-game-summary', content.summary));
+    copy.append(element('p', 'home-game-summary', content.summary || project.summary));
     if (project.role) copy.append(element('p', 'home-project-role', project.role));
     if (featured) {
       const list = element('ul', 'home-game-highlights');
