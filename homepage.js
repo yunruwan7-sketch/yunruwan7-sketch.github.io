@@ -129,7 +129,7 @@
     'train-rescue': {
       className: 'home-game-train',
       label: '悬疑解谜',
-      summary: '一趟列车即将发生事故。玩家白天问询、查证，入夜后根据掌握的线索决定如何救援。'
+      summary: '列车将在午夜出事。玩家要从同伴的话里找出破绽，查明真相后再决定能信任谁。'
     },
     'sheep-castle': {
       className: 'home-game-sheep',
