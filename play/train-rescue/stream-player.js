@@ -1,8 +1,9 @@
-/* Serve Unity's single data request from independently compressed, immutable parts. */
+/* Stream both the opening pack and WebAssembly from versioned gzip parts. */
 window.leihoFetchBuild = async function (request, options) {
   const url = new URL(request instanceof Request ? request.url : request, document.baseURI);
-  const manifest = window.leihoPackedData;
-  if (url.href !== new URL(manifest.url, document.baseURI).href) {
+  const manifest = [window.leihoBoot.data, window.leihoBoot.wasm].find(
+    entry => new URL(entry.url, document.baseURI).href === url.href);
+  if (!manifest) {
     return window.fetch(request, options);
   }
 
@@ -52,6 +53,7 @@ window.leihoFetchBuild = async function (request, options) {
             continue;
           }
           totalRead += next.value.length;
+          if (window.leihoLoadProgress) window.leihoLoadProgress(manifest, totalRead);
           sink.enqueue(next.value);
           return;
         }
@@ -63,7 +65,7 @@ window.leihoFetchBuild = async function (request, options) {
     cancel() { controller.abort(); }
   });
   return new Response(stream, { headers: {
-    'Content-Type': 'application/octet-stream',
+    'Content-Type': manifest.type,
     'Content-Length': String(manifest.size)
   } });
 };

@@ -2,10 +2,16 @@
 <html lang="zh-CN">
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>技术宅拯救车厢 · 网页试玩</title>
     <link rel="shortcut icon" href="TemplateData/icon.png">
-    <link rel="stylesheet" href="TemplateData/style.css">
+    <!-- boot preloads -->
+    <link rel="preload" as="script" href="Build/loader-3baee0f657d1178f.js">
+    <link rel="preload" as="script" href="Build/framework-e1386cea4830be50.js">
+    <link rel="preload" as="fetch" crossorigin href="Build/opening-000-333fcdc49262fb37.bin">
+    <link rel="preload" as="fetch" crossorigin href="Build/engine-000-d6f82c145eaec549.bin">
+    <!-- /boot preloads -->
+    <link rel="stylesheet" href="TemplateData/style.css?v=a207907a36898f45">
   </head>
   <body>
     <div id="unity-container" class="unity-desktop">
@@ -20,18 +26,16 @@
         <div id="unity-fullscreen-button"></div>
         <div id="unity-build-title">技术宅拯救车厢</div>
       </div>
-      <!-- 浏览器策略：没有用户点击就不允许出声。这里先拦一道点击，点完才开始加载游戏，
-           这样音频上下文一创建就是运行状态，开场那几秒的对白/音效不会丢。 -->
-      <div id="leiho-start" role="button" tabindex="0" aria-label="开始试玩">
+      <div id="leiho-start" style="display:none" role="alert">
         <div id="leiho-start-card">
-          <div id="leiho-start-title">技术宅拯救车厢</div>
-          <div id="leiho-start-hint">点击开始</div>
-          <div id="leiho-start-note">首次加载约 496 MB，建议使用电脑和稳定网络</div>
+          <div id="leiho-start-title">暂时无法启动游戏</div>
+          <p id="leiho-start-note"></p>
+          <button id="leiho-retry" type="button" onclick="location.reload()">重新加载</button>
         </div>
       </div>
     </div>
-    <script src="packed-data.js"></script>
-    <script src="stream-player.js"></script>
+    <script src="boot-manifest.js?v=fd1e59e6040e2fbe"></script>
+    <script src="stream-player.js?v=980d26ebd86f1f9c"></script>
     <script>
       var container = document.querySelector("#unity-container");
       var canvas = document.querySelector("#unity-canvas");
@@ -42,7 +46,19 @@
       var startOverlay = document.querySelector("#leiho-start");
       var leihoMenuOpen = false;
       var leihoCssFullscreen = false;
-      var leihoStarted = false;
+      var bytesReceived = new Map();
+      var lastProgress = -1;
+      window.leihoLoadProgress = function (entry, decoded) {
+        bytesReceived.set(entry, entry.bytes * decoded / entry.size);
+        var total = leihoBoot.data.bytes + leihoBoot.wasm.bytes;
+        var received = (bytesReceived.get(leihoBoot.data) || 0) + (bytesReceived.get(leihoBoot.wasm) || 0);
+        var progress = Math.min(100, Math.floor(100 * received / total));
+        if (progress === lastProgress) return;
+        lastProgress = progress;
+        progressBarFull.style.width = progress + "%";
+        document.getElementById("load-status").textContent = progress < 100
+          ? "正在加载主菜单和开场 " + progress + "%" : "正在进入游戏…";
+      };
 
       window.leihoSetMenuOpen = function(open) { leihoMenuOpen = !!open; };
       function leihoRefreshNameInput() {
@@ -91,7 +107,7 @@
           warningBanner.style.display = warningBanner.children.length ? 'block' : 'none';
         }
         var div = document.createElement('div');
-        div.innerHTML = msg;
+        div.textContent = msg;
         warningBanner.appendChild(div);
         if (type == 'error') div.style = 'background: red; padding: 10px;';
         else {
@@ -101,12 +117,11 @@
         updateBannerVisibility();
       }
 
-      var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/Leiho-5a026a5c.loader.js";
+      var loaderUrl = window.leihoBoot && window.leihoBoot.loader;
       var config = {
-        dataUrl: buildUrl + "/Leiho-5a026a5c.data",
-        frameworkUrl: buildUrl + "/Leiho-5a026a5c.framework.js",
-        codeUrl: buildUrl + "/Leiho-5a026a5c.wasm",
+        dataUrl: window.leihoBoot && leihoBoot.data.url,
+        frameworkUrl: window.leihoBoot && leihoBoot.framework,
+        codeUrl: window.leihoBoot && leihoBoot.wasm.url,
         streamingAssetsUrl: "StreamingAssets",
         companyName: "DefaultCompany",
         productName: "LeihoGamejam2026",
@@ -117,10 +132,10 @@
       };
 
       if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
-        var meta = document.createElement('meta');
+        var meta = document.querySelector('meta[name="viewport"]');
         meta.name = 'viewport';
         meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
-        document.getElementsByTagName('head')[0].appendChild(meta);
+
         container.className = "unity-mobile";
         canvas.className = "unity-mobile";
       } else {
@@ -131,31 +146,24 @@
       window.leihoLoadError = function(message) {
         loadingBar.style.display = "none";
         startOverlay.style.display = "flex";
-        document.getElementById("leiho-start-title").textContent = "暂时无法启动游戏";
-        document.getElementById("leiho-start-hint").textContent = "重新加载";
         document.getElementById("leiho-start-note").textContent = String(message);
-        startOverlay.onclick = () => window.location.reload();
       };
       function leihoStart() {
-        if (leihoStarted) return;
-        leihoStarted = true;
+        if (!loaderUrl || !window.leihoFetchBuild) {
+          leihoLoadError("启动文件读取失败，请检查网络后重试。");
+          return;
+        }
         if (typeof DecompressionStream === "undefined") {
           leihoLoadError("请使用新版 Chrome、Edge、Firefox 或 Safari 打开试玩。");
           return;
         }
-        if (startOverlay) startOverlay.style.display = "none";
-        // 这一下点击既解锁音频，也让引擎从这里才开始初始化。
-        leihoResumeAudio();
         loadingBar.style.display = "block";
+        document.getElementById("load-status").textContent = "正在加载主菜单和开场…";
         var script = document.createElement("script");
         script.src = loaderUrl;
         script.onerror = () => leihoLoadError("无法下载启动文件，请检查网络。");
         script.onload = () => {
-          createUnityInstance(canvas, config, (progress) => {
-            progressBarFull.style.width = 100 * progress + "%";
-            document.getElementById("load-status").textContent = progress >= .9
-              ? "正在启动车厢…" : "正在加载游戏 " + Math.round(progress * 100) + "%";
-          }).then((unityInstance) => {
+          createUnityInstance(canvas, config, function() {}).then((unityInstance) => {
             // 页面原生输入框（中文命名）需要通过实例回传文本。
             window.leihoUnityInstance = unityInstance;
             loadingBar.style.display = "none";
@@ -166,13 +174,7 @@
         document.body.appendChild(script);
       }
 
-      if (startOverlay) {
-        startOverlay.addEventListener("pointerdown", leihoStart, true);
-        startOverlay.addEventListener("click", leihoStart, true);
-      }
-      document.addEventListener("keydown", function(event) {
-        if (!leihoStarted) leihoStart();
-      }, true);
+      leihoStart();
     </script>
   </body>
 </html>
