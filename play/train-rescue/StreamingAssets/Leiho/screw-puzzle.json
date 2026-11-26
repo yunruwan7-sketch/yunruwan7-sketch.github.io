@@ -1,0 +1,25 @@
+{
+  "_说明": "puzzle1：孔位按上排左到右1~4、下排左到右5~8；初始螺丝显隐与排序读取用户预制体。",
+  "plates": [
+    { "name": "1", "holes": [1, 8], "blockers": ["5"] },
+    { "name": "2", "holes": [5, 6] },
+    { "name": "3", "holes": [3, 4] },
+    { "name": "4", "holes": [3, 7] },
+    { "name": "5", "holes": [2, 6] },
+    { "name": "6", "holes": [1, 7] }
+  ],
+  "_动画单位": "Seconds为秒，rotations为转数，Scale为原尺寸倍数，blurPixels为纹理像素半径。",
+  "exchangeSeconds": 0.45,
+  "flashSeconds": 0.22,
+  "rotations": 1.5,
+  "enlargedScale": 1.55,
+  "blurPixels": 4.0,
+  "_掉落": "gravityScale为相对Physics2D重力倍数；0.35使下落过程可清楚观察，完全离开视角后才隐藏。",
+  "gravityScale": 0.35,
+  "successHoldSeconds": 0.5,
+  "transitionSeconds": 0.65,
+  "successScale": 1.18,
+  "_镜头": "textureSize为正方形离屏纹理边长；viewPadding为相对底板构图留白倍数。",
+  "textureSize": 1024,
+  "viewPadding": 1.06
+}

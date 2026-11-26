@@ -1065,6 +1065,12 @@
       print.addEventListener('click', () => window.print());
       actions.append(print);
     }
+    projects.filter((project) => project.showDemoOnResume && safeUrl(project.playUrl)).forEach((project) => {
+      const play = link(project.title + ' · ' + project.playLabel, safeUrl(project.playUrl), 'resume-pdf');
+      play.target = '_blank';
+      play.rel = 'noopener noreferrer';
+      actions.append(play);
+    });
     const actionAnchor = resumeContent.querySelector('.resume-contact') || resumeContent.querySelector('.resume-note');
     if (actionAnchor) actionAnchor.after(actions);
     else resumeContent.append(actions);

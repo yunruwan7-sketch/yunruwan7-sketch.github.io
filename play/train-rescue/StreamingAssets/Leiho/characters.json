@@ -1,0 +1,9 @@
+{
+  "_comment": "id为剧情/存档身份，appearance为美术素材目录及动画控制器标记。2026-10-23 已把 B/D 反向命名的素材目录、动画剪辑与控制器整组对调（GUID随内容迁移），二者现在同名同义，映射退化为恒等。",
+  "bindings": [
+    {"id":"A", "appearance":"A", "description":"主角，青色工作服"},
+    {"id":"B", "appearance":"B", "description":"瘦体型，深红工作服"},
+    {"id":"C", "appearance":"C", "description":"保持现有C外观"},
+    {"id":"D", "appearance":"D", "description":"胖体型，橙色工作服"}
+  ]
+}

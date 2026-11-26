@@ -1,0 +1,7 @@
+{
+  "_说明": "调查册开合滑动。enterSeconds/exitSeconds为现实秒；overshoot为EaseOutBack回弹强度，0.65约为4%位移过冲；offscreenMargin为素材完全离开左侧后的额外Canvas像素间距。",
+  "enterSeconds": 0.46,
+  "exitSeconds": 0.3,
+  "overshoot": 0.65,
+  "offscreenMargin": 48
+}

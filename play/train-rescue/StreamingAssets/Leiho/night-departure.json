@@ -1,0 +1,10 @@
+{
+  "_说明": "D夜间摄影：现实秒。镜头往返使用同一非匀速曲线；getupSeconds为当前D角色剪影从躺姿起身、落到实际站位的表现时长，不包含旧整床素材。clickWindowSeconds为连续点击最大间隔，三击只跳摄影与起身表现，不完成日程、不传送人物。",
+  "getupSeconds": 1.25, "clickWindowSeconds": 0.55, "followResponse": 7, "walkTimeoutSeconds": 45,
+  "dormExitDoor": "car1/forward_exit/door",
+  "camera": {
+    "outwardSeconds": 1.5, "holdSeconds": 0, "returnSeconds": 1.5,
+    "outward": [{"time":0,"value":0},{"time":0.16,"value":0.025},{"time":0.4,"value":0.32},{"time":0.7,"value":0.86},{"time":0.9,"value":1.01},{"time":1,"value":1}],
+    "returning": [{"time":0,"value":0},{"time":1,"value":1}]
+  }
+}

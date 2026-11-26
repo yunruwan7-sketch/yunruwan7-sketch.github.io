@@ -1,0 +1,8 @@
+{
+  "_说明": "仓库指向镜头；时长为现实秒。time/value分别为归一化时间/路程，使用平滑Hermite曲线；出发先蓄势加速，中段快速移动，轻微越过后收稳；返回单独减速。只指向位置，不完成调查。",
+  "outwardSeconds": 1.6,
+  "holdSeconds": 0.7,
+  "returnSeconds": 1.35,
+  "outward": [{"time":0,"value":0},{"time":0.12,"value":0.025},{"time":0.38,"value":0.36},{"time":0.72,"value":0.89},{"time":0.90,"value":1.02},{"time":1,"value":1}],
+  "returning": [{"time":0,"value":0},{"time":0.20,"value":0.06},{"time":0.52,"value":0.64},{"time":0.82,"value":0.97},{"time":1,"value":1}]
+}

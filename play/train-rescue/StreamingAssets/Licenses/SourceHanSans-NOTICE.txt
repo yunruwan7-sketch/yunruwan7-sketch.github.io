@@ -1,0 +1,7 @@
+Source Han Sans SC Regular / 思源黑体
+Version 2.004;hotconv 1.0.118;makeotfexe 2.5.65603
+© 2014-2021 Adobe (http://www.adobe.com/), with Reserved Font Name 'Source'.
+
+This original copyright notice and version are extracted from the bundled OTF's name table.
+The font is distributed unchanged under SIL Open Font License 1.1.
+See SourceHanSans-OFL.txt for the full license.

@@ -1,0 +1,64 @@
+{
+  "clips": [
+    {
+      "characterId": "A",
+      "path": "Assets/Leiho/NewArt/Props/Bed20261028/Animations/A_Wake.png",
+      "count": 48,
+      "columns": 8,
+      "cellWidth": 240,
+      "cellHeight": 104,
+      "fps": 24,
+      "ppu": 25,
+      "spriteHeight": 102.375,
+      "reviewed": true
+    },
+    {
+      "characterId": "B",
+      "path": "Assets/Leiho/NewArt/Props/Bed20261028/Animations/B_Wake.png",
+      "count": 48,
+      "columns": 8,
+      "cellWidth": 240,
+      "cellHeight": 104,
+      "fps": 24,
+      "ppu": 25,
+      "spriteHeight": 102.375,
+      "reviewed": true
+    },
+    {
+      "characterId": "C",
+      "path": "Assets/Leiho/NewArt/Props/Bed20261028/Animations/C_Wake.png",
+      "count": 48,
+      "columns": 8,
+      "cellWidth": 240,
+      "cellHeight": 104,
+      "fps": 24,
+      "ppu": 25,
+      "spriteHeight": 102.375,
+      "reviewed": true
+    },
+    {
+      "characterId": "D",
+      "path": "Assets/Leiho/NewArt/Props/Bed20261028/Animations/D_Wake.png",
+      "count": 48,
+      "columns": 8,
+      "cellWidth": 240,
+      "cellHeight": 104,
+      "fps": 24,
+      "ppu": 25,
+      "spriteHeight": 102.375,
+      "reviewed": true
+    }
+  ],
+  "_字段说明": {
+    "characterId": "角色A/B/C/D，对应既有床位",
+    "path": "Unity工程内的动作图集路径",
+    "count": "实际使用帧数",
+    "columns": "图集列数",
+    "cellWidth": "单格宽度，逻辑像素",
+    "cellHeight": "单格高度，逻辑像素（含透明留白）",
+    "fps": "每秒播放帧数",
+    "ppu": "每个Unity世界单位的像素数",
+    "spriteHeight": "切片高度，匹配原床409.5像素/100PPU的世界尺寸",
+    "reviewed": "真实H3原帧经视觉检查通过，未通过不得绑定"
+  }
+}

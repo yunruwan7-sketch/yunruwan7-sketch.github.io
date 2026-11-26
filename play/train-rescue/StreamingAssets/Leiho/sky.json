@@ -1,0 +1,14 @@
+{
+  "_comment": "程序天空：颜色为RGBA，顺序对应早上/中午/下午/晚上；云速度单位为世界单位/秒。只改天空，不改变剧情时钟。",
+  "zenith": ["#86BACB", "#72A8C6", "#C08880", "#070D18"],
+  "horizon": ["#EADDBA", "#D5E1CD", "#E5BD91", "#172230"],
+  "cloudSpeed": 0.12,
+  "cloudOpacity": 0.76,
+  "starDensity": 0.008,
+  "starBrightness": 0.22,
+  "moonBrightness": 0.18,
+  "discHeight": 2.45,
+  "discRadius": 0.22,
+  "discHorizontalFraction": 0.55,
+  "_ranges": "starDensity、starBrightness与cloudOpacity为0到1；moonBrightness大于0且不超过1；仅一个日月圆盘；18到21点平滑入夜；颜色必须为Unity支持的HTML颜色；cloudSpeed允许负数。"
+}

@@ -1,0 +1,233 @@
+{
+  "_说明": "剧情表现配置。fps为真实秒帧率；animations的resource是Resources内的帧目录，behaviour匹配NPC行为ID。plant_bomb由夜间背向时间窗选择，其它动作在NPC到位且未交谈时选择。endings的panels按顺序阅读，不改变结局结果。",
+  "_标题删除线说明": "endings的titleStrike是结局标题中需要划掉的子串；为空或省略时不画删除线。",
+  "fps": 8,
+  "explosionResource": "",
+  "animations": [
+    {
+      "actor": "D",
+      "behaviour": "alert",
+      "resource": "H3Animations/D_Alert",
+      "loop": false,
+      "fps": 24,
+      "startFrame": 0
+    },
+    {
+      "actor": "B",
+      "behaviour": "coffee",
+      "resource": "H3Animations/B_Coffee",
+      "loop": true,
+      "startFrame": 0,
+      "fps": 24
+    },
+    {
+      "actor": "B",
+      "behaviour": "smoke",
+      "resource": "H3Animations/B_Smoke",
+      "loop": true,
+      "startFrame": 0,
+      "fps": 24
+    },
+    {
+      "actor": "B",
+      "behaviour": "sit",
+      "resource": "H3Animations/B_Sit",
+      "loop": true,
+      "startFrame": 0,
+      "fps": 24
+    },
+    {
+      "actor": "C",
+      "behaviour": "coffee",
+      "resource": "H3Animations/C_Coffee",
+      "loop": true,
+      "startFrame": 0,
+      "fps": 24
+    },
+    {
+      "actor": "C",
+      "behaviour": "smoke",
+      "resource": "H3Animations/C_Smoke",
+      "loop": true,
+      "startFrame": 0,
+      "fps": 24
+    },
+    {
+      "actor": "C",
+      "behaviour": "sit",
+      "resource": "H3Animations/C_Sit",
+      "loop": true,
+      "startFrame": 0,
+      "fps": 24
+    },
+    {
+      "actor": "D",
+      "behaviour": "coffee",
+      "resource": "H3Animations/D_Coffee",
+      "loop": true,
+      "startFrame": 0,
+      "fps": 24
+    },
+    {
+      "actor": "D",
+      "behaviour": "smoke",
+      "resource": "H3Animations/D_Smoke",
+      "loop": true,
+      "startFrame": 0,
+      "fps": 24
+    },
+    {
+      "actor": "D",
+      "behaviour": "sit",
+      "resource": "H3Animations/D_Sit",
+      "loop": true,
+      "startFrame": 0,
+      "fps": 24
+    },
+    {
+      "actor": "D",
+      "behaviour": "plant_bomb",
+      "resource": "H3Animations/D_BackInspect",
+      "loop": false,
+      "startFrame": 0,
+      "fps": 24
+    },
+    {
+      "actor": "D",
+      "behaviour": "open_bag",
+      "resource": "H3Animations/D_PutBag",
+      "loop": false,
+      "fps": 24,
+      "startFrame": 0
+    },
+    {
+      "actor": "D",
+      "behaviour": "carrying",
+      "resource": "H3Animations/D_CarryBag",
+      "loop": true,
+      "fps": 24,
+      "startFrame": 0
+    },
+    {
+      "actor": "D",
+      "behaviour": "day_platform",
+      "resource": "H3Animations/D_Inspect",
+      "loop": true,
+      "fps": 24,
+      "startFrame": 0
+    },
+    {
+      "actor": "C",
+      "behaviour": "check_A",
+      "resource": "H3Animations/C_Inspect",
+      "loop": false,
+      "fps": 24,
+      "startFrame": 0
+    },
+    {
+      "actor": "C",
+      "behaviour": "check_B",
+      "resource": "H3Animations/C_Inspect",
+      "loop": false,
+      "fps": 24,
+      "startFrame": 0
+    },
+    {
+      "actor": "C",
+      "behaviour": "check_D",
+      "resource": "H3Animations/C_Inspect",
+      "loop": false,
+      "fps": 24,
+      "startFrame": 0
+    },
+    {
+      "actor": "B",
+      "behaviour": "work",
+      "resource": "H3Animations/B_Repair",
+      "loop": true,
+      "startFrame": 0,
+      "fps": 24
+    },
+    {
+      "actor": "B",
+      "behaviour": "lunch",
+      "resource": "H3Animations/B_Idle",
+      "loop": true,
+      "startFrame": 0,
+      "fps": 24
+    },
+    {
+      "actor": "C",
+      "behaviour": "work",
+      "resource": "H3Animations/C_Repair",
+      "loop": true,
+      "fps": 24,
+      "startFrame": 0
+    },
+    {
+      "actor": "C",
+      "behaviour": "lunch",
+      "resource": "H3Animations/C_Idle",
+      "loop": true,
+      "startFrame": 0,
+      "fps": 24
+    },
+    {
+      "actor": "D",
+      "behaviour": "work",
+      "resource": "H3Animations/D_Repair",
+      "loop": true,
+      "fps": 24,
+      "startFrame": 0
+    },
+    {
+      "actor": "D",
+      "behaviour": "lunch",
+      "resource": "H3Animations/D_Idle",
+      "loop": true,
+      "startFrame": 0,
+      "fps": 24
+    }
+  ],
+  "endings": [
+    {
+      "id": "success",
+      "cover": "LeihoArt20261029/CG/success-train",
+      "panels": [
+        "LeihoArt20261029/CG/push",
+        "LeihoArt20261029/CG/fall",
+        "LeihoArt20261029/CG/confiscate",
+        "LeihoArt20261029/CG/success-train"
+      ],
+      "nightPanels": [
+        "CGDelivery20261029/secured",
+        "CGDelivery20261029/survived"
+      ]
+    },
+    {
+      "id": "failure_front",
+      "cover": "LeihoArt20261029/CG/counter",
+      "panels": [
+        "LeihoArt20261029/CG/counter"
+      ]
+    },
+    {
+      "id": "failure_explosion",
+      "cover": "LeihoArt20261029/CG/derailment",
+      "panels": [
+        "LeihoArt20261029/CG/midnight-empty",
+        "LeihoArt20261029/CG/explosion",
+        "LeihoArt20261029/CG/derailment"
+      ]
+    },
+    {
+      "id": "failure_dorm_b",
+      "cover": "EndingComics20261112/e1-p3",
+      "panels": [
+        "LeihoArt20261029/CG/dorm-conflict"
+      ]
+    }
+  ],
+  "_角色素材规则": "Coffee/Smoke/Sit/Repair/Talk use new H3. AD_Duel for struggle. Lunch animation explicitly excluded; prior Idle retained.",
+  "_爆炸CG说明": "Use the three new midnight/explosion/derailment CG pages; disable the legacy particle overlay."
+}

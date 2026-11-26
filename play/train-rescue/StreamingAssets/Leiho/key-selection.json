@@ -1,0 +1,11 @@
+{
+  "_说明": "003连接处选钥匙表现配置。规则说明和16条候选标签在minimal.json的storyFlow中维护，面板显示随机抽出的九把。",
+  "doorPath": "car4/rear_exit/door",
+  "successHoldSeconds": 1.0,
+  "fadeSeconds": 0.65,
+  "errorHoldSeconds": 0.65,
+  "hoverScale": 1.05,
+  "errorScale": 1.1,
+  "wrongHint": "这把打不开",
+  "successHint": "找到了，就是这把！"
+}

@@ -1,0 +1,39 @@
+{
+  "_说明": "五首用户选定音频，顺序：历史菜单、基础、拼纸调查、22点夜间、白天刺杀。正式主菜单、开场、醒来动画和结局不播BGM；醒来结束、与B对话开始即播基础曲。优先级：白天小游戏>22点夜间>已拼纸调查>基础。此文件为安装默认值，场景Music Debug的Inspector配置为实际权威；不在运行时覆盖调参。volume范围0到1；淡化为真实秒，阶段倍率相对当前曲目初始音量。小游戏使用自身初始音量，不叠加日夜倍率。",
+  "fadeSeconds": 2.2,
+  "volumeFadeSeconds": 2.2,
+  "comicMultiplier": 0.5,
+  "eveningMultiplier": 0.5,
+  "nightMultiplier": 0.25,
+  "eveningMinute": 1080,
+  "nightMinute": 1320,
+  "whistleTailSeconds": 0.35,
+  "_whistle": "菜单从0随实际鸣笛长度缓入，鸣笛结束后再经过whistleTailSeconds达到菜单初始音量。",
+  "tracks": [
+    {
+      "id": "menu",
+      "resource": "Music20261111/menu",
+      "volume": 0.38
+    },
+    {
+      "id": "game",
+      "resource": "Music20261111/game",
+      "volume": 0.34
+    },
+    {
+      "id": "investigation",
+      "resource": "Music20261120/investigation",
+      "volume": 0.34
+    },
+    {
+      "id": "night22",
+      "resource": "Music20261120/night22",
+      "volume": 0.34
+    },
+    {
+      "id": "day_assassination",
+      "resource": "Music20261120/day_assassination",
+      "volume": 0.34
+    }
+  ]
+}

@@ -1,0 +1,193 @@
+{
+  "_说明": "bug单3交付UI。rect为去除透明留白的Sprite区域：x/y左下像素，z/w宽高；不修改原图。motionSeconds为现实秒，hoverScale/selectedScale为倍率，hoverAngle为度，checkSeconds为勾选从左至右展开时长。",
+  "motionSeconds": 0.18,
+  "hoverScale": 1.035,
+  "selectedScale": 1.045,
+  "hoverAngle": 1.2,
+  "checkSeconds": 0.32,
+  "achievementVolume": 0.32,
+  "art": [
+    {
+      "id": "notebook",
+      "rect": {
+        "x": 309,
+        "y": 18,
+        "z": 1380,
+        "w": 775
+      },
+      "sourceSize": {
+        "x": 1983,
+        "y": 793
+      }
+    },
+    {
+      "id": "clock",
+      "rect": {
+        "x": 46,
+        "y": 50,
+        "z": 1147,
+        "w": 1162
+      },
+      "sourceSize": {
+        "x": 1254,
+        "y": 1254
+      }
+    },
+    {
+      "id": "inventory",
+      "rect": {
+        "x": 73,
+        "y": 91,
+        "z": 2028,
+        "w": 588
+      },
+      "sourceSize": {
+        "x": 2172,
+        "y": 724
+      }
+    },
+    {
+      "id": "button",
+      "rect": {
+        "x": 56,
+        "y": 105,
+        "z": 2063,
+        "w": 499
+      },
+      "sourceSize": {
+        "x": 2172,
+        "y": 724
+      }
+    },
+    {
+      "id": "button-slim",
+      "rect": {
+        "x": 24,
+        "y": 261,
+        "z": 2105,
+        "w": 214
+      },
+      "sourceSize": {
+        "x": 2171,
+        "y": 724
+      }
+    },
+    {
+      "id": "check",
+      "rect": {
+        "x": 381,
+        "y": 413,
+        "z": 556,
+        "w": 426
+      },
+      "sourceSize": {
+        "x": 1254,
+        "y": 1254
+      }
+    },
+    {
+      "id": "entry1",
+      "rect": {
+        "x": 54,
+        "y": 197,
+        "z": 1872,
+        "w": 380
+      },
+      "sourceSize": {
+        "x": 1983,
+        "y": 793
+      }
+    },
+    {
+      "id": "entry2",
+      "rect": {
+        "x": 87,
+        "y": 145,
+        "z": 1809,
+        "w": 511
+      },
+      "sourceSize": {
+        "x": 1983,
+        "y": 793
+      }
+    },
+    {
+      "id": "entry3",
+      "rect": {
+        "x": 51,
+        "y": 167,
+        "z": 1891,
+        "w": 513
+      },
+      "sourceSize": {
+        "x": 1983,
+        "y": 793
+      }
+    },
+    {
+      "id": "title",
+      "rect": {
+        "x": 43,
+        "y": 83,
+        "z": 1950,
+        "w": 579
+      },
+      "sourceSize": {
+        "x": 2061,
+        "y": 763
+      }
+    },
+    {
+      "id": "cursor-normal",
+      "rect": {
+        "x": 10,
+        "y": 13,
+        "z": 36,
+        "w": 43
+      },
+      "sourceSize": {
+        "x": 64,
+        "y": 64
+      }
+    },
+    {
+      "id": "cursor-hover",
+      "rect": {
+        "x": 6,
+        "y": 8,
+        "z": 45,
+        "w": 52
+      },
+      "sourceSize": {
+        "x": 64,
+        "y": 64
+      }
+    },
+    {
+      "id": "cursor-pressed",
+      "rect": {
+        "x": 10,
+        "y": 13,
+        "z": 36,
+        "w": 43
+      },
+      "sourceSize": {
+        "x": 64,
+        "y": 64
+      }
+    },
+    {
+      "id": "submit",
+      "rect": {
+        "x": 206,
+        "y": 74,
+        "z": 1771,
+        "w": 571
+      },
+      "sourceSize": {
+        "x": 2172,
+        "y": 724
+      }
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "_说明": "调查册先寄件配对，再推理动机。dispatches与replyAnswer整组校验，允许寄件人重复选择；必须实际取得拼合回信、终端记录和B/C/D人证。动机只使用已取得的交易信草稿、赌债账册，不授予物证或触发剧情。草稿与局部完成标记随周目保存。evidence/slots/suspects/hints保留旧接口兼容；lead沿用实际调查条件。",
+  "question": "谁隐瞒了昨晚的第二次寄件？",
+  "conclusion": "终端记录与现场目击对上了时间，阿福与老胡的回程说法却互相矛盾。这四条记录共同指向老胡。",
+  "evidence": [
+    {"id":"terminal","stateKey":"flag.terminal_seen","title":"物资收发终端 · 寄件记录","text":"昨日寄件记录\n19:40　W-05　备件归还申请\n20:10　S-17　封装信件\n20:40　M-06　药品","lead":"调查仓库的物资收发终端","leadRequires":["flag.note_assembled"]},
+    {"id":"b_timeline","stateKey":"clue.d_timeline","title":"阿福的证言 · 回程","text":"阿福说寄完是他一个人回来，老胡中途说肚子疼去了厕所。","lead":"向阿福询问昨晚寄件后的行踪","leadTarget":"B","leadOption":"inquire"},
+    {"id":"c_witness","stateKey":"clue.saw_d","title":"大海的证言 · 终端旁的目击","text":"昨晚20:10我路过终端，看见老胡。","lead":"向大海询问昨晚在终端看见了谁","leadTarget":"C","leadOption":"inquire"},
+    {"id":"d_statement","stateKey":"clue.d_statement","title":"老胡的证言 · 回程","text":"好像没有看见谁，寄完之后就直接回宿舍了。","lead":"向老胡核对昨晚寄件后的行踪","leadTarget":"D","leadOption":"inquire"},
+    {"id":"w05","stateKey":"flag.w05_read","title":"W-05 · 备件归还申请","text":"W-05：备件归还申请，与19:40的寄件记录相符。","lead":"调查仓库的W-05申请"},
+    {"id":"medicine","stateKey":"flag.c_medicine_seen","title":"胃药包装","text":"大海床边废纸盒中的胃药包装，与20:40的M-06寄件记录相符。","lead":"调查大海床边的废纸盒"}
+  ],
+  "slots": [
+    {"question":"① 哪份记录证明：当晚还有一封封装信件？","answer":"terminal"},
+    {"question":"② 谁的证言说明：寄完申请后，两人分开了？","answer":"b_timeline"},
+    {"question":"③ 哪条目击能与封装信件的寄出时间互相印证？","answer":"c_witness"},
+    {"question":"④ 哪条口供与上述经过矛盾？","answer":"d_statement"}
+  ],
+  "suspects": ["B","C","D"],
+  "suspect":"D",
+  "hints":["先区分三次寄件。备件归还申请、封装信件和药品不是同一件事。","把终端的时间与目击证言对照，再比较两个人对回程的描述。","关键不是谁替别人操作过终端，而是谁的行踪说法与其他记录冲突。"],
+  "dispatches":[
+    {"id":"W-05","time":"19:40","item":"备件归还申请","answer":"B"},
+    {"id":"S-17","time":"20:10","item":"封装信件","answer":"D"},
+    {"id":"M-06","time":"20:40","item":"药品","answer":"C"}
+  ],
+  "replyAnswer":"S-17",
+  "motiveQuestion":"老胡为什么参与炸车？",
+  "motives":[
+    {"id":"revenge","text":"替A报复昨晚打人的隔壁工人。"},
+    {"id":"cover-up-and-debt","text":"收钱除掉宿舍区的知情人，用报酬偿还赌债。"},
+    {"id":"coercion","text":"受到隔壁威胁，被迫执行爆炸计划。"}
+  ],
+  "motiveAnswer":"cover-up-and-debt",
+  "motiveConclusion":"老胡主动提出收钱灭口，赌债账册说明他急于弄钱。",
+  "motiveRequires":["flag.evidence_letter_draft","flag.evidence_debt_ledger"]
+}

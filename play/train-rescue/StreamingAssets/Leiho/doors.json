@@ -1,0 +1,12 @@
+{
+  "_说明": "门交互与NPC自动开门配置。距离单位为Unity世界单位；NPC参数初始化时读取，碰撞尺寸仅用于首次安装，已有Collider直接在Prefab Inspector调整。门外观继续在预制体中编辑。",
+  "npcOpenDistance": 0.45,
+  "npcDoorProbeRadius": 0.18,
+  "_npcDoorProbeRadius": "前方圆形探测半径，独立于角色是否带Collider，支持现有无Collider的Kinematic NPC。",
+  "_npcOpenDistance": "NPC在自身碰撞体前方此距离内遇到门时，先打开再移动；仅沿实际行进方向检测。",
+  "blockerWidth": 0.16,
+  "blockerHeightRatio": 0.92,
+  "_blocker": "闭门碰撞箱在门图中心，宽度为本地世界单位，高度为关闭状态图像高度乘比例；开启时禁用。可直接在Prefab Inspector调整Collider。",
+  "text": false,
+  "textLog": true
+}

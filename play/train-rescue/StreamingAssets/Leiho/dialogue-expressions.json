@@ -1,0 +1,1445 @@
+{
+  "_说明": "对话表情：按 对话ID+节点ID 指定该句说话人的头像表情。expression 为 Assets/Resources/LeihoArt20261029/Expressions/<角色>/ 下的表情名；空串表示该句不显示头像。旁白节点不在此配置，始终不显示头像。表情名必须与 角色/表情 素材文件名完全一致。",
+  "expressionRoot": "LeihoArt20261029/Expressions",
+  "characters": [
+    {
+      "id": "A",
+      "expressions": [
+        "01_默认",
+        "02_担忧",
+        "03_笑张嘴",
+        "04_激动怒吼",
+        "05_疑惑",
+        "06_严肃",
+        "07_无奈捂头",
+        "08_崩溃抱头"
+      ]
+    },
+    {
+      "id": "B",
+      "expressions": [
+        "01_默认",
+        "02_笑张嘴",
+        "03_挠头笑",
+        "04_低头不好意思",
+        "05_激动强调",
+        "06_疑惑",
+        "07_挠头",
+        "08_激动握拳",
+        "09_关心",
+        "10_委屈1",
+        "10_委屈2"
+      ]
+    },
+    {
+      "id": "C",
+      "expressions": [
+        "01_默认"
+      ]
+    },
+    {
+      "id": "D",
+      "expressions": [
+        "00_默认和蔼",
+        "01_笑1_眯眼张嘴大笑",
+        "02_笑2_歪嘴阴笑",
+        "03_严肃",
+        "04_斜眼看"
+      ]
+    }
+  ],
+  "lines": [
+    {
+      "dialogueId": "d_night_install_done",
+      "nodeId": "s0",
+      "speakerId": "D",
+      "expression": "03_严肃"
+    },
+    {
+      "dialogueId": "a_bed_search_hidden",
+      "nodeId": "s0",
+      "speakerId": "A",
+      "expression": "07_无奈捂头"
+    },
+    {
+      "dialogueId": "b00_visit",
+      "nodeId": "a0",
+      "speakerId": "A",
+      "expression": "06_严肃"
+    },
+    {
+      "dialogueId": "b00_visit",
+      "nodeId": "a1",
+      "speakerId": "B",
+      "expression": "06_疑惑"
+    },
+    {
+      "dialogueId": "b00_visit",
+      "nodeId": "a2",
+      "speakerId": "A",
+      "expression": "08_崩溃抱头"
+    },
+    {
+      "dialogueId": "b00_visit",
+      "nodeId": "ask",
+      "speakerId": "B",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "b00_visit",
+      "nodeId": "b0",
+      "speakerId": "A",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "b00_visit",
+      "nodeId": "b1",
+      "speakerId": "B",
+      "expression": "09_关心"
+    },
+    {
+      "dialogueId": "b00_visit",
+      "nodeId": "b2",
+      "speakerId": "A",
+      "expression": "06_严肃"
+    },
+    {
+      "dialogueId": "b_talk",
+      "nodeId": "bye",
+      "speakerId": "B",
+      "expression": "07_挠头"
+    },
+    {
+      "dialogueId": "b_talk",
+      "nodeId": "menu",
+      "speakerId": "B",
+      "expression": "06_疑惑"
+    },
+    {
+      "dialogueId": "b_talk",
+      "nodeId": "q1",
+      "speakerId": "B",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "b_talk",
+      "nodeId": "q11",
+      "speakerId": "B",
+      "expression": "08_激动握拳"
+    },
+    {
+      "dialogueId": "b_talk",
+      "nodeId": "q2",
+      "speakerId": "B",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "b_talk",
+      "nodeId": "s0",
+      "speakerId": "A",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "bed_decoy_done",
+      "nodeId": "s0",
+      "speakerId": "A",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "bed_decoy_done_told_c",
+      "nodeId": "s0",
+      "speakerId": "A",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "c_bed_search_hidden",
+      "nodeId": "s0",
+      "speakerId": "C",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "c_bedside_informed",
+      "nodeId": "s0",
+      "speakerId": "C",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "c_bedside_notice",
+      "nodeId": "s0",
+      "speakerId": "C",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "c_empty_bed",
+      "nodeId": "s0",
+      "speakerId": "C",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "c_empty_bed",
+      "nodeId": "s1",
+      "speakerId": "C",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "c_talk",
+      "nodeId": "bye",
+      "speakerId": "C",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "c_talk",
+      "nodeId": "menu",
+      "speakerId": "C",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "c_talk",
+      "nodeId": "q1",
+      "speakerId": "C",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "c_talk",
+      "nodeId": "q11",
+      "speakerId": "A",
+      "expression": "05_疑惑"
+    },
+    {
+      "dialogueId": "c_talk",
+      "nodeId": "q2",
+      "speakerId": "C",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "c_talk",
+      "nodeId": "s0",
+      "speakerId": "A",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "cd_bed_search_join",
+      "nodeId": "s0",
+      "speakerId": "D",
+      "expression": "00_默认和蔼"
+    },
+    {
+      "dialogueId": "cd_bed_search_join",
+      "nodeId": "s1",
+      "speakerId": "C",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "cd_empty_bed_notice",
+      "nodeId": "s0",
+      "speakerId": "C",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "cd_empty_bed_notice",
+      "nodeId": "s1",
+      "speakerId": "D",
+      "expression": "04_斜眼看"
+    },
+    {
+      "dialogueId": "chat_b_gloves",
+      "nodeId": "n1",
+      "speakerId": "B",
+      "expression": "09_关心"
+    },
+    {
+      "dialogueId": "chat_b_gloves",
+      "nodeId": "n2",
+      "speakerId": "A",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "chat_b_gloves",
+      "nodeId": "n3",
+      "speakerId": "B",
+      "expression": "05_激动强调"
+    },
+    {
+      "dialogueId": "chat_b_gloves",
+      "nodeId": "n4",
+      "speakerId": "A",
+      "expression": "03_笑张嘴"
+    },
+    {
+      "dialogueId": "chat_b_lunchbox",
+      "nodeId": "n1",
+      "speakerId": "B",
+      "expression": "05_激动强调"
+    },
+    {
+      "dialogueId": "chat_b_lunchbox",
+      "nodeId": "n2",
+      "speakerId": "A",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "chat_b_lunchbox",
+      "nodeId": "n3",
+      "speakerId": "B",
+      "expression": "06_疑惑"
+    },
+    {
+      "dialogueId": "chat_b_lunchbox",
+      "nodeId": "n4",
+      "speakerId": "A",
+      "expression": "03_笑张嘴"
+    },
+    {
+      "dialogueId": "chat_b_shout",
+      "nodeId": "n1",
+      "speakerId": "A",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "chat_b_shout",
+      "nodeId": "n2",
+      "speakerId": "B",
+      "expression": "02_笑张嘴"
+    },
+    {
+      "dialogueId": "chat_b_shout",
+      "nodeId": "n3",
+      "speakerId": "A",
+      "expression": "05_疑惑"
+    },
+    {
+      "dialogueId": "chat_b_shout",
+      "nodeId": "n4",
+      "speakerId": "B",
+      "expression": "03_挠头笑"
+    },
+    {
+      "dialogueId": "chat_b_uniform",
+      "nodeId": "n1",
+      "speakerId": "B",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "chat_b_uniform",
+      "nodeId": "n2",
+      "speakerId": "A",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "chat_b_uniform",
+      "nodeId": "n3",
+      "speakerId": "B",
+      "expression": "02_笑张嘴"
+    },
+    {
+      "dialogueId": "chat_b_uniform",
+      "nodeId": "n4",
+      "speakerId": "A",
+      "expression": "07_无奈捂头"
+    },
+    {
+      "dialogueId": "chat_c_form",
+      "nodeId": "n1",
+      "speakerId": "A",
+      "expression": "05_疑惑"
+    },
+    {
+      "dialogueId": "chat_c_form",
+      "nodeId": "n2",
+      "speakerId": "C",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "chat_c_form",
+      "nodeId": "n3",
+      "speakerId": "A",
+      "expression": "05_疑惑"
+    },
+    {
+      "dialogueId": "chat_c_form",
+      "nodeId": "n4",
+      "speakerId": "C",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "chat_c_form",
+      "nodeId": "n5",
+      "speakerId": "A",
+      "expression": "07_无奈捂头"
+    },
+    {
+      "dialogueId": "chat_c_quarrel",
+      "nodeId": "n1",
+      "speakerId": "A",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "chat_c_quarrel",
+      "nodeId": "n2",
+      "speakerId": "C",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "chat_c_quarrel",
+      "nodeId": "n3",
+      "speakerId": "A",
+      "expression": "05_疑惑"
+    },
+    {
+      "dialogueId": "chat_c_quarrel",
+      "nodeId": "n4",
+      "speakerId": "C",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "chat_c_sleep",
+      "nodeId": "n1",
+      "speakerId": "A",
+      "expression": "05_疑惑"
+    },
+    {
+      "dialogueId": "chat_c_sleep",
+      "nodeId": "n2",
+      "speakerId": "C",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "chat_c_sleep",
+      "nodeId": "n3",
+      "speakerId": "A",
+      "expression": "05_疑惑"
+    },
+    {
+      "dialogueId": "chat_c_sleep",
+      "nodeId": "n4",
+      "speakerId": "C",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "chat_c_window",
+      "nodeId": "n1",
+      "speakerId": "A",
+      "expression": "05_疑惑"
+    },
+    {
+      "dialogueId": "chat_c_window",
+      "nodeId": "n2",
+      "speakerId": "A",
+      "expression": "05_疑惑"
+    },
+    {
+      "dialogueId": "chat_c_window",
+      "nodeId": "n3",
+      "speakerId": "C",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "chat_c_window",
+      "nodeId": "n4",
+      "speakerId": "A",
+      "expression": "05_疑惑"
+    },
+    {
+      "dialogueId": "chat_c_window",
+      "nodeId": "n5",
+      "speakerId": "C",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "chat_d_bun",
+      "nodeId": "n1",
+      "speakerId": "D",
+      "expression": "00_默认和蔼"
+    },
+    {
+      "dialogueId": "chat_d_bun",
+      "nodeId": "n2",
+      "speakerId": "A",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "chat_d_bun",
+      "nodeId": "n3",
+      "speakerId": "D",
+      "expression": "01_笑1_眯眼张嘴大笑"
+    },
+    {
+      "dialogueId": "chat_d_bun",
+      "nodeId": "n4",
+      "speakerId": "A",
+      "expression": "03_笑张嘴"
+    },
+    {
+      "dialogueId": "chat_d_cards",
+      "nodeId": "n1",
+      "speakerId": "A",
+      "expression": "03_笑张嘴"
+    },
+    {
+      "dialogueId": "chat_d_cards",
+      "nodeId": "n2",
+      "speakerId": "D",
+      "expression": "01_笑1_眯眼张嘴大笑"
+    },
+    {
+      "dialogueId": "chat_d_cards",
+      "nodeId": "n3",
+      "speakerId": "A",
+      "expression": "03_笑张嘴"
+    },
+    {
+      "dialogueId": "chat_d_cards",
+      "nodeId": "n4",
+      "speakerId": "D",
+      "expression": "01_笑1_眯眼张嘴大笑"
+    },
+    {
+      "dialogueId": "chat_d_cards",
+      "nodeId": "n5",
+      "speakerId": "A",
+      "expression": "03_笑张嘴"
+    },
+    {
+      "dialogueId": "chat_d_song",
+      "nodeId": "n1",
+      "speakerId": "D",
+      "expression": "00_默认和蔼"
+    },
+    {
+      "dialogueId": "chat_d_song",
+      "nodeId": "n2",
+      "speakerId": "A",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "chat_d_song",
+      "nodeId": "n3",
+      "speakerId": "D",
+      "expression": "01_笑1_眯眼张嘴大笑"
+    },
+    {
+      "dialogueId": "chat_d_song",
+      "nodeId": "n4",
+      "speakerId": "D",
+      "expression": "01_笑1_眯眼张嘴大笑"
+    },
+    {
+      "dialogueId": "chat_d_song",
+      "nodeId": "n5",
+      "speakerId": "A",
+      "expression": "03_笑张嘴"
+    },
+    {
+      "dialogueId": "chat_d_tea",
+      "nodeId": "n1",
+      "speakerId": "D",
+      "expression": "01_笑1_眯眼张嘴大笑"
+    },
+    {
+      "dialogueId": "chat_d_tea",
+      "nodeId": "n2",
+      "speakerId": "A",
+      "expression": "05_疑惑"
+    },
+    {
+      "dialogueId": "chat_d_tea",
+      "nodeId": "n3",
+      "speakerId": "D",
+      "expression": "01_笑1_眯眼张嘴大笑"
+    },
+    {
+      "dialogueId": "chat_d_tea",
+      "nodeId": "n4",
+      "speakerId": "D",
+      "expression": "00_默认和蔼"
+    },
+    {
+      "dialogueId": "chat_d_wrench",
+      "nodeId": "n1",
+      "speakerId": "D",
+      "expression": "00_默认和蔼"
+    },
+    {
+      "dialogueId": "chat_d_wrench",
+      "nodeId": "n2",
+      "speakerId": "A",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "chat_d_wrench",
+      "nodeId": "n3",
+      "speakerId": "D",
+      "expression": "01_笑1_眯眼张嘴大笑"
+    },
+    {
+      "dialogueId": "d_bed_search_found",
+      "nodeId": "s0",
+      "speakerId": "D",
+      "expression": "00_默认和蔼"
+    },
+    {
+      "dialogueId": "d_bed_search_found",
+      "nodeId": "s1",
+      "speakerId": "A",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "d_bedside_warning",
+      "nodeId": "s0",
+      "speakerId": "D",
+      "expression": "00_默认和蔼"
+    },
+    {
+      "dialogueId": "d_locker_notice",
+      "nodeId": "s0",
+      "speakerId": "D",
+      "expression": "04_斜眼看"
+    },
+    {
+      "dialogueId": "d_locker_notice",
+      "nodeId": "s1",
+      "speakerId": "D",
+      "expression": "04_斜眼看"
+    },
+    {
+      "dialogueId": "d_locker_notice",
+      "nodeId": "s2",
+      "speakerId": "D",
+      "expression": "02_笑2_歪嘴阴笑"
+    },
+    {
+      "dialogueId": "d_night_empty_bed",
+      "nodeId": "s0",
+      "speakerId": "D",
+      "expression": "04_斜眼看"
+    },
+    {
+      "dialogueId": "d_talk",
+      "nodeId": "bye",
+      "speakerId": "D",
+      "expression": "01_笑1_眯眼张嘴大笑"
+    },
+    {
+      "dialogueId": "d_talk",
+      "nodeId": "menu",
+      "speakerId": "D",
+      "expression": "00_默认和蔼"
+    },
+    {
+      "dialogueId": "d_talk",
+      "nodeId": "q1",
+      "speakerId": "D",
+      "expression": "00_默认和蔼"
+    },
+    {
+      "dialogueId": "d_talk",
+      "nodeId": "q2",
+      "speakerId": "D",
+      "expression": "00_默认和蔼"
+    },
+    {
+      "dialogueId": "d_talk",
+      "nodeId": "q21",
+      "speakerId": "D",
+      "expression": "01_笑1_眯眼张嘴大笑"
+    },
+    {
+      "dialogueId": "d_talk",
+      "nodeId": "s0",
+      "speakerId": "A",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "deduce_d",
+      "nodeId": "s0",
+      "speakerId": "A",
+      "expression": "06_严肃"
+    },
+    {
+      "dialogueId": "ev_ledger",
+      "nodeId": "s0",
+      "speakerId": "A",
+      "expression": "08_崩溃抱头"
+    },
+    {
+      "dialogueId": "ev_letter",
+      "nodeId": "s0",
+      "speakerId": "A",
+      "expression": "06_严肃"
+    },
+    {
+      "dialogueId": "ev_stub",
+      "nodeId": "s0",
+      "speakerId": "A",
+      "expression": "06_严肃"
+    },
+    {
+      "dialogueId": "evening_bell",
+      "nodeId": "s0",
+      "speakerId": "A",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "evening_bell",
+      "nodeId": "s1",
+      "speakerId": "A",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "greeting_A",
+      "nodeId": "s0",
+      "speakerId": "A",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "greeting_B",
+      "nodeId": "s0",
+      "speakerId": "B",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "greeting_C",
+      "nodeId": "s0",
+      "speakerId": "C",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "greeting_D",
+      "nodeId": "s0",
+      "speakerId": "D",
+      "expression": "00_默认和蔼"
+    },
+    {
+      "dialogueId": "hint_recheck",
+      "nodeId": "s0",
+      "speakerId": "A",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "hint_warehouse",
+      "nodeId": "s0",
+      "speakerId": "A",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "inspect_B",
+      "nodeId": "s0",
+      "speakerId": "A",
+      "expression": "03_笑张嘴"
+    },
+    {
+      "dialogueId": "inspect_C",
+      "nodeId": "s0",
+      "speakerId": "A",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "inspect_D",
+      "nodeId": "known",
+      "speakerId": "A",
+      "expression": "07_无奈捂头"
+    },
+    {
+      "dialogueId": "inspect_D",
+      "nodeId": "s0",
+      "speakerId": "A",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "inspect_bed",
+      "nodeId": "ready",
+      "speakerId": "A",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "inspect_cleaned",
+      "nodeId": "s0",
+      "speakerId": "A",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "inspect_container",
+      "nodeId": "s0",
+      "speakerId": "A",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "inspect_door",
+      "nodeId": "s0",
+      "speakerId": "A",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "inspect_hidden",
+      "nodeId": "s0",
+      "speakerId": "A",
+      "expression": "06_严肃"
+    },
+    {
+      "dialogueId": "inspect_hide_concern",
+      "nodeId": "s0",
+      "speakerId": "A",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "inspect_hide_unsafe",
+      "nodeId": "s0",
+      "speakerId": "A",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "inspect_hide_wait",
+      "nodeId": "s0",
+      "speakerId": "A",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "inspect_inspection_order",
+      "nodeId": "s0",
+      "speakerId": "A",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "inspect_item_cipher_note",
+      "nodeId": "speech",
+      "speakerId": "A",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "inspect_item_debt_ledger",
+      "nodeId": "s0",
+      "speakerId": "A",
+      "expression": "06_严肃"
+    },
+    {
+      "dialogueId": "inspect_item_letter_draft",
+      "nodeId": "s0",
+      "speakerId": "A",
+      "expression": "06_严肃"
+    },
+    {
+      "dialogueId": "inspect_item_number_index",
+      "nodeId": "speech",
+      "speakerId": "A",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "inspect_item_old_pants",
+      "nodeId": "no",
+      "speakerId": "A",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "inspect_item_old_pants",
+      "nodeId": "yes",
+      "speakerId": "A",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "inspect_item_old_uniform",
+      "nodeId": "no",
+      "speakerId": "A",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "inspect_item_old_uniform",
+      "nodeId": "yes",
+      "speakerId": "A",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "inspect_item_s17_stub",
+      "nodeId": "s0",
+      "speakerId": "A",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "inspect_item_stomach_medicine",
+      "nodeId": "s0",
+      "speakerId": "A",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "inspect_item_symbol_table",
+      "nodeId": "speech",
+      "speakerId": "A",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "inspect_item_torn_note",
+      "nodeId": "speech",
+      "speakerId": "A",
+      "expression": "05_疑惑"
+    },
+    {
+      "dialogueId": "inspect_item_torn_note_whole",
+      "nodeId": "s2",
+      "speakerId": "A",
+      "expression": "05_疑惑"
+    },
+    {
+      "dialogueId": "inspect_item_torn_note_whole",
+      "nodeId": "s3",
+      "speakerId": "A",
+      "expression": "08_崩溃抱头"
+    },
+    {
+      "dialogueId": "inspect_item_torn_note_whole",
+      "nodeId": "s4",
+      "speakerId": "A",
+      "expression": "06_严肃"
+    },
+    {
+      "dialogueId": "inspect_item_warehouse_key",
+      "nodeId": "s0",
+      "speakerId": "A",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "inspect_key_found",
+      "nodeId": "s0",
+      "speakerId": "A",
+      "expression": "03_笑张嘴"
+    },
+    {
+      "dialogueId": "inspect_locker",
+      "nodeId": "no",
+      "speakerId": "A",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "inspect_locker",
+      "nodeId": "yes",
+      "speakerId": "A",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "inspect_locker_b",
+      "nodeId": "s0",
+      "speakerId": "A",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "inspect_locker_c",
+      "nodeId": "s0",
+      "speakerId": "A",
+      "expression": "05_疑惑"
+    },
+    {
+      "dialogueId": "inspect_locker_c_owner",
+      "nodeId": "s0",
+      "speakerId": "A",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "inspect_locker_d",
+      "nodeId": "s0",
+      "speakerId": "A",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "inspect_machines_0",
+      "nodeId": "done",
+      "speakerId": "A",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "inspect_machines_0",
+      "nodeId": "repair",
+      "speakerId": "A",
+      "expression": "03_笑张嘴"
+    },
+    {
+      "dialogueId": "inspect_machines_1",
+      "nodeId": "done",
+      "speakerId": "A",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "inspect_machines_1",
+      "nodeId": "repair",
+      "speakerId": "A",
+      "expression": "03_笑张嘴"
+    },
+    {
+      "dialogueId": "inspect_machines_2",
+      "nodeId": "done",
+      "speakerId": "A",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "inspect_machines_2",
+      "nodeId": "repair",
+      "speakerId": "A",
+      "expression": "03_笑张嘴"
+    },
+    {
+      "dialogueId": "inspect_machines_3",
+      "nodeId": "done",
+      "speakerId": "A",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "inspect_machines_3",
+      "nodeId": "repair",
+      "speakerId": "A",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "inspect_machines_4",
+      "nodeId": "done",
+      "speakerId": "A",
+      "expression": "07_无奈捂头"
+    },
+    {
+      "dialogueId": "inspect_machines_4",
+      "nodeId": "repair",
+      "speakerId": "A",
+      "expression": "07_无奈捂头"
+    },
+    {
+      "dialogueId": "inspect_machines_5",
+      "nodeId": "speech",
+      "speakerId": "A",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "inspect_machines_6",
+      "nodeId": "speech",
+      "speakerId": "A",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "inspect_management",
+      "nodeId": "s1",
+      "speakerId": "A",
+      "expression": "02_担忧"
+    },
+    {
+      "dialogueId": "inspect_management_rules",
+      "nodeId": "s1",
+      "speakerId": "A",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "inspect_management_told_c",
+      "nodeId": "s1",
+      "speakerId": "A",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "inspect_platform",
+      "nodeId": "ordinary",
+      "speakerId": "A",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "inspect_platform",
+      "nodeId": "s0",
+      "speakerId": "A",
+      "expression": "02_担忧"
+    },
+    {
+      "dialogueId": "inspect_platform",
+      "nodeId": "work_hint",
+      "speakerId": "A",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "inspect_sealed_door",
+      "nodeId": "s0",
+      "speakerId": "A",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "inspect_w05",
+      "nodeId": "s0",
+      "speakerId": "A",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "inspect_warehouse",
+      "nodeId": "first",
+      "speakerId": "A",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "inspect_warehouse",
+      "nodeId": "ordinary",
+      "speakerId": "A",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "inspect_warehouse",
+      "nodeId": "ready",
+      "speakerId": "A",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "inspect_watch",
+      "nodeId": "s0",
+      "speakerId": "A",
+      "expression": "04_激动怒吼"
+    },
+    {
+      "dialogueId": "inspect_yesterday",
+      "nodeId": "s0",
+      "speakerId": "A",
+      "expression": "06_严肃"
+    },
+    {
+      "dialogueId": "key_failed",
+      "nodeId": "s0",
+      "speakerId": "A",
+      "expression": "07_无奈捂头"
+    },
+    {
+      "dialogueId": "key_meal_confirm",
+      "nodeId": "thought",
+      "speakerId": "A",
+      "expression": "02_担忧"
+    },
+    {
+      "dialogueId": "key_selection_intro",
+      "nodeId": "first",
+      "speakerId": "A",
+      "expression": "05_疑惑"
+    },
+    {
+      "dialogueId": "key_selection_intro",
+      "nodeId": "second",
+      "speakerId": "A",
+      "expression": "05_疑惑"
+    },
+    {
+      "dialogueId": "locker_jammed",
+      "nodeId": "s0",
+      "speakerId": "A",
+      "expression": "07_无奈捂头"
+    },
+    {
+      "dialogueId": "note_check_now",
+      "nodeId": "reconsider0",
+      "speakerId": "A",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "note_check_now",
+      "nodeId": "reconsider1",
+      "speakerId": "A",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "note_check_now",
+      "nodeId": "reconsider2",
+      "speakerId": "A",
+      "expression": "03_笑张嘴"
+    },
+    {
+      "dialogueId": "note_check_now",
+      "nodeId": "speech",
+      "speakerId": "A",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "note_choice",
+      "nodeId": "choice",
+      "speakerId": "A",
+      "expression": "05_疑惑"
+    },
+    {
+      "dialogueId": "note_choice",
+      "nodeId": "reconsider0",
+      "speakerId": "A",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "note_choice",
+      "nodeId": "reconsider1",
+      "speakerId": "A",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "note_choice",
+      "nodeId": "reconsider2",
+      "speakerId": "A",
+      "expression": "03_笑张嘴"
+    },
+    {
+      "dialogueId": "note_found",
+      "nodeId": "s0",
+      "speakerId": "A",
+      "expression": "05_疑惑"
+    },
+    {
+      "dialogueId": "note_wait",
+      "nodeId": "wait",
+      "speakerId": "A",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "notebook_pair_reaction",
+      "nodeId": "s0",
+      "speakerId": "A",
+      "expression": "08_崩溃抱头"
+    },
+    {
+      "dialogueId": "notebook_pair_reaction",
+      "nodeId": "s1",
+      "speakerId": "A",
+      "expression": "06_严肃"
+    },
+    {
+      "dialogueId": "p_intro",
+      "nodeId": "i0",
+      "speakerId": "B",
+      "expression": "09_关心"
+    },
+    {
+      "dialogueId": "p_intro",
+      "nodeId": "i1",
+      "speakerId": "A",
+      "expression": "05_疑惑"
+    },
+    {
+      "dialogueId": "p_intro",
+      "nodeId": "i10",
+      "speakerId": "A",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "p_intro",
+      "nodeId": "i11",
+      "speakerId": "B",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "p_intro",
+      "nodeId": "i2",
+      "speakerId": "B",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "p_intro",
+      "nodeId": "i4",
+      "speakerId": "B",
+      "expression": "03_挠头笑"
+    },
+    {
+      "dialogueId": "p_intro",
+      "nodeId": "i6",
+      "speakerId": "B",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "p_intro",
+      "nodeId": "i7",
+      "speakerId": "A",
+      "expression": "07_无奈捂头"
+    },
+    {
+      "dialogueId": "p_intro",
+      "nodeId": "i8",
+      "speakerId": "B",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "p_intro",
+      "nodeId": "i9",
+      "speakerId": "B",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "p_intro",
+      "nodeId": "meal_thought",
+      "speakerId": "A",
+      "expression": "02_担忧"
+    },
+    {
+      "dialogueId": "r1_01_terminal",
+      "nodeId": "s0",
+      "speakerId": "A",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "r1_01_terminal",
+      "nodeId": "s2",
+      "speakerId": "A",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "r1_02_explore",
+      "nodeId": "e_1",
+      "speakerId": "A",
+      "expression": "05_疑惑"
+    },
+    {
+      "dialogueId": "r1_05_decide",
+      "nodeId": "choose",
+      "speakerId": "A",
+      "expression": "06_严肃"
+    },
+    {
+      "dialogueId": "r1_05_decide",
+      "nodeId": "public0",
+      "speakerId": "A",
+      "expression": "04_激动怒吼"
+    },
+    {
+      "dialogueId": "r1_05_decide",
+      "nodeId": "public1",
+      "speakerId": "D",
+      "expression": "03_严肃"
+    },
+    {
+      "dialogueId": "r1_05_decide",
+      "nodeId": "public2",
+      "speakerId": "A",
+      "expression": ""
+    },
+    {
+      "dialogueId": "r1_05_decide",
+      "nodeId": "solo0",
+      "speakerId": "A",
+      "expression": "06_严肃"
+    },
+    {
+      "dialogueId": "r1_05_decide",
+      "nodeId": "solo1",
+      "speakerId": "A",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "r1_05_tell_b",
+      "nodeId": "s0",
+      "speakerId": "A",
+      "expression": "06_严肃"
+    },
+    {
+      "dialogueId": "r1_05_tell_b",
+      "nodeId": "s1",
+      "speakerId": "B",
+      "expression": "02_笑张嘴"
+    },
+    {
+      "dialogueId": "r1_05_tell_b",
+      "nodeId": "s2",
+      "speakerId": "B",
+      "expression": "05_激动强调"
+    },
+    {
+      "dialogueId": "r1_05_tell_b",
+      "nodeId": "s3",
+      "speakerId": "A",
+      "expression": "08_崩溃抱头"
+    },
+    {
+      "dialogueId": "r1_05_tell_c",
+      "nodeId": "s0",
+      "speakerId": "A",
+      "expression": "06_严肃"
+    },
+    {
+      "dialogueId": "r1_05_tell_c",
+      "nodeId": "s1",
+      "speakerId": "C",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "r1_05_tell_c",
+      "nodeId": "s2",
+      "speakerId": "C",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "r1_05_tell_c",
+      "nodeId": "s3",
+      "speakerId": "A",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "r1_07_recheck",
+      "nodeId": "s1",
+      "speakerId": "A",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "r1_09_invite",
+      "nodeId": "s0",
+      "speakerId": "A",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "r1_09_invite",
+      "nodeId": "s1",
+      "speakerId": "D",
+      "expression": "01_笑1_眯眼张嘴大笑"
+    },
+    {
+      "dialogueId": "r1_09_invite",
+      "nodeId": "s2",
+      "speakerId": "A",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "route_choice",
+      "nodeId": "a",
+      "speakerId": "A",
+      "expression": "08_崩溃抱头"
+    },
+    {
+      "dialogueId": "route_choice",
+      "nodeId": "ask",
+      "speakerId": "A",
+      "expression": "04_激动怒吼"
+    },
+    {
+      "dialogueId": "route_choice",
+      "nodeId": "b",
+      "speakerId": "A",
+      "expression": "06_严肃"
+    },
+    {
+      "dialogueId": "suspect_choice",
+      "nodeId": "consider_c",
+      "speakerId": "A",
+      "expression": "05_疑惑"
+    },
+    {
+      "dialogueId": "suspect_choice",
+      "nodeId": "consider_d",
+      "speakerId": "A",
+      "expression": "06_严肃"
+    },
+    {
+      "dialogueId": "suspect_choice",
+      "nodeId": "exclude_b",
+      "speakerId": "A",
+      "expression": "06_严肃"
+    },
+    {
+      "dialogueId": "suspect_choice",
+      "nodeId": "speech",
+      "speakerId": "A",
+      "expression": "05_疑惑"
+    },
+    {
+      "dialogueId": "think_bed_d",
+      "nodeId": "s0",
+      "speakerId": "A",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "think_bed_decoy",
+      "nodeId": "s0",
+      "speakerId": "A",
+      "expression": "01_默认"
+    },
+    {
+      "dialogueId": "timeout_recheck",
+      "nodeId": "s0",
+      "speakerId": "A",
+      "expression": "07_无奈捂头"
+    }
+  ]
+}

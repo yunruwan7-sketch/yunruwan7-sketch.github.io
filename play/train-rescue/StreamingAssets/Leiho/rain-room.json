@@ -1,0 +1,6 @@
+{
+  "_说明": "按用户雨夜室内1.png：现有实录雨与雷走参考模块的inNode素材输入链；不额外合成雨。window/rainVol/drip属于原模块自造雨链，保留截图参数但不重复添加雨层。wall用于原算法房间IR阻尼；master只作用于车内湿声，车外干声保持100%原始音量，不改游戏总音量。wet等比例0到1；transitionSeconds为约99%过渡所需现实秒。车厢边界由实际两端门缓存，连接处保持室外干声。",
+  "wet": 1, "master": 0.55, "indoor": 0.45, "source": 0.78,
+  "wall": 0.7, "window": 0.3, "rainVol": 0.55, "drip": 0, "room": 0.32,
+  "transitionSeconds": 1.2
+}

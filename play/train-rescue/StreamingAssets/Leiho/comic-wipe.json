@@ -1,0 +1,9 @@
+{
+  "_comment": "漫画进入及退出时由右向左扫屏。duration为完整过场实秒，画面在50%进度的完全遮挡阶段切换；background/highlight为HTML颜色。",
+  "duration": 0.56,
+  "_sound": "单次风切声随扫屏开始播放，soundVolume为0到1，受总音量控制，漫画静音期间也播放。",
+  "soundResource": "LeihoUI/comic-whoosh",
+  "soundVolume": 0.65,
+  "background": "#10151D",
+  "highlight": "#C8B991"
+}

@@ -1,0 +1,16 @@
+{
+  "_说明": "bug单2表现参数。cameraY和震幅为世界单位，shakeSeconds为现实秒；隐藏镜头左限为001号连接处中心，右限为仓库左端加相机半宽，窄屏也不越界。素材为Resources相对路径。",
+  "cameraY": 0.90,
+  "shakeSeconds": 0.6,
+  "shakeAmplitude": 0.10,
+  "hiddenCameraResponse": 4.0,
+  "hideLeftFocus": 7.03,
+  "warehouseLeft": 8.6,
+  "management": "Feedback20261118/management",
+  "dispatch": "Feedback20261118/dispatch",
+  "keyBoard": "Feedback20261118/key-board",
+  "pants": "Feedback20261118/pants",
+  "uniform": "StoryArt/old_uniform_inventory",
+  "decoyPants": "Feedback20261118/decoy-pants",
+  "writingSound": "Feedback20261118/writing"
+}

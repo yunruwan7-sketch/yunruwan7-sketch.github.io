@@ -1,0 +1,763 @@
+{
+  "_说明": "四个H3交付包的原生动画图集；帧率是真实秒。统一PPU/锚点，不按每帧包围盒重新缩放。缺少的新动作保留旧动画。",
+  "clips": [
+    {
+      "id": "A_Defeated",
+      "actor": "A",
+      "resource": "H3Animations/A_Defeated",
+      "fps": 24,
+      "loop": false,
+      "frameCount": 124,
+      "cell": 176,
+      "columns": 8,
+      "ppu": 141.1764705882353,
+      "pivot": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "id": "A_Hide",
+      "actor": "A",
+      "resource": "H3Animations/A_Hide",
+      "fps": 24,
+      "loop": false,
+      "frameCount": 124,
+      "cell": 176,
+      "columns": 8,
+      "ppu": 141.1764705882353,
+      "pivot": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "id": "A_HideIdle",
+      "actor": "A",
+      "resource": "H3Animations/A_HideIdle",
+      "fps": 24,
+      "loop": true,
+      "frameCount": 52,
+      "cell": 176,
+      "columns": 8,
+      "ppu": 141.1764705882353,
+      "pivot": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "id": "A_Idle",
+      "actor": "A",
+      "resource": "H3Animations/A_Idle",
+      "fps": 24,
+      "loop": true,
+      "frameCount": 123,
+      "cell": 176,
+      "columns": 8,
+      "ppu": 141.1764705882353,
+      "pivot": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "id": "A_Inspect",
+      "actor": "A",
+      "resource": "H3Animations/A_Inspect",
+      "fps": 24,
+      "loop": true,
+      "frameCount": 123,
+      "cell": 176,
+      "columns": 8,
+      "ppu": 141.1764705882353,
+      "pivot": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "id": "A_MakeDummy",
+      "actor": "A",
+      "resource": "H3Animations/A_MakeDummy",
+      "fps": 24,
+      "loop": true,
+      "frameCount": 123,
+      "cell": 176,
+      "columns": 8,
+      "ppu": 141.1764705882353,
+      "pivot": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "id": "A_Pickup",
+      "actor": "A",
+      "resource": "H3Animations/A_Pickup",
+      "fps": 24,
+      "loop": true,
+      "frameCount": 123,
+      "cell": 176,
+      "columns": 8,
+      "ppu": 141.1764705882353,
+      "pivot": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "id": "A_Push",
+      "actor": "A",
+      "resource": "H3Animations/A_Push",
+      "fps": 24,
+      "loop": false,
+      "frameCount": 124,
+      "cell": 176,
+      "columns": 8,
+      "ppu": 141.1764705882353,
+      "pivot": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "id": "A_Repair",
+      "actor": "A",
+      "resource": "H3Animations/A_Repair",
+      "fps": 24,
+      "loop": true,
+      "frameCount": 123,
+      "cell": 176,
+      "columns": 8,
+      "ppu": 141.1764705882353,
+      "pivot": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "id": "A_Sneak",
+      "actor": "A",
+      "resource": "H3Animations/A_Sneak",
+      "fps": 24,
+      "loop": true,
+      "frameCount": 48,
+      "cell": 176,
+      "columns": 8,
+      "ppu": 141.1764705882353,
+      "pivot": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "id": "A_Talk",
+      "actor": "A",
+      "resource": "H3Animations/A_Talk",
+      "fps": 24,
+      "loop": true,
+      "frameCount": 123,
+      "cell": 176,
+      "columns": 8,
+      "ppu": 141.1764705882353,
+      "pivot": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "id": "A_walk",
+      "actor": "A",
+      "resource": "H3Animations/A_walk",
+      "fps": 24,
+      "loop": true,
+      "frameCount": 31,
+      "cell": 176,
+      "columns": 8,
+      "ppu": 141.1764705882353,
+      "pivot": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "id": "B_Idle",
+      "actor": "B",
+      "resource": "H3Animations/B_Idle",
+      "fps": 24,
+      "loop": true,
+      "frameCount": 123,
+      "cell": 176,
+      "columns": 8,
+      "ppu": 141.1764705882353,
+      "pivot": [
+        0.4971590909090909,
+        0.5
+      ]
+    },
+    {
+      "id": "B_Talk",
+      "actor": "B",
+      "resource": "H3Animations/B_Talk",
+      "fps": 24,
+      "loop": true,
+      "frameCount": 123,
+      "cell": 176,
+      "columns": 8,
+      "ppu": 141.1764705882353,
+      "pivot": [
+        0.4971590909090909,
+        0.5
+      ]
+    },
+    {
+      "id": "B_Turn",
+      "actor": "B",
+      "resource": "H3Animations/B_Turn",
+      "fps": 24,
+      "loop": false,
+      "frameCount": 124,
+      "cell": 176,
+      "columns": 8,
+      "ppu": 141.1764705882353,
+      "pivot": [
+        0.4971590909090909,
+        0.5
+      ]
+    },
+    {
+      "id": "B_Wake",
+      "actor": "B",
+      "resource": "H3Animations/B_Wake",
+      "fps": 24,
+      "loop": true,
+      "frameCount": 123,
+      "cell": 176,
+      "columns": 8,
+      "ppu": 141.1764705882353,
+      "pivot": [
+        0.4971590909090909,
+        0.5
+      ]
+    },
+    {
+      "id": "B_Walk",
+      "actor": "B",
+      "resource": "H3Animations/B_Walk",
+      "fps": 24,
+      "loop": true,
+      "frameCount": 31,
+      "cell": 176,
+      "columns": 8,
+      "ppu": 141.1764705882353,
+      "pivot": [
+        0.4971590909090909,
+        0.5
+      ]
+    },
+    {
+      "id": "C_Idle",
+      "actor": "C",
+      "resource": "H3Animations/C_Idle",
+      "fps": 24,
+      "loop": true,
+      "frameCount": 123,
+      "cell": 176,
+      "columns": 8,
+      "ppu": 141.1764705882353,
+      "pivot": [
+        0.4971590909090909,
+        0.5
+      ]
+    },
+    {
+      "id": "C_Inspect",
+      "actor": "C",
+      "resource": "H3Animations/C_Inspect",
+      "fps": 24,
+      "loop": true,
+      "frameCount": 123,
+      "cell": 176,
+      "columns": 8,
+      "ppu": 141.1764705882353,
+      "pivot": [
+        0.4971590909090909,
+        0.5
+      ]
+    },
+    {
+      "id": "C_Talk",
+      "actor": "C",
+      "resource": "H3Animations/C_Talk",
+      "fps": 24,
+      "loop": true,
+      "frameCount": 123,
+      "cell": 176,
+      "columns": 8,
+      "ppu": 141.1764705882353,
+      "pivot": [
+        0.4971590909090909,
+        0.5
+      ]
+    },
+    {
+      "id": "C_Turn",
+      "actor": "C",
+      "resource": "H3Animations/C_Turn",
+      "fps": 24,
+      "loop": false,
+      "frameCount": 124,
+      "cell": 176,
+      "columns": 8,
+      "ppu": 141.1764705882353,
+      "pivot": [
+        0.4971590909090909,
+        0.5
+      ]
+    },
+    {
+      "id": "C_Walk",
+      "actor": "C",
+      "resource": "H3Animations/C_Walk",
+      "fps": 24,
+      "loop": true,
+      "frameCount": 51,
+      "cell": 176,
+      "columns": 8,
+      "ppu": 141.1764705882353,
+      "pivot": [
+        0.4971590909090909,
+        0.5
+      ]
+    },
+    {
+      "id": "C_Walk_6Frames",
+      "actor": "C",
+      "resource": "H3Animations/C_Walk_6Frames",
+      "fps": 24,
+      "loop": true,
+      "frameCount": 29,
+      "cell": 176,
+      "columns": 8,
+      "ppu": 141.1764705882353,
+      "pivot": [
+        0.4971590909090909,
+        0.5
+      ]
+    },
+    {
+      "id": "D_Alert",
+      "actor": "D",
+      "resource": "H3Animations/D_Alert",
+      "fps": 24,
+      "loop": true,
+      "frameCount": 123,
+      "cell": 176,
+      "columns": 8,
+      "ppu": 141.1764705882353,
+      "pivot": [
+        0.4971590909090909,
+        0.5
+      ]
+    },
+    {
+      "id": "D_BackInspect",
+      "actor": "D",
+      "resource": "H3Animations/D_BackInspect",
+      "fps": 24,
+      "loop": false,
+      "frameCount": 124,
+      "cell": 176,
+      "columns": 8,
+      "ppu": 141.1764705882353,
+      "pivot": [
+        0.4971590909090909,
+        0.5
+      ]
+    },
+    {
+      "id": "D_CarryBag",
+      "actor": "D",
+      "resource": "H3Animations/D_CarryBag",
+      "fps": 24,
+      "loop": true,
+      "frameCount": 30,
+      "cell": 176,
+      "columns": 8,
+      "ppu": 141.1764705882353,
+      "pivot": [
+        0.4971590909090909,
+        0.5
+      ]
+    },
+    {
+      "id": "D_CheckBed",
+      "actor": "D",
+      "resource": "H3Animations/D_CheckBed",
+      "fps": 24,
+      "loop": true,
+      "frameCount": 123,
+      "cell": 176,
+      "columns": 8,
+      "ppu": 141.1764705882353,
+      "pivot": [
+        0.4971590909090909,
+        0.5
+      ]
+    },
+    {
+      "id": "D_Counter",
+      "actor": "D",
+      "resource": "H3Animations/D_Counter",
+      "fps": 24,
+      "loop": false,
+      "frameCount": 124,
+      "cell": 176,
+      "columns": 8,
+      "ppu": 141.1764705882353,
+      "pivot": [
+        0.4971590909090909,
+        0.5
+      ]
+    },
+    {
+      "id": "D_Fall",
+      "actor": "D",
+      "resource": "H3Animations/D_Fall",
+      "fps": 24,
+      "loop": false,
+      "frameCount": 124,
+      "cell": 176,
+      "columns": 8,
+      "ppu": 141.1764705882353,
+      "pivot": [
+        0.4971590909090909,
+        0.5
+      ]
+    },
+    {
+      "id": "D_Idle",
+      "actor": "D",
+      "resource": "H3Animations/D_Idle",
+      "fps": 24,
+      "loop": true,
+      "frameCount": 123,
+      "cell": 176,
+      "columns": 8,
+      "ppu": 141.1764705882353,
+      "pivot": [
+        0.4971590909090909,
+        0.5
+      ]
+    },
+    {
+      "id": "D_Inspect",
+      "actor": "D",
+      "resource": "H3Animations/D_Inspect",
+      "fps": 24,
+      "loop": true,
+      "frameCount": 123,
+      "cell": 176,
+      "columns": 8,
+      "ppu": 141.1764705882353,
+      "pivot": [
+        0.4971590909090909,
+        0.5
+      ]
+    },
+    {
+      "id": "D_PutBag",
+      "actor": "D",
+      "resource": "H3Animations/D_PutBag",
+      "fps": 24,
+      "loop": false,
+      "frameCount": 124,
+      "cell": 176,
+      "columns": 8,
+      "ppu": 141.1764705882353,
+      "pivot": [
+        0.4971590909090909,
+        0.5
+      ]
+    },
+    {
+      "id": "D_Talk",
+      "actor": "D",
+      "resource": "H3Animations/D_Talk",
+      "fps": 24,
+      "loop": true,
+      "frameCount": 123,
+      "cell": 176,
+      "columns": 8,
+      "ppu": 141.1764705882353,
+      "pivot": [
+        0.4971590909090909,
+        0.5
+      ]
+    },
+    {
+      "id": "D_Walk",
+      "actor": "D",
+      "resource": "H3Animations/D_Walk",
+      "fps": 24,
+      "loop": true,
+      "frameCount": 33,
+      "cell": 176,
+      "columns": 8,
+      "ppu": 141.1764705882353,
+      "pivot": [
+        0.4971590909090909,
+        0.5
+      ]
+    },
+    {
+      "id": "A_Fight",
+      "actor": "A",
+      "resource": "H3Animations/A_Fight",
+      "fps": 24,
+      "loop": true,
+      "frameCount": 123,
+      "cell": 176,
+      "columns": 8,
+      "ppu": 141.1764705882353,
+      "pivot": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "id": "AD_Duel",
+      "actor": "A",
+      "resource": "H3Animations/AD_Duel",
+      "fps": 24,
+      "loop": true,
+      "frameCount": 48,
+      "cell": 176,
+      "columns": 8,
+      "ppu": 141.1764705882353,
+      "pivot": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "id": "B_Coffee",
+      "actor": "B",
+      "resource": "H3Animations/B_Coffee",
+      "fps": 24,
+      "loop": true,
+      "frameCount": 123,
+      "cell": 176,
+      "columns": 8,
+      "ppu": 141.1764705882353,
+      "pivot": [
+        0.4971590909090909,
+        0.5
+      ]
+    },
+    {
+      "id": "B_Repair",
+      "actor": "B",
+      "resource": "H3Animations/B_Repair",
+      "fps": 24,
+      "loop": true,
+      "frameCount": 123,
+      "cell": 176,
+      "columns": 8,
+      "ppu": 141.1764705882353,
+      "pivot": [
+        0.4971590909090909,
+        0.5
+      ]
+    },
+    {
+      "id": "B_Sit",
+      "actor": "B",
+      "resource": "H3Animations/B_Sit",
+      "fps": 24,
+      "loop": true,
+      "frameCount": 123,
+      "cell": 176,
+      "columns": 8,
+      "ppu": 141.1764705882353,
+      "pivot": [
+        0.4971590909090909,
+        0.5
+      ]
+    },
+    {
+      "id": "B_Smoke",
+      "actor": "B",
+      "resource": "H3Animations/B_Smoke",
+      "fps": 24,
+      "loop": true,
+      "frameCount": 123,
+      "cell": 176,
+      "columns": 8,
+      "ppu": 141.1764705882353,
+      "pivot": [
+        0.4971590909090909,
+        0.5
+      ]
+    },
+    {
+      "id": "C_Coffee",
+      "actor": "C",
+      "resource": "H3Animations/C_Coffee",
+      "fps": 24,
+      "loop": true,
+      "frameCount": 123,
+      "cell": 176,
+      "columns": 8,
+      "ppu": 141.1764705882353,
+      "pivot": [
+        0.4971590909090909,
+        0.5
+      ]
+    },
+    {
+      "id": "C_Repair",
+      "actor": "C",
+      "resource": "H3Animations/C_Repair",
+      "fps": 24,
+      "loop": true,
+      "frameCount": 123,
+      "cell": 176,
+      "columns": 8,
+      "ppu": 141.1764705882353,
+      "pivot": [
+        0.4971590909090909,
+        0.5
+      ]
+    },
+    {
+      "id": "C_Sit",
+      "actor": "C",
+      "resource": "H3Animations/C_Sit",
+      "fps": 24,
+      "loop": true,
+      "frameCount": 123,
+      "cell": 176,
+      "columns": 8,
+      "ppu": 141.1764705882353,
+      "pivot": [
+        0.4971590909090909,
+        0.5
+      ]
+    },
+    {
+      "id": "C_Smoke",
+      "actor": "C",
+      "resource": "H3Animations/C_Smoke",
+      "fps": 24,
+      "loop": true,
+      "frameCount": 123,
+      "cell": 176,
+      "columns": 8,
+      "ppu": 141.1764705882353,
+      "pivot": [
+        0.4971590909090909,
+        0.5
+      ]
+    },
+    {
+      "id": "D_Coffee",
+      "actor": "D",
+      "resource": "H3Animations/D_Coffee",
+      "fps": 24,
+      "loop": true,
+      "frameCount": 123,
+      "cell": 176,
+      "columns": 8,
+      "ppu": 141.1764705882353,
+      "pivot": [
+        0.4971590909090909,
+        0.5
+      ]
+    },
+    {
+      "id": "D_Fight",
+      "actor": "D",
+      "resource": "H3Animations/D_Fight",
+      "fps": 24,
+      "loop": true,
+      "frameCount": 123,
+      "cell": 176,
+      "columns": 8,
+      "ppu": 141.1764705882353,
+      "pivot": [
+        0.4971590909090909,
+        0.5
+      ]
+    },
+    {
+      "id": "D_Repair",
+      "actor": "D",
+      "resource": "H3Animations/D_Repair",
+      "fps": 24,
+      "loop": true,
+      "frameCount": 123,
+      "cell": 176,
+      "columns": 8,
+      "ppu": 141.1764705882353,
+      "pivot": [
+        0.4971590909090909,
+        0.5
+      ]
+    },
+    {
+      "id": "D_Sit",
+      "actor": "D",
+      "resource": "H3Animations/D_Sit",
+      "fps": 24,
+      "loop": true,
+      "frameCount": 123,
+      "cell": 176,
+      "columns": 8,
+      "ppu": 141.1764705882353,
+      "pivot": [
+        0.4971590909090909,
+        0.5
+      ]
+    },
+    {
+      "id": "D_Smoke",
+      "actor": "D",
+      "resource": "H3Animations/D_Smoke",
+      "fps": 24,
+      "loop": true,
+      "frameCount": 123,
+      "cell": 176,
+      "columns": 8,
+      "ppu": 141.1764705882353,
+      "pivot": [
+        0.4971590909090909,
+        0.5
+      ]
+    }
+  ],
+  "locomotion": [
+    {
+      "actor": "A",
+      "idle": "A_Idle",
+      "walk": "A_walk"
+    },
+    {
+      "actor": "B",
+      "idle": "B_Idle",
+      "walk": "B_Walk"
+    },
+    {
+      "actor": "C",
+      "idle": "C_Idle",
+      "walk": "C_Walk_6Frames"
+    },
+    {
+      "actor": "D",
+      "idle": "D_Idle",
+      "walk": "D_Walk"
+    }
+  ],
+  "_20261029接入": "20 new actions, Lunch explicitly excluded."
+}

@@ -1,0 +1,13 @@
+{
+  "_说明": "距离单位为Unity世界单位，按玩家碰撞体中心到物件当前可见图像边缘计算。侧视玩家只水平行走。",
+  "interactionDistance": 1.1,
+  "machineCenterTolerance": 0.18,
+  "_machineCenterTolerance": "组合机器交互的水平容差，测量玩家碰撞体中心到整组机器可见范围中心。点击仍按机器全部可见像素命中。",
+  "_interactionDistance": "实际交互距离，必须大于0；远于此值先自动靠近，到达才弹选项或直接操作。",
+  "nearbyDistance": 2.2,
+  "nearbyHalfHeight": 1.4,
+  "_nearbyDistance": "玩家周围交互矩形的水平半宽：矩形碰到目标可见范围就算候选，再按玩家中心到目标中心的水平距离（只算 x）排序，近的优先；也是显示 F 提示的最远横向距离。人物与物件共用这一个矩形。",
+  "_nearbyHalfHeight": "交互矩形的垂直半高，只用来排除楼上/楼下的物件，不参与排序。",
+  "stuckSeconds": 1.5,
+  "_stuckSeconds": "被实心障碍持续阻挡的取消时间（秒），不瞬移、不远程执行。"
+}

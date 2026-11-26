@@ -1,0 +1,31 @@
+{
+  "_说明": "同心圆涂色小游戏（machines_1）：100 格，方块与障碍物沿圆环内侧周长运动；方块自动逆时针转动，空格或单击朝圆心跳跃。",
+  "_segmentCount": "圆环切分份数；涂色与碰撞都按整格量化，不会细于一格。",
+  "segmentCount": 100,
+  "_playerSegment": "方块初始格，0 为正上方，索引顺时针递增。",
+  "playerSegment": 0,
+  "_playerWidth": "方块占用的连续格数，通常为 1。",
+  "playerWidth": 1,
+  "_playerSegmentsPerSecond": "方块自动逆时针转动的速度（格/秒），也用于换算碰撞回退时长。",
+  "playerSegmentsPerSecond": 8,
+  "_rollbackSeconds": "碰撞时回退最近多少秒内涂的格；不足 1/3 圈会自动加长。",
+  "rollbackSeconds": 2.0,
+  "_paintLockSeconds": "碰撞后禁止涂色的秒数，需求为 1 秒。",
+  "paintLockSeconds": 1.0,
+  "_obstacleHitboxInsetSegments": "障碍碰撞箱两端各内缩的格数；视觉仍是完整 length，碰撞略小，避免擦边判撞。",
+  "obstacleHitboxInsetSegments": 0.25,
+  "_jumpSpeed": "朝圆心的起跳速度，单位：方块高度/秒；若不足以越过障碍会自动抬高到最低需求。",
+  "jumpSpeed": 12.0,
+  "_jumpGravity": "朝圆环外的重力加速度，单位：方块高度/秒²；滞空时间 = 2 × 起跳速度 / 重力。",
+  "jumpGravity": 20.0,
+  "_jumpMarginSegments": "为越过障碍所需的滞空余量；自动计算最低起跳速度时使用，2 表示更宽松。",
+  "jumpMarginSegments": 2.0,
+  "_jumpCooldownSeconds": "从起跳到可再次起跳的冷却秒数；必须不短于滞空时间。",
+  "jumpCooldownSeconds": 1.0,
+  "_obstacles": "id 供表现层绑定；length 为覆盖格数；segmentsPerSecond 负数反向，0 静止。",
+  "obstacles": [
+    { "id": "coupler", "segment": 12, "length": 2, "segmentsPerSecond": 1.6 },
+    { "id": "valve", "segment": 44, "length": 2, "segmentsPerSecond": -1.0 },
+    { "id": "crate", "segment": 72, "length": 2, "segmentsPerSecond": 0.7 }
+  ]
+}

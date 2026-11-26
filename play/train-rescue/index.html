@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>技术宅拯救车厢 · 网页试玩</title>
+    <link rel="shortcut icon" href="TemplateData/icon.png">
+    <link rel="stylesheet" href="TemplateData/style.css">
+  </head>
+  <body>
+    <div id="unity-container" class="unity-desktop">
+      <canvas id="unity-canvas" width=960 height=600 tabindex="-1"></canvas>
+      <div id="unity-loading-bar">
+        <div id="unity-logo"></div><div id="load-status" role="status">正在加载…</div>
+        <div id="unity-progress-bar-empty"><div id="unity-progress-bar-full"></div></div>
+      </div>
+      <div id="unity-warning"></div>
+      <div id="unity-footer">
+        <div id="unity-webgl-logo"></div>
+        <div id="unity-fullscreen-button"></div>
+        <div id="unity-build-title">技术宅拯救车厢</div>
+      </div>
+      <!-- 浏览器策略：没有用户点击就不允许出声。这里先拦一道点击，点完才开始加载游戏，
+           这样音频上下文一创建就是运行状态，开场那几秒的对白/音效不会丢。 -->
+      <div id="leiho-start" role="button" tabindex="0" aria-label="开始试玩">
+        <div id="leiho-start-card">
+          <div id="leiho-start-title">技术宅拯救车厢</div>
+          <div id="leiho-start-hint">点击开始</div>
+          <div id="leiho-start-note">首次加载约 496 MB，建议使用电脑和稳定网络</div>
+        </div>
+      </div>
+    </div>
+    <script src="packed-data.js"></script>
+    <script src="stream-player.js"></script>
+    <script>
+      var container = document.querySelector("#unity-container");
+      var canvas = document.querySelector("#unity-canvas");
+      var loadingBar = document.querySelector("#unity-loading-bar");
+      var progressBarFull = document.querySelector("#unity-progress-bar-full");
+      var fullscreenButton = document.querySelector("#unity-fullscreen-button");
+      var warningBanner = document.querySelector("#unity-warning");
+      var startOverlay = document.querySelector("#leiho-start");
+      var leihoMenuOpen = false;
+      var leihoCssFullscreen = false;
+      var leihoStarted = false;
+
+      window.leihoSetMenuOpen = function(open) { leihoMenuOpen = !!open; };
+      function leihoRefreshNameInput() {
+        if (!window.leihoNameInputReposition) return;
+        // 全屏切换会改画布尺寸和焦点，等布局稳定后补一次摆放与聚焦，否则输入法会落到画布上。
+        window.leihoNameInputReposition();
+        requestAnimationFrame(function() { window.leihoNameInputReposition(); });
+        setTimeout(window.leihoNameInputReposition, 150);
+      }
+      window.leihoSetCssFullscreen = function(fullscreen) {
+        leihoCssFullscreen = !!fullscreen;
+        container.classList.toggle("leiho-fullscreen", leihoCssFullscreen);
+        if (leihoCssFullscreen && document.fullscreenElement) document.exitFullscreen();
+        leihoRefreshNameInput();
+      };
+      window.addEventListener("resize", leihoRefreshNameInput);
+      document.addEventListener("fullscreenchange", leihoRefreshNameInput);
+
+      // 存档写在浏览器的 IndexedDB 里；页面被关掉/切到后台时主动刷一次，避免刚存的进度没落盘。
+      function leihoFlushSaves() {
+        try {
+          var instance = window.leihoUnityInstance;
+          var fs = instance && instance.Module && instance.Module.FS;
+          if (fs && fs.syncfs) fs.syncfs(false, function () { });
+        } catch (error) { }
+      }
+      window.addEventListener("pagehide", leihoFlushSaves);
+      window.addEventListener("beforeunload", leihoFlushSaves);
+      document.addEventListener("visibilitychange", function () {
+        if (document.visibilityState === "hidden") leihoFlushSaves();
+      });
+      document.addEventListener("keydown", function(event) {
+        if (event.key === "Escape" && leihoCssFullscreen && leihoMenuOpen) window.leihoSetCssFullscreen(false);
+      }, true);
+      function leihoResumeAudio() {
+        var context = window.WEBAudio && WEBAudio.audioContext;
+        if (context && context.state !== "running" && context.state !== "closed") {
+          context.resume().catch(function(error) { console.warn("Audio resume failed", error); });
+        }
+      }
+      document.addEventListener("pointerdown", leihoResumeAudio, true);
+      document.addEventListener("keydown", leihoResumeAudio, true);
+
+      function unityShowBanner(msg, type) {
+        function updateBannerVisibility() {
+          warningBanner.style.display = warningBanner.children.length ? 'block' : 'none';
+        }
+        var div = document.createElement('div');
+        div.innerHTML = msg;
+        warningBanner.appendChild(div);
+        if (type == 'error') div.style = 'background: red; padding: 10px;';
+        else {
+          if (type == 'warning') div.style = 'background: yellow; padding: 10px;';
+          setTimeout(function() { warningBanner.removeChild(div); updateBannerVisibility(); }, 5000);
+        }
+        updateBannerVisibility();
+      }
+
+      var buildUrl = "Build";
+      var loaderUrl = buildUrl + "/Leiho-5a026a5c.loader.js";
+      var config = {
+        dataUrl: buildUrl + "/Leiho-5a026a5c.data",
+        frameworkUrl: buildUrl + "/Leiho-5a026a5c.framework.js",
+        codeUrl: buildUrl + "/Leiho-5a026a5c.wasm",
+        streamingAssetsUrl: "StreamingAssets",
+        companyName: "DefaultCompany",
+        productName: "LeihoGamejam2026",
+        productVersion: "1.0",
+        showBanner: unityShowBanner,
+        cacheControl: () => "no-store",
+      };
+
+      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+        var meta = document.createElement('meta');
+        meta.name = 'viewport';
+        meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
+        document.getElementsByTagName('head')[0].appendChild(meta);
+        container.className = "unity-mobile";
+        canvas.className = "unity-mobile";
+      } else {
+        canvas.style.width = "960px";
+        canvas.style.height = "600px";
+      }
+
+      window.leihoLoadError = function(message) {
+        loadingBar.style.display = "none";
+        startOverlay.style.display = "flex";
+        document.getElementById("leiho-start-title").textContent = "暂时无法启动游戏";
+        document.getElementById("leiho-start-hint").textContent = "重新加载";
+        document.getElementById("leiho-start-note").textContent = String(message);
+        startOverlay.onclick = () => window.location.reload();
+      };
+      function leihoStart() {
+        if (leihoStarted) return;
+        leihoStarted = true;
+        if (typeof DecompressionStream === "undefined") {
+          leihoLoadError("请使用新版 Chrome、Edge、Firefox 或 Safari 打开试玩。");
+          return;
+        }
+        if (startOverlay) startOverlay.style.display = "none";
+        // 这一下点击既解锁音频，也让引擎从这里才开始初始化。
+        leihoResumeAudio();
+        loadingBar.style.display = "block";
+        var script = document.createElement("script");
+        script.src = loaderUrl;
+        script.onerror = () => leihoLoadError("无法下载启动文件，请检查网络。");
+        script.onload = () => {
+          createUnityInstance(canvas, config, (progress) => {
+            progressBarFull.style.width = 100 * progress + "%";
+            document.getElementById("load-status").textContent = progress >= .9
+              ? "正在启动车厢…" : "正在加载游戏 " + Math.round(progress * 100) + "%";
+          }).then((unityInstance) => {
+            // 页面原生输入框（中文命名）需要通过实例回传文本。
+            window.leihoUnityInstance = unityInstance;
+            loadingBar.style.display = "none";
+            leihoResumeAudio();
+            fullscreenButton.onclick = () => { window.leihoSetCssFullscreen(true); };
+          }).catch((message) => { leihoLoadError(message); });
+        };
+        document.body.appendChild(script);
+      }
+
+      if (startOverlay) {
+        startOverlay.addEventListener("pointerdown", leihoStart, true);
+        startOverlay.addEventListener("click", leihoStart, true);
+      }
+      document.addEventListener("keydown", function(event) {
+        if (!leihoStarted) leihoStart();
+      }, true);
+    </script>
+  </body>
+</html>

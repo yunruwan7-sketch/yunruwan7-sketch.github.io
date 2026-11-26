@@ -1,0 +1,10 @@
+{
+  "_说明": "对白打字机，无额外光标。charactersPerSecond为平均字/秒；punctuationPause为标点后停顿倍数；minBeat+jitterBeat为节奏区间；fadeSeconds/kickSeconds为现实秒；kickScale为新字最大放大比例。",
+  "charactersPerSecond": 24,
+  "punctuationPause": 2.2,
+  "minBeat": 0.6,
+  "jitterBeat": 0.8,
+  "fadeSeconds": 0.06,
+  "kickSeconds": 0.1,
+  "kickScale": 0.1
+}

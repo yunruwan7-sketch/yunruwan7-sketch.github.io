@@ -1,0 +1,12 @@
+{
+  "_说明": "把四件杂物放进五列三行的格子，通关时左下角必须留空。occupied 从零开始、按行编号。拖动时按 R 旋转，非法落点回原位。游戏时钟照常推进。",
+  "columns": 5,
+  "rows": 3,
+  "keepBottomLeftClear": true,
+  "items": [
+    {"id":"crate","title":"拐角木箱","width":2,"height":3,"occupied":[0,2,4,5],"sprite":"StoryArt/warehouse_corner_crate"},
+    {"id":"toolbox","title":"工具箱","width":2,"height":2,"sprite":"StoryArt/warehouse_toolbox"},
+    {"id":"pipes","title":"捆扎管材","width":1,"height":3,"sprite":"StoryArt/warehouse_pipes"},
+    {"id":"cloth","title":"卷起的防水布","width":3,"height":1,"sprite":"StoryArt/warehouse_cloth"}
+  ]
+}

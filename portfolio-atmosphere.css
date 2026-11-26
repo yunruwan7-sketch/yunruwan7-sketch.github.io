@@ -143,6 +143,8 @@
   .home-game-copy .home-actions { display: flex; align-items: center; justify-content: space-between; margin-top: 19px; padding-top: 13px; border-top: 1px solid #eac0901c; }
   .home-project-link { display: inline-flex; align-items: center; min-height: 36px; color: #f8dcba !important; font-size: 12px; font-weight: 600; text-decoration: underline; text-underline-offset: 6px; text-decoration-color: #edc48f77; }
   .home-project-link::after { content: ""; position: absolute; inset: 0; z-index: 1; cursor: pointer; }
+  .home-demo-link { position: relative; z-index: 2; }
+  .home-demo-link::after { content: none; }
   .home-project-link:hover { text-decoration-color: #ffe1b7; }
   .home-games-grid { grid-auto-rows: auto; }
   .home-games > .home-workflow { margin: clamp(1.5rem, 4vw, 2.25rem) 0 0; }

@@ -1,0 +1,10 @@
+{
+  "_comment": "轨旁草丛及灌木。速度为轨道的倍率，spacing/widthMin/widthMax/baseY 为世界单位。rows 从图集顶部起算，x/y 分别是该行的上、下边界（0 到 1）。",
+  "resource": "Sky/TracksidePlants",
+  "rows": [{"x": 0.105, "y": 0.327}, {"x": 0.42, "y": 0.638}, {"x": 0.738, "y": 0.96}],
+  "speedMultiplier": 1.85,
+  "spacing": 8.1,
+  "widthMin": 4.4,
+  "widthMax": 7.5,
+  "baseY": -3.8
+}

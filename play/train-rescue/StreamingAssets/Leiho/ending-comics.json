@@ -1,0 +1,546 @@
+{
+  "_comment": "美术PS成品与原扩图精确配准。start/end为阅读轴边界；vertical为上下分格；focus为末态采样中心。dividerWidth为1600x900画布的PS分割线宽度。routes对应现有结局ID，仅选择美术，不修改剧情。",
+  "pushSeconds": 0.85,
+  "pageSeconds": 0.22,
+  "dividerWidth": 9,
+  "books": [
+    {
+      "number": 1,
+      "galleryPages": [
+        "EndingComics20261112/e1-p1",
+        "EndingComics20261112/e1-p2",
+        "EndingComics20261112/e1-p3",
+        "EndingComics20261112/e1-p4"
+      ],
+      "pages": [
+        {
+          "artwork": "EndingComics20261112/e1-p2",
+          "vertical": false,
+          "panels": [
+            {
+              "expanded": "EndingComics20261112/e1-p2-panel1",
+              "start": 0.0,
+              "end": 0.3475,
+              "focus": 0.3675,
+              "source": "1的plan B.png"
+            },
+            {
+              "expanded": "EndingComics20261112/e1-p2-panel2",
+              "start": 0.3475,
+              "end": 0.65,
+              "focus": 0.305,
+              "source": "2的plan B.png"
+            },
+            {
+              "expanded": "EndingComics20261112/e1-p2-panel3",
+              "start": 0.65,
+              "end": 1.0,
+              "focus": 0.570625,
+              "source": "3.A 意识到不对，转身想退出车厢，却发现身后的门口已经有工人挡住。.png",
+              "sound": "LeihoUI/ComicAudio/reveal-sting",
+              "volume": 0.8
+            }
+          ]
+        },
+        {
+          "artwork": "EndingComics20261112/e1-p3",
+          "vertical": false,
+          "panels": [
+            {
+              "expanded": "EndingComics20261112/e1-p3-panel1",
+              "start": 0.0,
+              "end": 1.0,
+              "focus": 0.5,
+              "source": "未命名-23.jpg"
+            }
+          ]
+        },
+        {
+          "artwork": "EndingComics20261112/e1-p4",
+          "vertical": false,
+          "panels": [
+            {
+              "expanded": "EndingComics20261112/e1-p4-panel1",
+              "start": 0.0,
+              "end": 0.5,
+              "focus": 0.575625,
+              "source": "5.这是整个结局的高潮。几名工人突然动手，A 被压制，身体失去平衡。.png",
+              "sound": "LeihoUI/ComicAudio/fight-scuffle",
+              "volume": 0.85
+            },
+            {
+              "expanded": "EndingComics20261112/e1-p4-panel2",
+              "start": 0.5,
+              "end": 1.0,
+              "focus": 0.420625,
+              "source": "6.A 已经倒地，工人们站在远处或逐渐离开。.png",
+              "sound": "LeihoUI/ComicAudio/body-fall-1",
+              "volume": 0.9
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "galleryPages": [
+        "EndingComics20261112/e2-p1",
+        "EndingComics20261112/e2-p2",
+        "EndingComics20261112/e2-p3"
+      ],
+      "pages": [
+        {
+          "artwork": "EndingComics20261112/e2-p1",
+          "vertical": true,
+          "panels": [
+            {
+              "expanded": "EndingComics20261112/e2-p1-panel1",
+              "start": 0.0,
+              "end": 0.49333333333333335,
+              "focus": 0.5,
+              "source": "1.火车仍在平静行驶.png"
+            },
+            {
+              "expanded": "EndingComics20261112/e2-p1-panel2",
+              "start": 0.49333333333333335,
+              "end": 1.0,
+              "focus": 0.5,
+              "source": "2.镜头来到 001 连接处的狭窄金属踏台。一个无人看管的危险包裹留在现场，周围空无一人。.png",
+              "sound": "LeihoUI/ComicAudio/tension-riser",
+              "volume": 0.65
+            }
+          ]
+        },
+        {
+          "artwork": "EndingComics20261112/e2-p2",
+          "vertical": false,
+          "panels": [
+            {
+              "expanded": "EndingComics20261112/e2-p2-panel1",
+              "start": 0.0,
+              "end": 0.5,
+              "focus": 0.5,
+              "source": "3.连接处的金属壁板和小型警示灯特写。橙红色光芒开始变得异常，周围一片寂静。.png",
+              "sound": "LeihoUI/ComicAudio/reveal-sting",
+              "volume": 0.45
+            },
+            {
+              "expanded": "EndingComics20261112/e2-p2-panel2",
+              "start": 0.5,
+              "end": 1.0,
+              "focus": 0.5,
+              "source": "4.爆炸从车厢连接位置猛烈爆发，火焰照亮黑夜。.png",
+              "sound": "LeihoUI/ComicAudio/explosion",
+              "volume": 1
+            }
+          ]
+        },
+        {
+          "artwork": "EndingComics20261112/e2-p3",
+          "vertical": false,
+          "panels": [
+            {
+              "expanded": "EndingComics20261112/e2-p3-panel1",
+              "start": 0.0,
+              "end": 1.0,
+              "focus": 0.5,
+              "source": "5.爆炸结束后，火车的残破轮廓沉浸在浓烟与黑暗中。没有人物特写，也没有新的动作，只留下沉重、安静的结尾。.png",
+              "sound": "LeihoUI/ComicAudio/fire-loop",
+              "volume": 0.8,
+              "loop": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "galleryPages": [
+        "EndingComics20261112/e3-p1",
+        "EndingComics20261112/e3-p2",
+        "EndingComics20261112/e3-p3",
+        "EndingComics20261112/e3-p4-panel1"
+      ],
+      "pages": [
+        {
+          "artwork": "EndingComics20261112/e3-p1",
+          "vertical": false,
+          "panels": [
+            {
+              "expanded": "EndingComics20261112/e3-p1-panel1",
+              "start": 0.0,
+              "end": 0.3475,
+              "focus": 0.5,
+              "source": "1.复古.png"
+            },
+            {
+              "expanded": "EndingComics20261112/e3-p1-panel2",
+              "start": 0.3475,
+              "end": 1.0,
+              "focus": 0.5,
+              "source": "2.复古.png",
+              "sound": "LeihoUI/ComicAudio/flashlight-click",
+              "volume": 0.75
+            }
+          ]
+        },
+        {
+          "artwork": "EndingComics20261112/e3-p2",
+          "vertical": false,
+          "panels": [
+            {
+              "expanded": "EndingComics20261112/e3-p2-panel1",
+              "start": 0.0,
+              "end": 0.3475,
+              "focus": 0.5,
+              "source": "3.复古.png"
+            },
+            {
+              "expanded": "EndingComics20261112/e3-p2-panel2",
+              "start": 0.3475,
+              "end": 1.0,
+              "focus": 0.5,
+              "source": "4.复古.png",
+              "sound": "LeihoUI/ComicAudio/reveal-sting",
+              "volume": 0.8
+            }
+          ]
+        },
+        {
+          "artwork": "EndingComics20261112/e3-p3",
+          "vertical": false,
+          "panels": [
+            {
+              "expanded": "EndingComics20261112/e3-p3-panel1",
+              "start": 0.0,
+              "end": 1.0,
+              "focus": 0.5,
+              "source": "5.复古.png",
+              "sound": "LeihoUI/ComicAudio/push-impact",
+              "volume": 0.9
+            }
+          ]
+        },
+        {
+          "artwork": "EndingComics20261112/e3-p4-panel1",
+          "vertical": false,
+          "panels": [
+            {
+              "expanded": "EndingComics20261112/e3-p4-panel1",
+              "start": 0.0,
+              "end": 1.0,
+              "focus": 0.5,
+              "source": "6.复古.png",
+              "sound": "LeihoUI/ComicAudio/body-fall-2",
+              "volume": 0.9
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "galleryPages": [
+        "EndingComics20261112/e4-p1",
+        "EndingComics20261112/e4-p2",
+        "EndingComics20261112/e4-p3",
+        "EndingComics20261112/e4-p4",
+        "EndingComics20261112/e4-p5",
+        "EndingComics20261112/e4-p6"
+      ],
+      "pages": [
+        {
+          "artwork": "EndingComics20261112/e4-p2",
+          "vertical": false,
+          "panels": [
+            {
+              "expanded": "EndingComics20261112/e4-p2-panel1",
+              "start": 0.0,
+              "end": 0.3475,
+              "focus": 0.5,
+              "source": "1.夜晚藏身：等待时机.png"
+            },
+            {
+              "expanded": "EndingComics20261112/e4-p2-panel2",
+              "start": 0.3475,
+              "end": 0.70625,
+              "focus": 0.5,
+              "source": "2.观察缝：D 经过入口.png",
+              "sound": "LeihoUI/ComicAudio/tension-riser",
+              "volume": 0.45
+            },
+            {
+              "expanded": "EndingComics20261112/e4-p2-panel3",
+              "start": 0.70625,
+              "end": 1.0,
+              "focus": 0.5,
+              "source": "3.离开藏身处：安静的决定.png",
+              "sound": "LeihoUI/ComicAudio/cloth-grab",
+              "volume": 0.5
+            }
+          ]
+        },
+        {
+          "artwork": "EndingComics20261112/e4-p3",
+          "vertical": false,
+          "panels": [
+            {
+              "expanded": "EndingComics20261112/e4-p3-panel1",
+              "start": 0.0,
+              "end": 1.0,
+              "focus": 0.5,
+              "source": "4.踏台揭示：D 背对 A.png"
+            }
+          ]
+        },
+        {
+          "artwork": "EndingComics20261112/e4-p4",
+          "vertical": false,
+          "panels": [
+            {
+              "expanded": "EndingComics20261112/e4-p4-panel1",
+              "start": 0.0,
+              "end": 0.5,
+              "focus": 0.5,
+              "source": "5.逼近：危险尚未察觉.png",
+              "sound": "LeihoUI/ComicAudio/cloth-grab",
+              "volume": 0.7
+            },
+            {
+              "expanded": "EndingComics20261112/e4-p4-panel2",
+              "start": 0.5,
+              "end": 1.0,
+              "focus": 0.5,
+              "source": "6.背后出手.png",
+              "sound": "LeihoUI/ComicAudio/push-impact",
+              "volume": 0.9
+            }
+          ]
+        },
+        {
+          "artwork": "EndingComics20261112/e4-p5",
+          "vertical": true,
+          "panels": [
+            {
+              "expanded": "EndingComics20261112/e4-p5-panel1",
+              "start": 0.0,
+              "end": 0.49333333333333335,
+              "focus": 0.5,
+              "source": "7.D 消失在夜色中.png",
+              "sound": "LeihoUI/ComicAudio/fall-whoosh",
+              "volume": 0.85
+            },
+            {
+              "expanded": "EndingComics20261112/e4-p5-panel2",
+              "start": 0.49333333333333335,
+              "end": 1.0,
+              "focus": 0.5,
+              "source": "8.阻止爆炸：夜色中的胜利.png",
+              "sound": "LeihoUI/ComicAudio/bag-open",
+              "volume": 0.8
+            }
+          ]
+        },
+        {
+          "artwork": "EndingComics20261112/e4-p6",
+          "vertical": false,
+          "panels": [
+            {
+              "expanded": "EndingComics20261112/e4-p6-panel1",
+              "start": 0.0,
+              "end": 1.0,
+              "focus": 0.5,
+              "source": "9.工具包内确认爆炸物尚未启动.png",
+              "sound": "LeihoUI/ComicAudio/metal-parts",
+              "volume": 0.45
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "galleryPages": [
+        "EndingComics20261112/e5-p1",
+        "EndingComics20261112/e5-p2",
+        "EndingComics20261112/e5-p3",
+        "EndingComics20261112/e5-p4"
+      ],
+      "pages": [
+        {
+          "artwork": "EndingComics20261112/e5-p1",
+          "vertical": false,
+          "panels": [
+            {
+              "expanded": "EndingComics20261112/e5-p1-panel1",
+              "start": 0.0,
+              "end": 0.70625,
+              "focus": 0.5,
+              "source": "1.复古.png"
+            },
+            {
+              "expanded": "EndingComics20261112/e5-p1-panel2",
+              "start": 0.70625,
+              "end": 1.0,
+              "focus": 0.5,
+              "source": "2.D维修.png",
+              "sound": "LeihoUI/ComicAudio/metal-parts",
+              "volume": 0.55
+            }
+          ]
+        },
+        {
+          "artwork": "EndingComics20261112/e5-p3",
+          "vertical": false,
+          "panels": [
+            {
+              "expanded": "EndingComics20261112/e5-p3-panel1",
+              "start": 0.0,
+              "end": 0.3475,
+              "focus": 0.5,
+              "source": "3.复古.png",
+              "sound": "LeihoUI/ComicAudio/cloth-grab",
+              "volume": 0.45
+            },
+            {
+              "expanded": "EndingComics20261112/e5-p3-panel2",
+              "start": 0.3475,
+              "end": 0.6925,
+              "focus": 0.5,
+              "source": "4.复古.png",
+              "sound": "LeihoUI/ComicAudio/cloth-grab",
+              "volume": 0.7
+            },
+            {
+              "expanded": "EndingComics20261112/e5-p3-panel3",
+              "start": 0.6925,
+              "end": 1.0,
+              "focus": 0.5,
+              "source": "5.复古.png",
+              "sound": "LeihoUI/ComicAudio/push-impact",
+              "volume": 0.9
+            }
+          ]
+        },
+        {
+          "artwork": "EndingComics20261112/e5-p4",
+          "vertical": false,
+          "panels": [
+            {
+              "expanded": "EndingComics20261112/e5-p4-panel1",
+              "start": 0.0,
+              "end": 1.0,
+              "focus": 0.5,
+              "source": "6.安全状态.png"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "galleryPages": [
+        "LeihoArt20261029/CG/unease",
+        "EndingComics20261112/e2-p1",
+        "EndingComics20261112/e2-p2",
+        "EndingComics20261112/e2-p3"
+      ],
+      "pages": [
+        {
+          "artwork": "LeihoArt20261029/CG/unease",
+          "vertical": false,
+          "panels": [
+            {
+              "expanded": "LeihoArt20261029/CG/unease",
+              "start": 0.0,
+              "end": 1.0,
+              "focus": 0.5,
+              "source": "图片1：老胡警觉"
+            }
+          ]
+        },
+        {
+          "artwork": "EndingComics20261112/e2-p1",
+          "vertical": true,
+          "panels": [
+            {
+              "expanded": "EndingComics20261112/e2-p1-panel1",
+              "start": 0.0,
+              "end": 0.49333333333333335,
+              "focus": 0.5,
+              "source": "1.火车仍在平静行驶.png"
+            },
+            {
+              "expanded": "EndingComics20261112/e2-p1-panel2",
+              "start": 0.49333333333333335,
+              "end": 1.0,
+              "focus": 0.5,
+              "source": "2.镜头来到 001 连接处的狭窄金属踏台。一个无人看管的危险包裹留在现场，周围空无一人。.png",
+              "sound": "LeihoUI/ComicAudio/tension-riser",
+              "volume": 0.65
+            }
+          ]
+        },
+        {
+          "artwork": "EndingComics20261112/e2-p2",
+          "vertical": false,
+          "panels": [
+            {
+              "expanded": "EndingComics20261112/e2-p2-panel1",
+              "start": 0.0,
+              "end": 0.5,
+              "focus": 0.5,
+              "source": "3.连接处的金属壁板和小型警示灯特写。橙红色光芒开始变得异常，周围一片寂静。.png",
+              "sound": "LeihoUI/ComicAudio/reveal-sting",
+              "volume": 0.45
+            },
+            {
+              "expanded": "EndingComics20261112/e2-p2-panel2",
+              "start": 0.5,
+              "end": 1.0,
+              "focus": 0.5,
+              "source": "4.爆炸从车厢连接位置猛烈爆发，火焰照亮黑夜。.png",
+              "sound": "LeihoUI/ComicAudio/explosion",
+              "volume": 1
+            }
+          ]
+        },
+        {
+          "artwork": "EndingComics20261112/e2-p3",
+          "vertical": false,
+          "panels": [
+            {
+              "expanded": "EndingComics20261112/e2-p3-panel1",
+              "start": 0.0,
+              "end": 1.0,
+              "focus": 0.5,
+              "source": "5.爆炸结束后，火车的残破轮廓沉浸在浓烟与黑暗中。没有人物特写，也没有新的动作，只留下沉重、安静的结尾。.png",
+              "sound": "LeihoUI/ComicAudio/fire-loop",
+              "volume": 0.8,
+              "loop": true
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "routes": [
+    {
+      "ending": "success",
+      "dayBook": 5,
+      "nightBook": 4
+    },
+    {
+      "ending": "failure_explosion",
+      "defaultBook": 2
+    },
+    {
+      "ending": "failure_front",
+      "nightBook": 3
+    },
+    {
+      "ending": "failure_dorm_b",
+      "defaultBook": 1
+    }
+  ]
+}

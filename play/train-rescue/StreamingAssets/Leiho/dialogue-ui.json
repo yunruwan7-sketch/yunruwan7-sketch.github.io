@@ -1,0 +1,17 @@
+{
+  "_说明": "纸条对话样式。尺寸单位Canvas参考像素；maxHeightFraction为可用屏幕高度比例(0~1)；spriteRect为imagegen原始2172×724透明PNG中的显示区域，x/y为左下坐标，z/w为宽/高，保留原文件alpha。颜色为0~1 RGBA。重新Play生效。",
+  "_统一对白": "普通对白宽度为屏幕参考宽度减去两侧screenMargin，不随台词长度变化；fixedHeight为统一高度，正文超长可滚动；分支选项排在框上方。",
+  "screenMargin": 24, "fixedHeight": 205, "portraitSize": 78, "evidenceGap": 16,
+  "minWidth": 390, "maxWidth": 820, "padding": 26, "bottom": 80,
+  "maxHeightFraction": 0.6, "optionHeight": 32,
+  "_对白按钮": "dialogueOptionWidth为普通对白分支按钮统一宽度，窄屏受对白框可用宽度限制；dialogueOptionGap为按钮垂直间距。",
+  "dialogueOptionWidth": 480, "dialogueOptionGap": 12,
+  "nameSize": 17, "bodySize": 23, "optionSize": 17,
+  "spriteRect": { "x": 30, "y": 112, "z": 2110, "w": 510 },
+  "ink": { "r": 0.19, "g": 0.18, "b": 0.16, "a": 1 },
+  "muted": { "r": 0.39, "g": 0.36, "b": 0.30, "a": 1 },
+  "accentA": { "r": 0.65, "g": 0.39, "b": 0.15, "a": 1 },
+  "accentB": { "r": 0.57, "g": 0.22, "b": 0.20, "a": 1 },
+  "accentC": { "r": 0.28, "g": 0.41, "b": 0.32, "a": 1 },
+  "accentD": { "r": 0.30, "g": 0.39, "b": 0.48, "a": 1 }
+}

@@ -1,0 +1,19 @@
+{
+  "_comment": "全部为网上CC0实录；来源见Docs/OnlineAudio.md。音量0到1，受设置里的总音量控制；侧视距离以玩家X为中心，单位为世界单位。",
+  "trainVolume": 0.36,
+  "bumpVolume": 0.85,
+  "lightRainVolume": 0.24,
+  "heavyRainVolume": 0.48,
+  "fadeSeconds": 1.5,
+  "nearDistance": 3,
+  "farDistance": 52,
+  "panDistance": 20,
+  "teleportDistance": 2,
+  "_footsteps": "stride为每步水平移动距离；pitch为音高倍率；volume为最近距离音量。四个人使用不同的录音组、音高和步距。",
+  "characters": [
+    { "id": "A", "stride": 1.1, "pitch": 1.0, "volume": 0.62 },
+    { "id": "B", "stride": 1.15, "pitch": 0.94, "volume": 0.26 },
+    { "id": "C", "stride": 1.05, "pitch": 1.08, "volume": 0.22 },
+    { "id": "D", "stride": 1.25, "pitch": 0.84, "volume": 0.288 }
+  ]
+}

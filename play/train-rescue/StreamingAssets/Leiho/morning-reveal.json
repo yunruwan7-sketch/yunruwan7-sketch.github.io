@@ -1,0 +1,22 @@
+{
+  "_说明": "命名后、起身前播放；实秒与游戏时间无关。以A睡床中心为视野中心，两次睁眼至20%/50%再闭合，最后完全恢复后交回原起身动画。",
+  "zoom": 1.9, "returnStart": 4.25, "duration": 6.4,
+  "_椭圆": "radiusX/radiusY为屏幕归一化半轴；feather为柔化边缘宽度，volume为耳鸣音量0到1，末段随黑场一同消失。",
+  "radiusX": 0.62, "radiusY": 0.38, "feather": 0.16, "volume": 0.34,
+  "ringingResource": "Wakeup20261104/ringing",
+  "_flow": "致幻流变样例的默认滑块值。六个值从演出开始按实秒同步衰减至零。",
+  "flow": {"strength": 0.55, "scale": 1.0, "speed": 1.0, "warp2": 0.6, "chroma": 0.35, "bloom": 0.3},
+  "keys": [
+    {"seconds": 0, "openness": 0},
+    {"seconds": 0.55, "openness": 0},
+    {"seconds": 1.35, "openness": 0.2},
+    {"seconds": 1.6, "openness": 0.2},
+    {"seconds": 1.95, "openness": 0},
+    {"seconds": 2.35, "openness": 0},
+    {"seconds": 3.2, "openness": 0.5},
+    {"seconds": 3.5, "openness": 0.5},
+    {"seconds": 3.85, "openness": 0},
+    {"seconds": 4.25, "openness": 0},
+    {"seconds": 6.4, "openness": 2.4}
+  ]
+}

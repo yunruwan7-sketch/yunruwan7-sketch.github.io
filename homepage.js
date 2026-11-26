@@ -66,7 +66,13 @@
     const open = link(primaryText || '查看项目', '#work/' + project.id + '/overview', 'home-project-link');
     open.setAttribute('aria-label', '查看' + project.title);
     actions.append(open);
-    if (project.playUrl) actions.append(element('span', 'home-play-status', '可试玩'));
+    if (project.playUrl && project.showDemoOnResume) {
+      const play = link(project.playLabel, project.playUrl, 'home-project-link home-demo-link', true);
+      play.setAttribute('aria-label', project.title + '在线试玩');
+      actions.append(play);
+    } else if (project.playUrl) {
+      actions.append(element('span', 'home-play-status', '可试玩'));
+    }
     return actions;
   }
 

@@ -1,0 +1,20 @@
+{
+  "_说明": "画圈密封小游戏：短边归一化坐标；中间方框 0.44×0.32；画满一圈、平均径向误差与缺口足够小且准确率达到 93% 即可过关。",
+  "angularBins": 72,
+  "minPointCount": 8,
+  "maxPointCount": 2048,
+  "pointSpacing": 0.005,
+  "accuracyUpdatePoints": 3,
+  "passAccuracy": 0.93,
+  "minRadius": 0.10,
+  "maxRadius": 0.55,
+  "centerTolerance": 0.10,
+  "radialTolerance": 0.0,
+  "textCenterX": 0.0,
+  "textCenterY": 0.0,
+  "textHalfWidth": 0.22,
+  "textHalfHeight": 0.16,
+  "textClearance": 0.008,
+  "accuracyDecimals": 1,
+  "instructionText": "按住左键画一个圆，把方框圈在里面，准确率须达到{accuracy}%。"
+}

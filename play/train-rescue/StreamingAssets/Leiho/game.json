@@ -1,0 +1,1860 @@
+{
+  "schemaVersion": 1,
+  "contentVersion": "train-prototype-1",
+  "_说明": "首版逻辑样例；不包含图片、UI、场景美术或音频资源。用户2026-10-16修改：自由探索消耗时间。具体台词和线索为可替换草案。",
+  "_字段说明": {
+    "id": "稳定ID，同一类不能重复，不使用点号；存档依赖此ID。",
+    "conditions": "所有条件同时满足。key=状态键；comparison=Equal/AtLeast/AtMost；value=数字；reason=缺失说明。",
+    "effects": "同批原子生效。operation=Set/Add；value=数字。物品数量必须为非负整数。",
+    "action": "先执行effects，再调用command/target。command支持dialogue/puzzle/comic/event/ending。",
+    "stateNamespaces": "flag=剧情事实；item=实体物品数量；clue=本轮知识；recipe=配方；task=0锁定/1进行/2完成；clock.phase=0早/1午/2下午/3晚；memory=跨周目记忆。runtime/clock/puzzle/event/task/memory由对应系统维护。",
+    "clock": "分钟从00:00起计算；420=07:00，1440=24:00。默认现实1秒=游戏1分钟，完整17小时约17分钟自由探索。对话、漫画、谜题、菜单暂停；夜间事件开始后冻结世界时钟。",
+    "puzzles": "Sequence=顺序检查；Cipher=对照解码；Placement=三步布置；Click=独立连点。answers按槽位排列。durationSeconds单位秒；progressPerClick取(0,1]。",
+    "npcBehaviours": "按配置顺序选择第一个满足条件的行为；anchorId与未来场景锚点一致，facing=-1向左/+1向右。",
+    "comics": "panels是未来显示层使用的资源ID，captions与其一一对应；本阶段不加载素材。",
+    "automaticEvents": "只在探索中检查，每周目触发一次；按JSON顺序确定优先级。",
+    "risk": "requiresConfirmation=true时调用端必须明确传confirmed=true，不能默认确认。",
+    "saving": "只有一个自动存档。关键状态立即写入；纯时钟、移动和连点计时合并保存。新周目保留memory，不保留实体道具。"
+  },
+  "clock": {
+    "startMinute": 420,
+    "endMinute": 1440,
+    "gameMinutesPerRealSecond": 1,
+    "pauseConditions": [
+      {
+        "key": "flag.night_committed",
+        "value": 1,
+        "comparison": "AtLeast",
+        "reason": "尚未满足：flag.night_committed"
+      }
+    ],
+    "phases": [
+      {
+        "id": "morning",
+        "startMinute": 420
+      },
+      {
+        "id": "noon",
+        "startMinute": 720
+      },
+      {
+        "id": "afternoon",
+        "startMinute": 840
+      },
+      {
+        "id": "evening",
+        "startMinute": 1080
+      }
+    ]
+  },
+  "items": [
+    {
+      "id": "cipher_note",
+      "name": "密文纸条",
+      "description": "检查盖内发现的旧维修编号回信。"
+    },
+    {
+      "id": "symbol_table",
+      "name": "维修符号表",
+      "description": "工作区1工具台上的图形与旧编号对照。"
+    },
+    {
+      "id": "number_index",
+      "name": "旧编号索引",
+      "description": "工作区2档案夹内的编号与词组对照。"
+    },
+    {
+      "id": "old_uniform",
+      "name": "自己的旧工服",
+      "description": "可以撑出被子下的人形。"
+    }
+  ],
+  "clues": [
+    {
+      "id": "cipher_found",
+      "text": "维修检查盖内有一张密文纸条。"
+    },
+    {
+      "id": "plan",
+      "text": "有人计划于午夜制造爆炸。"
+    },
+    {
+      "id": "location",
+      "text": "目标是宿舍A与工作区1之间的尾部连接处。"
+    },
+    {
+      "id": "sleep_check",
+      "text": "来信要求确认宿舍其他人入睡后再行动。"
+    },
+    {
+      "id": "reply_code",
+      "text": "回信上的收发编号与登记记录可以互相核对。"
+    },
+    {
+      "id": "dispatch_record",
+      "text": "收发登记指向老胡使用的编号。"
+    },
+    {
+      "id": "receipt",
+      "text": "接应凭条与老胡的收发记录吻合。"
+    },
+    {
+      "id": "hiding_place",
+      "text": "设备柜凹槽可藏身并观察踏台。"
+    },
+    {
+      "id": "medicine",
+      "text": "药品包装与寄件记录显示大海私下寄药。"
+    },
+    {
+      "id": "c_cleared",
+      "text": "大海隐瞒的是给旧友送药。"
+    }
+  ],
+  "deductions": [
+    {
+      "id": "identify_d",
+      "conditions": [
+        {
+          "key": "clue.reply_code",
+          "value": 1,
+          "comparison": "AtLeast",
+          "reason": "尚未满足：clue.reply_code"
+        },
+        {
+          "key": "clue.dispatch_record",
+          "value": 1,
+          "comparison": "AtLeast",
+          "reason": "尚未满足：clue.dispatch_record"
+        },
+        {
+          "key": "clue.receipt",
+          "value": 1,
+          "comparison": "AtLeast",
+          "reason": "尚未满足：clue.receipt"
+        }
+      ],
+      "onSolved": {
+        "effects": [
+          {
+            "key": "flag.d_identified",
+            "value": 1,
+            "operation": "Set"
+          }
+        ],
+        "command": null,
+        "target": null
+      }
+    }
+  ],
+  "dialogues": [
+    {
+      "id": "b_daily",
+      "speakerId": "B",
+      "startNode": "start",
+      "nodes": [
+        {
+          "id": "start",
+          "text": "先去工作区1复检吧。材料的位置我熟，不过秘密我可不一定守得住。",
+          "options": [
+            {
+              "id": "work",
+              "text": "询问今天的工作",
+              "nextNode": null,
+              "conditions": [],
+              "requiresConfirmation": false,
+              "risk": null,
+              "action": {
+                "effects": [
+                  {
+                    "key": "flag.intro_done",
+                    "value": 1,
+                    "operation": "Set"
+                  }
+                ],
+                "command": null,
+                "target": null
+              }
+            },
+            {
+              "id": "where",
+              "text": "询问自己的旧工服",
+              "nextNode": null,
+              "conditions": [],
+              "requiresConfirmation": false,
+              "risk": null,
+              "action": {
+                "effects": [
+                  {
+                    "key": "flag.knows_uniform_location",
+                    "value": 1,
+                    "operation": "Set"
+                  }
+                ],
+                "command": null,
+                "target": null
+              }
+            },
+            {
+              "id": "leak",
+              "text": "告诉阿福对老胡的怀疑和阻止计划",
+              "nextNode": null,
+              "conditions": [
+                {
+                  "key": "clue.plan",
+                  "value": 1,
+                  "comparison": "AtLeast",
+                  "reason": "尚未获知阴谋计划。"
+                }
+              ],
+              "requiresConfirmation": true,
+              "risk": "阿福可能把这句话传到老胡耳中，原本的行动机会将失效。",
+              "action": {
+                "effects": [
+                  {
+                    "key": "flag.d_alert",
+                    "value": 1,
+                    "operation": "Set"
+                  }
+                ],
+                "command": null,
+                "target": null
+              }
+            },
+            {
+              "id": "leave",
+              "text": "结束交谈",
+              "nextNode": null,
+              "conditions": [],
+              "requiresConfirmation": false,
+              "risk": null,
+              "action": {
+                "effects": [],
+                "command": null,
+                "target": null
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c_daily",
+      "speakerId": "C",
+      "startNode": "start",
+      "nodes": [
+        {
+          "id": "start",
+          "text": "只是一些私人小事。",
+          "options": [
+            {
+              "id": "medicine",
+              "text": "询问寄药记录",
+              "nextNode": null,
+              "conditions": [
+                {
+                  "key": "clue.medicine",
+                  "value": 1,
+                  "comparison": "AtLeast",
+                  "reason": "尚未满足：clue.medicine"
+                }
+              ],
+              "requiresConfirmation": false,
+              "risk": null,
+              "action": {
+                "effects": [
+                  {
+                    "key": "clue.c_cleared",
+                    "value": 1,
+                    "operation": "Set"
+                  }
+                ],
+                "command": null,
+                "target": null
+              }
+            },
+            {
+              "id": "leave",
+              "text": "结束交谈",
+              "nextNode": null,
+              "conditions": [],
+              "requiresConfirmation": false,
+              "risk": null,
+              "action": {
+                "effects": [],
+                "command": null,
+                "target": null
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d_daily",
+      "speakerId": "D",
+      "startNode": "start",
+      "nodes": [
+        {
+          "id": "start",
+          "text": "今天也就是例行检查。",
+          "options": [
+            {
+              "id": "work",
+              "text": "聊聊工作",
+              "nextNode": null,
+              "conditions": [],
+              "requiresConfirmation": false,
+              "risk": null,
+              "action": {
+                "effects": [],
+                "command": null,
+                "target": null
+              }
+            },
+            {
+              "id": "accuse",
+              "text": "公开指认老胡",
+              "nextNode": null,
+              "conditions": [
+                {
+                  "key": "clue.plan",
+                  "value": 1,
+                  "comparison": "AtLeast",
+                  "reason": "尚未获知阴谋计划。"
+                }
+              ],
+              "requiresConfirmation": true,
+              "risk": "公开指认会暴露调查，老胡将提高警惕。",
+              "action": {
+                "effects": [
+                  {
+                    "key": "flag.d_alert",
+                    "value": 1,
+                    "operation": "Set"
+                  }
+                ],
+                "command": null,
+                "target": null
+              }
+            },
+            {
+              "id": "leave",
+              "text": "结束交谈",
+              "nextNode": null,
+              "conditions": [],
+              "requiresConfirmation": false,
+              "risk": null,
+              "action": {
+                "effects": [],
+                "command": null,
+                "target": null
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d_alerted",
+      "speakerId": "D",
+      "startNode": "start",
+      "nodes": [
+        {
+          "id": "start",
+          "text": "你想多了吧，别把玩笑当真。",
+          "options": [
+            {
+              "id": "leave",
+              "text": "结束交谈",
+              "nextNode": null,
+              "conditions": [],
+              "requiresConfirmation": false,
+              "risk": null,
+              "action": {
+                "effects": [],
+                "command": null,
+                "target": null
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "interactions": [
+    {
+      "id": "B",
+      "options": [
+        {
+          "id": "talk",
+          "text": "与阿福交谈",
+          "conditions": [],
+          "action": {
+            "effects": [],
+            "command": "dialogue",
+            "target": "b_daily"
+          },
+          "requiresConfirmation": false,
+          "risk": null
+        }
+      ]
+    },
+    {
+      "id": "C",
+      "options": [
+        {
+          "id": "talk",
+          "text": "与大海交谈",
+          "conditions": [],
+          "action": {
+            "effects": [],
+            "command": "dialogue",
+            "target": "c_daily"
+          },
+          "requiresConfirmation": false,
+          "risk": null
+        }
+      ]
+    },
+    {
+      "id": "D",
+      "options": [
+        {
+          "id": "talk",
+          "text": "与老胡交谈",
+          "conditions": [
+            {
+              "key": "flag.d_alert",
+              "value": 0,
+              "comparison": "Equal",
+              "reason": "老胡已经警觉，原本的机会失效。"
+            }
+          ],
+          "action": {
+            "effects": [],
+            "command": "dialogue",
+            "target": "d_daily"
+          },
+          "requiresConfirmation": false,
+          "risk": null
+        }
+      ]
+    },
+    {
+      "id": "repair_panel",
+      "options": [
+        {
+          "id": "inspect",
+          "text": "按流程复检",
+          "conditions": [
+            {
+              "key": "puzzle.solved.repair",
+              "value": 0,
+              "comparison": "Equal",
+              "reason": "复检已经完成。"
+            }
+          ],
+          "action": {
+            "effects": [],
+            "command": "puzzle",
+            "target": "repair"
+          },
+          "requiresConfirmation": false,
+          "risk": null
+        }
+      ]
+    },
+    {
+      "id": "cipher_note",
+      "options": [
+        {
+          "id": "decode",
+          "text": "对照密文",
+          "conditions": [
+            {
+              "key": "item.cipher_note",
+              "value": 1,
+              "comparison": "AtLeast",
+              "reason": "尚未发现密文纸条。"
+            },
+            {
+              "key": "puzzle.solved.cipher",
+              "value": 0,
+              "comparison": "Equal",
+              "reason": "密文已经解开。"
+            }
+          ],
+          "action": {
+            "effects": [],
+            "command": "puzzle",
+            "target": "cipher"
+          },
+          "requiresConfirmation": false,
+          "risk": null
+        }
+      ]
+    },
+    {
+      "id": "symbol_table",
+      "options": [
+        {
+          "id": "take",
+          "text": "取维修符号表",
+          "conditions": [
+            {
+              "key": "flag.taken_symbol_table",
+              "value": 0,
+              "comparison": "Equal",
+              "reason": "这里的物品已经取走。"
+            }
+          ],
+          "action": {
+            "effects": [
+              {
+                "key": "item.symbol_table",
+                "value": 1,
+                "operation": "Set"
+              },
+              {
+                "key": "flag.taken_symbol_table",
+                "value": 1,
+                "operation": "Set"
+              }
+            ],
+            "command": null,
+            "target": null
+          },
+          "requiresConfirmation": false,
+          "risk": null
+        }
+      ]
+    },
+    {
+      "id": "number_index",
+      "options": [
+        {
+          "id": "take",
+          "text": "取旧编号索引",
+          "conditions": [
+            {
+              "key": "flag.taken_number_index",
+              "value": 0,
+              "comparison": "Equal",
+              "reason": "这里的物品已经取走。"
+            }
+          ],
+          "action": {
+            "effects": [
+              {
+                "key": "item.number_index",
+                "value": 1,
+                "operation": "Set"
+              },
+              {
+                "key": "flag.taken_number_index",
+                "value": 1,
+                "operation": "Set"
+              }
+            ],
+            "command": null,
+            "target": null
+          },
+          "requiresConfirmation": false,
+          "risk": null
+        }
+      ]
+    },
+    {
+      "id": "locker",
+      "options": [
+        {
+          "id": "take",
+          "text": "取自己的旧工服",
+          "conditions": [
+            {
+              "key": "flag.taken_old_uniform",
+              "value": 0,
+              "comparison": "Equal",
+              "reason": "这里的物品已经取走。"
+            }
+          ],
+          "action": {
+            "effects": [
+              {
+                "key": "item.old_uniform",
+                "value": 1,
+                "operation": "Set"
+              },
+              {
+                "key": "flag.taken_old_uniform",
+                "value": 1,
+                "operation": "Set"
+              }
+            ],
+            "command": null,
+            "target": null
+          },
+          "requiresConfirmation": false,
+          "risk": null
+        }
+      ]
+    },
+    {
+      "id": "dispatch_terminal",
+      "options": [
+        {
+          "id": "read",
+          "text": "检查收发登记",
+          "conditions": [],
+          "action": {
+            "effects": [
+              {
+                "key": "clue.dispatch_record",
+                "value": 1,
+                "operation": "Set"
+              }
+            ],
+            "command": null,
+            "target": null
+          },
+          "requiresConfirmation": false,
+          "risk": null
+        }
+      ]
+    },
+    {
+      "id": "receipt",
+      "options": [
+        {
+          "id": "read",
+          "text": "检查接应凭条",
+          "conditions": [],
+          "action": {
+            "effects": [
+              {
+                "key": "clue.receipt",
+                "value": 1,
+                "operation": "Set"
+              }
+            ],
+            "command": null,
+            "target": null
+          },
+          "requiresConfirmation": false,
+          "risk": null
+        }
+      ]
+    },
+    {
+      "id": "medicine",
+      "options": [
+        {
+          "id": "read",
+          "text": "检查药品包装与寄件记录",
+          "conditions": [],
+          "action": {
+            "effects": [
+              {
+                "key": "clue.medicine",
+                "value": 1,
+                "operation": "Set"
+              }
+            ],
+            "command": null,
+            "target": null
+          },
+          "requiresConfirmation": false,
+          "risk": null
+        }
+      ]
+    },
+    {
+      "id": "bed",
+      "options": [
+        {
+          "id": "inspect",
+          "text": "观察枕头和被子的轮廓",
+          "conditions": [
+            {
+              "key": "clue.sleep_check",
+              "value": 1,
+              "comparison": "AtLeast",
+              "reason": "尚未发现需要伪装入睡的理由。"
+            }
+          ],
+          "action": {
+            "effects": [
+              {
+                "key": "recipe.decoy",
+                "value": 1,
+                "operation": "Set"
+              }
+            ],
+            "command": null,
+            "target": null
+          },
+          "requiresConfirmation": false,
+          "risk": null
+        },
+        {
+          "id": "build",
+          "text": "布置床铺假人",
+          "conditions": [
+            {
+              "key": "recipe.decoy",
+              "value": 1,
+              "comparison": "AtLeast",
+              "reason": "尚未想到床铺伪装方法。"
+            },
+            {
+              "key": "item.old_uniform",
+              "value": 1,
+              "comparison": "AtLeast",
+              "reason": "缺少自己的旧工服。"
+            },
+            {
+              "key": "puzzle.solved.decoy",
+              "value": 0,
+              "comparison": "Equal",
+              "reason": "假人已布置完成。"
+            }
+          ],
+          "action": {
+            "effects": [],
+            "command": "puzzle",
+            "target": "decoy"
+          },
+          "requiresConfirmation": false,
+          "risk": null
+        },
+        {
+          "id": "adjust",
+          "text": "重新检查并调整床铺假人",
+          "conditions": [
+            {
+              "key": "puzzle.solved.decoy",
+              "value": 1,
+              "comparison": "AtLeast",
+              "reason": "尚未满足条件。"
+            },
+            {
+              "key": "flag.night_committed",
+              "value": 0,
+              "comparison": "Equal",
+              "reason": "夜间行动已经开始。"
+            }
+          ],
+          "requiresConfirmation": false,
+          "risk": null,
+          "action": {
+            "effects": [],
+            "command": "puzzle",
+            "target": "decoy"
+          }
+        }
+      ]
+    },
+    {
+      "id": "cabinet",
+      "options": [
+        {
+          "id": "inspect",
+          "text": "勘察设备柜藏身处",
+          "conditions": [],
+          "action": {
+            "effects": [
+              {
+                "key": "clue.hiding_place",
+                "value": 1,
+                "operation": "Set"
+              }
+            ],
+            "command": null,
+            "target": null
+          },
+          "requiresConfirmation": false,
+          "risk": null
+        }
+      ]
+    },
+    {
+      "id": "inspection_order",
+      "options": [
+        {
+          "id": "call_d",
+          "text": "以例行复检请老胡到踏台",
+          "conditions": [
+            {
+              "key": "clue.plan",
+              "value": 1,
+              "comparison": "AtLeast",
+              "reason": "尚未获知阴谋计划。"
+            },
+            {
+              "key": "flag.d_identified",
+              "value": 1,
+              "comparison": "AtLeast",
+              "reason": "尚未确认老胡的身份。"
+            },
+            {
+              "key": "clock.phase",
+              "value": 2,
+              "comparison": "AtMost",
+              "reason": "白天复检的机会已经过去。"
+            },
+            {
+              "key": "flag.d_alert",
+              "value": 0,
+              "comparison": "Equal",
+              "reason": "老胡已经警觉，原本的机会失效。"
+            },
+            {
+              "key": "flag.d_ready",
+              "value": 0,
+              "comparison": "Equal",
+              "reason": "尚未满足：flag.d_ready"
+            }
+          ],
+          "action": {
+            "effects": [
+              {
+                "key": "flag.day_route",
+                "value": 1,
+                "operation": "Set"
+              },
+              {
+                "key": "flag.d_ready",
+                "value": 1,
+                "operation": "Set"
+              }
+            ],
+            "command": null,
+            "target": null
+          },
+          "requiresConfirmation": false,
+          "risk": null
+        }
+      ]
+    },
+    {
+      "id": "night_action",
+      "options": [
+        {
+          "id": "hide",
+          "text": "开始夜间行动并藏进设备柜",
+          "conditions": [
+            {
+              "key": "clue.plan",
+              "value": 1,
+              "comparison": "AtLeast",
+              "reason": "尚未获知阴谋计划。"
+            },
+            {
+              "key": "clock.phase",
+              "value": 3,
+              "comparison": "AtLeast",
+              "reason": "现在还未到晚上。"
+            },
+            {
+              "key": "flag.d_alert",
+              "value": 0,
+              "comparison": "Equal",
+              "reason": "老胡已经警觉，原本的机会失效。"
+            },
+            {
+              "key": "clue.hiding_place",
+              "value": 1,
+              "comparison": "AtLeast",
+              "reason": "尚未勘察藏身位置。"
+            },
+            {
+              "key": "flag.night_committed",
+              "value": 0,
+              "comparison": "Equal",
+              "reason": "尚未满足：flag.night_committed"
+            }
+          ],
+          "action": {
+            "effects": [
+              {
+                "key": "flag.hidden",
+                "value": 1,
+                "operation": "Set"
+              }
+            ],
+            "command": "event",
+            "target": "night_begin"
+          },
+          "requiresConfirmation": true,
+          "risk": "将进入查床与埋伏事件，不能返回白天。请确认床铺布置。"
+        },
+        {
+          "id": "stay",
+          "text": "开始夜间行动但留在房间",
+          "conditions": [
+            {
+              "key": "clue.plan",
+              "value": 1,
+              "comparison": "AtLeast",
+              "reason": "尚未获知阴谋计划。"
+            },
+            {
+              "key": "clock.phase",
+              "value": 3,
+              "comparison": "AtLeast",
+              "reason": "现在还未到晚上。"
+            },
+            {
+              "key": "flag.d_alert",
+              "value": 0,
+              "comparison": "Equal",
+              "reason": "老胡已经警觉，原本的机会失效。"
+            },
+            {
+              "key": "flag.night_committed",
+              "value": 0,
+              "comparison": "Equal",
+              "reason": "尚未满足：flag.night_committed"
+            }
+          ],
+          "action": {
+            "effects": [],
+            "command": "event",
+            "target": "night_begin"
+          },
+          "requiresConfirmation": true,
+          "risk": "未藏好会失去行动机会；开始后无法返回准备。"
+        }
+      ]
+    },
+    {
+      "id": "d_platform",
+      "options": [
+        {
+          "id": "behind",
+          "text": "从背后出手",
+          "conditions": [
+            {
+              "key": "flag.d_ready",
+              "value": 1,
+              "comparison": "AtLeast",
+              "reason": "老胡尚未到执行行动的阶段。"
+            },
+            {
+              "key": "flag.d_at_platform",
+              "value": 1,
+              "comparison": "AtLeast",
+              "reason": "老胡尚未到达连接处检修踏台。"
+            },
+            {
+              "key": "flag.d_alert",
+              "value": 0,
+              "comparison": "Equal",
+              "reason": "老胡已经警觉，原本的机会失效。"
+            },
+            {
+              "key": "flag.player_behind_d",
+              "value": 1,
+              "comparison": "AtLeast",
+              "reason": "需要从老胡背后接近。"
+            }
+          ],
+          "action": {
+            "effects": [],
+            "command": "comic",
+            "target": "behind"
+          },
+          "requiresConfirmation": true,
+          "risk": "开始后无法撤回；漫画结束后需确认开始连点。"
+        },
+        {
+          "id": "front",
+          "text": "从正面冲上去",
+          "conditions": [
+            {
+              "key": "flag.d_ready",
+              "value": 1,
+              "comparison": "AtLeast",
+              "reason": "老胡尚未到执行行动的阶段。"
+            },
+            {
+              "key": "flag.d_at_platform",
+              "value": 1,
+              "comparison": "AtLeast",
+              "reason": "老胡尚未到达连接处检修踏台。"
+            },
+            {
+              "key": "flag.player_near_d",
+              "value": 1,
+              "comparison": "AtLeast",
+              "reason": "尚未满足：flag.player_near_d"
+            },
+            {
+              "key": "flag.player_behind_d",
+              "value": 0,
+              "comparison": "Equal",
+              "reason": "尚未满足：flag.player_behind_d"
+            }
+          ],
+          "action": {
+            "effects": [
+              {
+                "key": "flag.action_failed",
+                "value": 1,
+                "operation": "Set"
+              }
+            ],
+            "command": "comic",
+            "target": "counter"
+          },
+          "requiresConfirmation": true,
+          "risk": "正面接近会暴露行动，老胡将反制。"
+        },
+        {
+          "id": "miss",
+          "text": "放弃最终出手机会",
+          "conditions": [
+            {
+              "key": "flag.night_window",
+              "value": 1,
+              "comparison": "AtLeast",
+              "reason": "尚未满足：flag.night_window"
+            }
+          ],
+          "action": {
+            "effects": [
+              {
+                "key": "flag.action_failed",
+                "value": 1,
+                "operation": "Set"
+              }
+            ],
+            "command": "comic",
+            "target": "explosion"
+          },
+          "requiresConfirmation": true,
+          "risk": "将错过最后的阻止机会。"
+        }
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "id": "repair",
+      "title": "完成例行复检",
+      "unlock": [],
+      "completion": [
+        {
+          "key": "puzzle.solved.repair",
+          "value": 1,
+          "comparison": "AtLeast",
+          "reason": "尚未满足：puzzle.solved.repair"
+        }
+      ],
+      "rewards": []
+    },
+    {
+      "id": "decode",
+      "title": "读懂密文纸条",
+      "unlock": [
+        {
+          "key": "clue.cipher_found",
+          "value": 1,
+          "comparison": "AtLeast",
+          "reason": "尚未满足：clue.cipher_found"
+        }
+      ],
+      "completion": [
+        {
+          "key": "clue.plan",
+          "value": 1,
+          "comparison": "AtLeast",
+          "reason": "尚未获知阴谋计划。"
+        }
+      ],
+      "rewards": []
+    },
+    {
+      "id": "identify",
+      "title": "核对身份线索",
+      "unlock": [
+        {
+          "key": "clue.plan",
+          "value": 1,
+          "comparison": "AtLeast",
+          "reason": "尚未获知阴谋计划。"
+        }
+      ],
+      "completion": [
+        {
+          "key": "flag.d_identified",
+          "value": 1,
+          "comparison": "AtLeast",
+          "reason": "尚未满足：flag.d_identified"
+        }
+      ],
+      "rewards": []
+    },
+    {
+      "id": "prepare",
+      "title": "准备床铺伪装",
+      "unlock": [
+        {
+          "key": "recipe.decoy",
+          "value": 1,
+          "comparison": "AtLeast",
+          "reason": "尚未满足：recipe.decoy"
+        }
+      ],
+      "completion": [
+        {
+          "key": "flag.disguise_ready",
+          "value": 1,
+          "comparison": "AtLeast",
+          "reason": "尚未满足：flag.disguise_ready"
+        }
+      ],
+      "rewards": []
+    }
+  ],
+  "npcs": [
+    {
+      "id": "A",
+      "name": "维修工A",
+      "behaviours": []
+    },
+    {
+      "id": "B",
+      "name": "阿福",
+      "behaviours": [
+        {
+          "id": "evening",
+          "conditions": [
+            {
+              "key": "clock.phase",
+              "value": 3,
+              "comparison": "AtLeast",
+              "reason": "现在还未到晚上。"
+            }
+          ],
+          "anchorId": "dorm_bed_b",
+          "facing": 1,
+          "dialogueId": "b_daily"
+        },
+        {
+          "id": "daily",
+          "conditions": [],
+          "anchorId": "work1_b",
+          "facing": 1,
+          "dialogueId": "b_daily"
+        }
+      ]
+    },
+    {
+      "id": "C",
+      "name": "大海",
+      "behaviours": [
+        {
+          "id": "evening",
+          "conditions": [
+            {
+              "key": "clock.phase",
+              "value": 3,
+              "comparison": "AtLeast",
+              "reason": "现在还未到晚上。"
+            }
+          ],
+          "anchorId": "dorm_bed_c",
+          "facing": 1,
+          "dialogueId": "c_daily"
+        },
+        {
+          "id": "daily",
+          "conditions": [],
+          "anchorId": "work2_c",
+          "facing": -1,
+          "dialogueId": "c_daily"
+        }
+      ]
+    },
+    {
+      "id": "D",
+      "name": "老胡",
+      "behaviours": [
+        {
+          "id": "alert",
+          "conditions": [
+            {
+              "key": "flag.d_alert",
+              "value": 1,
+              "comparison": "AtLeast",
+              "reason": "尚未满足：flag.d_alert"
+            }
+          ],
+          "anchorId": "work2_d",
+          "facing": -1,
+          "dialogueId": "d_alerted"
+        },
+        {
+          "id": "platform",
+          "conditions": [
+            {
+              "key": "flag.d_ready",
+              "value": 1,
+              "comparison": "AtLeast",
+              "reason": "老胡尚未到执行行动的阶段。"
+            }
+          ],
+          "anchorId": "platform_d",
+          "facing": 1,
+          "dialogueId": "d_daily"
+        },
+        {
+          "id": "evening",
+          "conditions": [
+            {
+              "key": "clock.phase",
+              "value": 3,
+              "comparison": "AtLeast",
+              "reason": "现在还未到晚上。"
+            }
+          ],
+          "anchorId": "dorm_d",
+          "facing": -1,
+          "dialogueId": "d_daily"
+        },
+        {
+          "id": "daily",
+          "conditions": [],
+          "anchorId": "work1_d",
+          "facing": 1,
+          "dialogueId": "d_daily"
+        }
+      ]
+    }
+  ],
+  "puzzles": [
+    {
+      "id": "repair",
+      "kind": "Sequence",
+      "conditions": [],
+      "answers": [
+        "power",
+        "pressure",
+        "cover"
+      ],
+      "onSuccess": {
+        "effects": [
+          {
+            "key": "item.cipher_note",
+            "value": 1,
+            "operation": "Set"
+          },
+          {
+            "key": "clue.cipher_found",
+            "value": 1,
+            "operation": "Set"
+          }
+        ],
+        "command": null,
+        "target": null
+      },
+      "onFailure": {
+        "effects": [],
+        "command": null,
+        "target": null
+      },
+      "requiresConfirmation": false,
+      "risk": null,
+      "repeatable": false,
+      "repeatConditions": [],
+      "onOpened": [],
+      "onRepeatSuccess": {
+        "effects": [],
+        "command": null,
+        "target": null
+      }
+    },
+    {
+      "id": "cipher",
+      "kind": "Cipher",
+      "conditions": [
+        {
+          "key": "item.cipher_note",
+          "value": 1,
+          "comparison": "AtLeast",
+          "reason": "尚未满足：item.cipher_note"
+        }
+      ],
+      "answers": [
+        "午夜",
+        "尾部连接处",
+        "确认入睡"
+      ],
+      "onSuccess": {
+        "effects": [
+          {
+            "key": "clue.plan",
+            "value": 1,
+            "operation": "Set"
+          },
+          {
+            "key": "clue.location",
+            "value": 1,
+            "operation": "Set"
+          },
+          {
+            "key": "clue.sleep_check",
+            "value": 1,
+            "operation": "Set"
+          },
+          {
+            "key": "clue.reply_code",
+            "value": 1,
+            "operation": "Set"
+          }
+        ],
+        "command": "comic",
+        "target": "revelation"
+      },
+      "onFailure": {
+        "effects": [],
+        "command": null,
+        "target": null
+      },
+      "requiresConfirmation": false,
+      "risk": null,
+      "repeatable": false,
+      "repeatConditions": [],
+      "onOpened": [],
+      "onRepeatSuccess": {
+        "effects": [],
+        "command": null,
+        "target": null
+      }
+    },
+    {
+      "id": "decoy",
+      "kind": "Placement",
+      "conditions": [
+        {
+          "key": "recipe.decoy",
+          "value": 1,
+          "comparison": "AtLeast",
+          "reason": "尚未满足：recipe.decoy"
+        },
+        {
+          "key": "item.old_uniform",
+          "value": 1,
+          "comparison": "AtLeast",
+          "reason": "尚未满足：item.old_uniform"
+        }
+      ],
+      "answers": [
+        "pillow",
+        "old_uniform",
+        "quilt"
+      ],
+      "onSuccess": {
+        "effects": [
+          {
+            "key": "item.old_uniform",
+            "value": -1,
+            "operation": "Add"
+          },
+          {
+            "key": "flag.disguise_ready",
+            "value": 1,
+            "operation": "Set"
+          }
+        ],
+        "command": null,
+        "target": null
+      },
+      "onFailure": {
+        "effects": [],
+        "command": null,
+        "target": null
+      },
+      "requiresConfirmation": true,
+      "risk": "将使用旧工服完成床铺布置；夜间行动前仍可调整。",
+      "repeatable": true,
+      "repeatConditions": [
+        {
+          "key": "recipe.decoy",
+          "value": 1,
+          "comparison": "AtLeast",
+          "reason": "尚未满足条件。"
+        },
+        {
+          "key": "flag.night_committed",
+          "value": 0,
+          "comparison": "Equal",
+          "reason": "夜间行动已经开始，不能再调整床铺。"
+        }
+      ],
+      "onOpened": [
+        {
+          "key": "flag.disguise_ready",
+          "operation": "Set",
+          "value": 0
+        }
+      ],
+      "onRepeatSuccess": {
+        "effects": [
+          {
+            "key": "flag.disguise_ready",
+            "operation": "Set",
+            "value": 1
+          }
+        ],
+        "command": null,
+        "target": null
+      }
+    },
+    {
+      "id": "push",
+      "kind": "Click",
+      "conditions": [
+        {
+          "key": "flag.d_ready",
+          "value": 1,
+          "comparison": "AtLeast",
+          "reason": "老胡尚未到执行行动的阶段。"
+        },
+        {
+          "key": "flag.d_at_platform",
+          "value": 1,
+          "comparison": "AtLeast",
+          "reason": "老胡尚未到达连接处检修踏台。"
+        },
+        {
+          "key": "flag.d_alert",
+          "value": 0,
+          "comparison": "Equal",
+          "reason": "老胡已经警觉，原本的机会失效。"
+        },
+        {
+          "key": "flag.player_behind_d",
+          "value": 1,
+          "comparison": "AtLeast",
+          "reason": "尚未满足：flag.player_behind_d"
+        }
+      ],
+      "answers": [],
+      "durationSeconds": 6,
+      "progressPerClick": 0.1,
+      "onSuccess": {
+        "effects": [
+          {
+            "key": "flag.d_pushed",
+            "value": 1,
+            "operation": "Set"
+          },
+          {
+            "key": "flag.bomb_seized",
+            "value": 1,
+            "operation": "Set"
+          }
+        ],
+        "command": "comic",
+        "target": "success"
+      },
+      "onFailure": {
+        "effects": [
+          {
+            "key": "flag.action_failed",
+            "value": 1,
+            "operation": "Set"
+          }
+        ],
+        "command": "comic",
+        "target": "counter"
+      },
+      "requiresConfirmation": false,
+      "risk": null,
+      "repeatable": false,
+      "repeatConditions": [],
+      "onOpened": [],
+      "onRepeatSuccess": {
+        "effects": [],
+        "command": null,
+        "target": null
+      }
+    }
+  ],
+  "comics": [
+    {
+      "id": "revelation",
+      "panels": [
+        "comic/revelation/1"
+      ],
+      "captions": [
+        "午夜、尾部连接处、确认入睡。普通的工作日藏着一场阴谋。"
+      ],
+      "onFinished": {
+        "effects": [],
+        "command": null,
+        "target": null
+      }
+    },
+    {
+      "id": "night_check",
+      "panels": [
+        "comic/night_check/1"
+      ],
+      "captions": [
+        "脚步接近宿舍，来者从门口查看床铺。"
+      ],
+      "onFinished": {
+        "effects": [
+          {
+            "key": "flag.night_checked",
+            "value": 1,
+            "operation": "Set"
+          }
+        ],
+        "command": null,
+        "target": null
+      }
+    },
+    {
+      "id": "witness",
+      "panels": [
+        "comic/witness/1",
+        "comic/witness/2"
+      ],
+      "captions": [
+        "老胡到达踏台，放下装有未启动爆炸物的工具包。",
+        "老胡转身检查连接处，留下背后空当。"
+      ],
+      "onFinished": {
+        "effects": [],
+        "command": null,
+        "target": null
+      }
+    },
+    {
+      "id": "behind",
+      "panels": [
+        "comic/behind/1"
+      ],
+      "captions": [
+        "A已绕到老胡背后。准备好后确认开始连点。"
+      ],
+      "onFinished": {
+        "effects": [],
+        "command": "puzzle",
+        "target": "push"
+      }
+    },
+    {
+      "id": "success",
+      "panels": [
+        "comic/success/1",
+        "comic/success/2"
+      ],
+      "captions": [
+        "老胡被推下列车。",
+        "A收缴踏台内侧尚未启动的爆炸物，阴谋被揭露。"
+      ],
+      "onFinished": {
+        "effects": [],
+        "command": "ending",
+        "target": "success"
+      }
+    },
+    {
+      "id": "counter",
+      "panels": [
+        "comic/counter/1"
+      ],
+      "captions": [
+        "老胡察觉行动并反制A，阻止机会已经失去。"
+      ],
+      "onFinished": {
+        "effects": [],
+        "command": "comic",
+        "target": "explosion"
+      }
+    },
+    {
+      "id": "explosion",
+      "panels": [
+        "comic/explosion/1"
+      ],
+      "captions": [
+        "24:00，连接处爆炸，尾部宿舍脱轨。"
+      ],
+      "onFinished": {
+        "effects": [],
+        "command": "ending",
+        "target": "failure"
+      }
+    }
+  ],
+  "events": [
+    {
+      "id": "leak_failure",
+      "automatic": true,
+      "conditions": [
+        {
+          "key": "flag.d_alert",
+          "value": 1,
+          "comparison": "AtLeast",
+          "reason": "尚未满足：flag.d_alert"
+        },
+        {
+          "key": "runtime.ended",
+          "value": 0,
+          "comparison": "Equal",
+          "reason": "尚未满足：runtime.ended"
+        }
+      ],
+      "action": {
+        "effects": [
+          {
+            "key": "flag.action_failed",
+            "value": 1,
+            "operation": "Set"
+          }
+        ],
+        "command": "comic",
+        "target": "counter"
+      }
+    },
+    {
+      "id": "midnight",
+      "automatic": true,
+      "conditions": [
+        {
+          "key": "clock.minute",
+          "value": 1440,
+          "comparison": "AtLeast",
+          "reason": "尚未满足：clock.minute"
+        },
+        {
+          "key": "runtime.ended",
+          "value": 0,
+          "comparison": "Equal",
+          "reason": "尚未满足：runtime.ended"
+        }
+      ],
+      "action": {
+        "effects": [],
+        "command": "comic",
+        "target": "explosion"
+      }
+    },
+    {
+      "id": "night_begin",
+      "automatic": false,
+      "conditions": [
+        {
+          "key": "clue.plan",
+          "value": 1,
+          "comparison": "AtLeast",
+          "reason": "尚未获知阴谋计划。"
+        },
+        {
+          "key": "clock.phase",
+          "value": 3,
+          "comparison": "AtLeast",
+          "reason": "现在还未到晚上。"
+        },
+        {
+          "key": "flag.d_alert",
+          "value": 0,
+          "comparison": "Equal",
+          "reason": "老胡已经警觉，原本的机会失效。"
+        }
+      ],
+      "action": {
+        "effects": [
+          {
+            "key": "flag.night_committed",
+            "value": 1,
+            "operation": "Set"
+          }
+        ],
+        "command": "comic",
+        "target": "night_check"
+      }
+    },
+    {
+      "id": "decoy_failed",
+      "automatic": true,
+      "conditions": [
+        {
+          "key": "flag.night_checked",
+          "value": 1,
+          "comparison": "AtLeast",
+          "reason": "尚未满足：flag.night_checked"
+        },
+        {
+          "key": "flag.disguise_ready",
+          "value": 0,
+          "comparison": "Equal",
+          "reason": "尚未满足：flag.disguise_ready"
+        }
+      ],
+      "action": {
+        "effects": [
+          {
+            "key": "flag.action_failed",
+            "value": 1,
+            "operation": "Set"
+          }
+        ],
+        "command": "comic",
+        "target": "counter"
+      }
+    },
+    {
+      "id": "hiding_failed",
+      "automatic": true,
+      "conditions": [
+        {
+          "key": "flag.night_checked",
+          "value": 1,
+          "comparison": "AtLeast",
+          "reason": "尚未满足：flag.night_checked"
+        },
+        {
+          "key": "flag.disguise_ready",
+          "value": 1,
+          "comparison": "AtLeast",
+          "reason": "尚未满足：flag.disguise_ready"
+        },
+        {
+          "key": "flag.hidden",
+          "value": 0,
+          "comparison": "Equal",
+          "reason": "尚未满足：flag.hidden"
+        }
+      ],
+      "action": {
+        "effects": [
+          {
+            "key": "flag.action_failed",
+            "value": 1,
+            "operation": "Set"
+          }
+        ],
+        "command": "comic",
+        "target": "counter"
+      }
+    },
+    {
+      "id": "night_opportunity",
+      "automatic": true,
+      "conditions": [
+        {
+          "key": "flag.night_checked",
+          "value": 1,
+          "comparison": "AtLeast",
+          "reason": "尚未满足：flag.night_checked"
+        },
+        {
+          "key": "flag.disguise_ready",
+          "value": 1,
+          "comparison": "AtLeast",
+          "reason": "尚未满足：flag.disguise_ready"
+        },
+        {
+          "key": "flag.hidden",
+          "value": 1,
+          "comparison": "AtLeast",
+          "reason": "尚未满足：flag.hidden"
+        },
+        {
+          "key": "flag.d_alert",
+          "value": 0,
+          "comparison": "Equal",
+          "reason": "老胡已经警觉，原本的机会失效。"
+        }
+      ],
+      "action": {
+        "effects": [
+          {
+            "key": "flag.night_window",
+            "value": 1,
+            "operation": "Set"
+          },
+          {
+            "key": "flag.d_ready",
+            "value": 1,
+            "operation": "Set"
+          }
+        ],
+        "command": "comic",
+        "target": "witness"
+      }
+    }
+  ],
+  "endings": [
+    {
+      "id": "success",
+      "success": true,
+      "resolvedMinute": -1,
+      "conditions": [
+        {
+          "key": "flag.d_pushed",
+          "value": 1,
+          "comparison": "AtLeast",
+          "reason": "尚未满足：flag.d_pushed"
+        },
+        {
+          "key": "flag.bomb_seized",
+          "value": 1,
+          "comparison": "AtLeast",
+          "reason": "尚未满足：flag.bomb_seized"
+        }
+      ]
+    },
+    {
+      "id": "failure",
+      "success": false,
+      "resolvedMinute": 1440,
+      "conditions": []
+    }
+  ],
+  "audioCues": [
+    {
+      "id": "night_ambience",
+      "channel": "ambience",
+      "assetId": "audio/train_night",
+      "conditions": [
+        {
+          "key": "clock.phase",
+          "value": 3,
+          "comparison": "AtLeast",
+          "reason": "现在还未到晚上。"
+        }
+      ],
+      "oncePerRun": false
+    },
+    {
+      "id": "daily_ambience",
+      "channel": "ambience",
+      "assetId": "audio/train_day",
+      "conditions": [],
+      "oncePerRun": false
+    },
+    {
+      "id": "revelation",
+      "channel": "effect",
+      "assetId": "audio/revelation",
+      "conditions": [
+        {
+          "key": "clue.plan",
+          "value": 1,
+          "comparison": "AtLeast",
+          "reason": "尚未获知阴谋计划。"
+        }
+      ],
+      "oncePerRun": true
+    }
+  ]
+}

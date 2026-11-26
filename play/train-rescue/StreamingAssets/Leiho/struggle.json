@@ -1,0 +1,8 @@
+{
+  "_说明": "策划稿共用搏斗：8现实秒内20次有效左键点击；不持续回落，长按不计。表现色由绿到黄到红。",
+  "clickGain": 0.05,
+  "decayPerSecond": 0,
+  "redEndFraction": 0.35,
+  "yellowEndFraction": 0.7,
+  "timeLimitSeconds": 8
+}

@@ -1,0 +1,11 @@
+Fusion Pixel / 缝合像素
+Version 2026.11.10 (12px proportional, zh_hans, square outline build)
+© TakWolf and Fusion Pixel contributors.
+
+The bundled file `Assets/Resources/Fonts/FusionPixel12px-ZhHans.ttf` is the unmodified
+`fusion-pixel-proportional-zh-Hans-12px-square.ttf` from https://fontpixel.com/zh/fonts/fusion-pixel/
+and is distributed under the SIL Open Font License 1.1.
+See FusionPixel-OFL.txt for the full license text.
+
+Coverage notes for this project: 36558 glyphs; the game's 1434 distinct characters are
+covered except U+2039/U+203A and U+2713, which the UI replaces with U+25C0/U+25B6 and U+2611.

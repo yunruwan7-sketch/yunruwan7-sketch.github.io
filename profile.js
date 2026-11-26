@@ -26,8 +26,8 @@ window.PORTFOLIO_DATA = {
   "phone": "17856820690",
   "githubUrl": "https://github.com/yunruwan7-sketch",
   "itchUrl": "https://manunyeo.itch.io/",
-  "resumePdf": "./assets/resume.pdf?v=d4aab7065e4e",
-  "resumePreview": "./assets/resume-preview.png?v=289045b76242",
+  "resumePdf": "./assets/resume.pdf?v=fc9526f4f0bd",
+  "resumePreview": "./assets/resume-preview.png?v=dbfc3da92c56",
   "developmentWorkflow": [
     {
       "title": "玩法与规则",
@@ -358,7 +358,10 @@ window.PORTFOLIO_DATA = {
         "系统设计",
         "交互反馈"
       ],
-      "playUrl": "",
+      "playUrl": "./play/train-rescue/",
+      "playLabel": "在线试玩",
+      "playInstructions": "建议使用电脑键盘和鼠标游玩。",
+      "showDemoOnResume": true,
       "reelUrl": "",
       "sourceUrl": "https://github.com/zdz10124-dev/LeihoGamejam2026",
       "downloadUrl": "",

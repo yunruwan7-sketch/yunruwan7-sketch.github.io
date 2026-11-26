@@ -1,0 +1,12 @@
+{
+  "_说明":"证言自动收录表现。时间单位为真实秒，不阻塞继续阅读。看到页面立即保存线索，飞行结束后原文从红色渐变绿色；重读已记录内容直接显示绿色。只改表现，不改推理条件。poolCapacity为同时飞行文字的固定池容量。",
+  "holdSeconds":0.2,
+  "flightSeconds":0.7,
+  "staggerSeconds":0.1,
+  "greenSeconds":0.35,
+  "endScale":0.12,
+  "arcHeight":60,
+  "poolCapacity":32,
+  "pendingColor":{"r":0.73,"g":0.16,"b":0.13,"a":1},
+  "recordedColor":{"r":0.19,"g":0.46,"b":0.27,"a":1}
+}

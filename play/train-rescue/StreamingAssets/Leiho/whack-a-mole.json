@@ -1,0 +1,10 @@
+{
+  "_说明": "machines_4 的打地鼠/灯泡校准关卡；坑位与预制体 puzzle5 的 Light_1~8 一一对应。",
+  "holeCount": 8,
+  "seed": 20261020,
+  "hitsToWin": 10,
+  "upSeconds": 1.2,
+  "gapSeconds": 0.35,
+  "firstSpawnDelaySeconds": 0.6,
+  "avoidSameHoleTwice": true
+}
